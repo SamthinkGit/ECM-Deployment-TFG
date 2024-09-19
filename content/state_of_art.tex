@@ -1,0 +1,267 @@
+% !TEX root = ms.tex
+\chapter{State of Art}
+\section{Strong and Weak AI}
+
+Artificial Intelligence (AI) only AI has revolutionized the way we think and develop
+new tools. Although this concept is not new, it is important to differentiate
+between \emph{weak} and \emph{strong} AI.
+
+When referring to Artificial Intelligence, \citet{searle1980minds} helped to
+define the types of AI: \emph{weak AI} refers to a set of algorithms or tools
+that approach a solution to a given problem by using strategies based on 
+analyzing and reacting through multiple states. However, \emph{strong AI} is
+characterized by its capabilities to deeply understand, reason, and react to
+unpredictable states, adapting and learning throughout the process of solving
+the problem. Since the desgin of \emph{neural networks} in 1949, new techniques
+for reaching strong AI have been developed. Although strong AI could be thought
+of as an utopia, the subproblems it hides on its path have driven an evolution
+in multiple fields. 
+
+In machine learning, neural networks have been significantly improved and
+expanded, creating new fields of study such as Deep Learning. This field is
+responsible for the creation of \emph{Large Language Models (LLMs)}, where
+models named as \textsc{GPT-4} (\citet{achiam2023gpt}), \textsc{Llama2}
+(\citet{touvron2023llama}), or \textsc{Gemini} (\citet{saeidnia2023welcome}) have been
+trained with billions of iterations over human knowledge, allowing these LLMs to
+exhibit emergent properties such as common sense understanding, problem-solving
+capabilities, in-context answering, etc. These models are still being improved,
+where multi-modality (the capability for working with multiple types of inputs
+such as images or audios), pattern recognision or explainability can enhance the
+behavior of those models to make them appropiate for the developing of the first
+fully cognitive agents.
+
+\todo{En el parrafo, menciono 3 ejemplos de LLMs del estado del arte: GPT4,
+Llama2 y Gemini ¿Deberia explicar cada una por separado?}
+
+\section{Agents and Cognition}
+\label{sec:agents_and_cognition}
+
+By formatting the output of the models, we make LLMs able to use
+multiple \emph{tools}. Tools are a set of functions or utilities that allow
+the LLM to interact with its environment. While an LLM can only generate an
+output from a given query, agents translate those outputs into actions that
+modify the world and optionally the agent's own configuration.
+
+\begin{quote}
+    \small\textit{"Agents are only as good as the tools they have"} \citep{langchain-docs-2024}.
+\end{quote}
+
+The use of agents has been extended in recent years, where a remarkable
+implementation is the \emph{Retrieval Augmented Generation (RAG)}.  This
+architecture is supported over an agent connected to a tool that retrieves
+information from a database, empowering the LLM with field- or company-specific
+knowledge and improving the accuracy of the models in controlled environments.
+
+The apparition of AI agents enhances the opportunity for further research in the
+field of cognition. \emph{Cognition} is a branch of computer science that
+investigates the development of systems capable of replicating human
+intelligence properties such as reasoning, perception, memory, planning, and
+decision-making. Classical cognitivism has been studied since 1956; however, the
+interdependent relationship between multiple modules required for a cognitive
+architecture has posed a constraint for further research.
+
+\begin{quote}
+    \small\textit{
+        "We have circles within circles. The central difficulty for problem
+        solving was ill-defined problems. In order to deal with them we turned
+        to restructuring. In order to address this we turned to analogy and at
+        its heart we find ill-defined problem solving as a crucial component.
+        Analysis and formaIization have been seriously frustrated in this whole
+        endeavour." \citet{vervaeke1999naturalistic}
+    }
+\end{quote}
+
+Multiple paths have emerged from attempts to define some form of cognitive
+intelligence while avoiding a fully intelligent system. For example,
+problem-solving has been approached using classical AI
+\citep{russell2016artificial}, STRIPS \citep{fikes1971strips}, or PDDL
+\citep{aeronautiques1998pddl}. Although these approaches have been successful in
+multiple applications, the advent of AI agents opens the door to revisiting the
+original study of cognition.
+
+LLMs \emph{break the loop} on the interdependency restriction by approaching
+reasoning as a computable optimization problem. AI agents enable these LLMs to
+be integrated into a cognitive system, partially solving some architectural
+constraints. In line with these architectures, a \emph{cognitive AI agent} is
+defined as an agent from which cognitive capabilities emerge, and which is able
+to interact, learn, and modify its behavior or environment.
+
+\section{GPS vs AGI}
+A \emph{General Problem Solver (GPS)} has been studied in the field of cognition
+since 1959 with \citet{newell1959report} who introduced the GPS as an
+hypothetical algorithm or set of techniques that decomposes a problem into the
+execution of a sequence of operators that combined in the proper way can explore
+states and subgoals of the problem until reaching a solution. Although multiple
+advances were made in the design of a GPS, further research on this topic were
+discontinued due to the limitations of the classical AI and cognition described
+in the Section \ref{sec:agents_and_cognition}. 
+
+Similar to the GPS, \emph{Artificial General Intelligence (AGI)} is a new
+approach based in the modern AI techniques (LLM based) which is able to
+understand, learn and apply knowledge in any cognitive task emulating the
+capabilities of a human. Thus, because AGI focus on replicating human
+intelligence in a broader sense, problem-solving capabilities emerge as part of
+the generalization of the human knowledge, where it is required a new framework
+that interacts with this AGI in order to bring those capabilities to the
+reality.
+
+
+\begin{quote}
+    \small\textit{
+        "Demonstrating that a system can perform a requisite set of tasks at a
+        given level of performance should be sufficient for declaring the system
+        to be an AGI; deployment of such a system in the open world should not
+        be inherent in the definition of AGI" \citet{morris2023levels}
+    }
+\end{quote}
+
+It is important to note that, although AGI does not necessarily require
+interaction with the environment, this term is commonly used by frameworks that
+deploy AGI as their main functionality (other common names include autonomous
+AI, AGI agents, etc.). Henceforth, we will refer to these architectures as
+\emph{AGI deployments}.
+
+There have been multiple implementations of AGI deployments. Some focus on
+specializing general knowledge into a specific application, where it is
+encapsulated inside a cognitive agent that guides the AI by informing it about
+the current status of the environment or the available tools.
+
+An example of a specialized deployment is \textsc{Voyager}. It uses a
+three-module-based architecture: the \emph{automatic curriculum}, which
+describes the current state of the agent and saves relevant information; the
+\emph{iterative prompting mechanism}, which maintains a feedback loop between
+the actions coded by the AI and the feedback obtained; and the \emph{skill
+library}, which enables the AI to learn and store previous actions and completed
+subgoals to encourage tool reuse. By using this architecture, \textsc{Voyager}
+demonstrates the capacity to autonomously play the videogame
+\emph{Minecraft}, achieving multiple requested goals.
+
+
+\begin{quote}
+    \small\textit{
+        "VOYAGER exhibits superior performance in discovering novel items,
+        unlocking the Minecraft tech tree, traversing diverse terrains, and
+        applying its learned skill library to unseen tasks in a newly
+        instantiated world. VOYAGER serves as a starting point to develop
+        powerful generalist agents without tuning the model parameters."
+        \citet{wang2023voyager}
+    }
+\end{quote}
+
+Another relevant framework is \textsc{AutoGPT}. This framework eases the
+deployment of autonomous agents for minor tasks. It handles task management,
+tool selection, multiple prompting techniques, and more. For deploying agents,
+\textsc{AutoGPT} provides the so-called \textsc{Forge}, which automatically
+connects all the mechanisms and servers needed to not only start running the
+agent but also provide the user with various tools to interact and debug in
+real-time.
+
+
+\begin{quote}
+    \small\textit{
+        "AutoGPT uses the concept of stacking to recursively call itself  [...],
+        using this method and with the help of both GPT 3.5 and GPT 4, creates
+        full projects by iterating on its own prompts." \citet{fezari2023gpt}
+    }
+\end{quote}
+
+Similar to AutoGPT, AGI deployments are being extended into projects for company
+software assistance (MetaGPT, \cite{alexander2023metagpt}), autonomous
+deployments (SuperAGI, \cite{transformer2023superagi}), design-creativity
+assistance (AgentGPT, \cite{reworkd2023agentgpt}), and more.
+
+\todo{Seccion sobre los 5 Niveles de AGI, definido por OpenAI: \\
+https://www.tomsguide.com/ai/chatgpt/openai-has-5-steps-to-agi-and-were-only-a-third-of-the-way-there}
+
+\section{AGI Behavior Techniques}
+It has been discussed in previous sections how LLMs can be used to build and
+deploy AGIs. However, there are multiple ways to modify or \emph{tune} the
+behavior of an AI so it can be successfuly implemented into agents. The
+following highlights the key techniques in the state-of-the-art for building
+Agents from LLMs:
+
+
+\begin{itemize}
+    \item \textbf{Fine-Tuning:} All LLMs consist of one or multiple layers in a
+    deep learning-based neural network. These layers contain a set of parameters
+    that define the \textit{knowledge} or behavior of the AI. By training an
+    already stable LLM with a field-specific dataset, we can improve the
+    accuracy of the AI with the provided knowledge and define the format or
+    guidelines it must follow. Although this method obtains better results than
+    the following techniques, it may lose emergent properties from the original
+    LLM and requires a previous analysis of the provided dataset (bias,
+    expectations vs.  results, data cleaning, etc.). In this field, techniques
+    such as custom training or freezing can be used to improve the results of
+    fine-tuning.
+
+    \item \textbf{Prompt Engineering:} Without modifying the core parameters of
+    the LLM, we can still change the expected behavior by introducing a
+    goal-crafted prompt that the AI will receive as input and use as guidelines.
+    Although this method does not ensure improved accuracy over fine-tuning, it
+    does not alter the model's parameters and enables the definition of complex
+    reasoning structures. It is important to note that, while security risks for
+    AI misbehavior can arise from this method, techniques such as Chain of
+    Thought (CoT), Retrieval-Augmented Generation (RAG), or Few-Shot prompting
+    lead to reasoning properties that have not been achieved with other methods.
+    \cite{sahoo2024systematic} delves further into this field.
+
+    \item \textbf{Composition:} By using both prompt engineering and fine-tuning
+    methods, it is possible to streamline multiple agents by splitting the
+    expected behavior into multiple subgoals. These agents are usually referred
+    to as \textit{Experts} and reduce the hallucination of LLMs by distributing
+    the attention needed for completing a given query over multiple runs instead
+    of a single instance. Some AGI frameworks, such as AutoGen
+    \cite{wu2023autogen}, are fully based on this method.
+
+    \item \textbf{Interpretable Feature Excitation:} When using LLMs, abstract
+    features appear to have a relationship with visible patterns within the
+    parameters of the neural network. These parameters can be excited (e.g.,
+    increasing the influence of those parameters on the output) to regulate
+    behaviors related to that feature. The research conducted by
+    \cite{viteri2024scaling} in this topic opens the door for using this method
+    in future agent designs.
+
+\end{itemize}
+
+\section{Cognitive Architectures}
+Regardless of the methodology used for building the LLM/Agent, the combination
+of mechanisms, tools, and agents constitutes a \emph{cognitive architecture}.
+
+Using classical AI and reinforcement learning, \citet{laird2019soar} introduced
+\textsc{Soar} as a unified cognitive architecture that integrates various cognitive
+functions such as learning, memory, and problem-solving into a single framework.
+\textsc{Soar} employs a decision cycle that involves proposing, evaluating, and selecting
+operators based on the current state.
+
+In contemporary research, cognitive architectures have evolved by incorporating
+more tools and integrating the capabilities of LLMs as the primary mechanisms.
+\citet{wang2024survey} provide an exhaustive survey of the main architectures for
+AGI deployments in recent years, describing the \textsc{PMPA} model as an unified
+framework that encompasses all the studied architectures.
+
+The PMPA model addresses four main topics that should be implemented by the cognitive architecture:
+\begin{itemize}
+    \item \textit{Profile}: Defines the main guidelines and rules for the agents
+    implemented, targeting the main goals, knowledge base, and behavior.
+    \item \textit{Memory}: Defines the information and data obtained from the
+    agent's environment and establishes a structure and mechanism to retrieve,
+    codify, and classify the relevant knowledge.
+    \item \textit{Planning}: Defines the mechanism which enables the agent to
+    decompose the target goal into multiple subgoals, emulating human planning
+    capabilities.
+    \item \textit{Action}: Defines the mechanism which connects or translates
+    the orders requested by the agent into a set of tools that will interact
+    with the agent's environment or behavior.
+\end{itemize}
+
+It is important to note that, unlike SOAR, this framework does not prescribe
+specific methods for connecting each module. Instead, it outlines the primary
+properties that a cognitive architecture must possess to be viable for AGI
+deployment. Besides PMPA, there are other AGI frameworks, such as the Agent
+Protocol-\citet{engineerfoundation2023ap}-, which propose alternative API,
+behavior, and module standards. However, further advancements in cognitive
+architectures are necessary to establish which standard will ultimately be
+adopted.
+
+\todo{Añadir informacion sobre arquitecturas mas relevantes del estado del arte: ReAct,
+VerifyAgain y/o expectativas sobre Q* de OpenAI}

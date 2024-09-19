@@ -1,0 +1,59 @@
+% !TEX root = ms.tex
+
+\documentclass[a4paper,12pt, oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{lipsum}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[nottoc]{tocbibind}
+\usepackage{mathptmx}
+\usepackage{transparent}
+\usepackage{soul}
+
+\titleformat{\chapter}[hang]
+    {\fontsize{30}{40}\scshape\sffamily}
+    {\thechapter .}
+    {15pt}
+    {}
+    [\titlerule]
+
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+
+\definecolor{lightblue}{rgb}{0.85, 0.96, 0.98}
+\definecolor{lightred}{rgb}{0.99, 0.91, 0.92}
+\definecolor{lightpurple}{rgb}{0.87, 0.72, 0.85}
+
+\newcommand{\hlblue}[1]{{\sethlcolor{lightblue}\hl{#1}}}
+\newcommand{\hlred}[1]{{\sethlcolor{lightred}\hl{#1}}}
+\newcommand{\hlpurple}[1]{{\sethlcolor{lightpurple}\hl{#1}}}
+
+\newcommand{\fix}[2]{
+  \textcolor{red}{\hlred{[#1]}}
+  \textcolor{blue}{\hlblue{(#2)}}
+}
+
+\newcommand{\todo}[1]{
+	\textcolor{violet}{\transparent{0.7}\texttt{\#TODO:} \textsf{#1}}
+}
+
+\newcommand{\note}[2]{
+	\textcolor{blue}{\transparent{0.7}\texttt{Note:} \textsf{#1}}
+}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancyhead[R]{\transparent{0.5}{\nouppercase{{\rightmark}}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
