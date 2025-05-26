@@ -17,7 +17,7 @@ desarrollo de IA fuerte han estado en auge. Aunque la IA fuerte muestra
 propiedades aparentemente utópicas, muchos de los subproblemas que encierra su
 diseño han fomentado la evolución de multiples sectores. Como ejemplo de esto,
 el campo del aprendizaje automatic se ha expandido creando nuevos campos de
-estudio como el aprendizaje profundo. Será este nuevo campo es el responsable de
+estudio como el aprendizaje profundo. Será este nuevo campo el responsable de
 la creación de los Modelos Grandes de Lenguaje (LLMs), donde modelos como
 \textsc{GPT-4} (\citet{achiam2023gpt}), \textsc{Llama2} o
 (\citet{touvron2023llama}), o \textsc{Gemini} (\citet{saeidnia2023welcome}) utilizan
@@ -30,18 +30,15 @@ multiples tipos de entrada, como audios o imagenes.)}, reconocimiento de
 patrones y/o explicabilidad, acercando a estos modelos a la integración de agentes
 cognitivos completos.
 
-\todo{En el parrafo, menciono 3 ejemplos de LLMs del estado del arte: GPT4,
-Llama2 y Gemini ¿Deberia explicar cada una por separado?}
-
 \section{Agentes y Cognición}
 \label{sec:agents_and_cognition}
 
 Estandarizando la salida de los modelos, es posible conseguir que los LLMs sean
 capaces de usar múltiples \emph{herramientas}. En el ámbito de la IA, las
-herramientas son un conjunto de funciones o utilidades que permiten que el LLM
-interactúe con su entorno. Gracias a esto, mientras que un LLM solo puede
-generar una salida a partir de una consulta dada, los agentes traducen esas
-salidas en acciones que modifican el mundo y, opcionalmente, la propia
+herramientas son un conjunto de funciones o fragmentos de código que permiten 
+que el LLM interactúe con su entorno. Gracias a esto, mientras que un LLM solo
+puede generar una salida a partir de una consulta dada, los agentes traducen
+esas salidas en acciones que modifican el mundo y, opcionalmente, la propia
 configuración del agente.
 
 \begin{quote} \small\textit{
@@ -52,7 +49,7 @@ configuración del agente.
 El uso de agentes se ha extendido en los últimos años, con una implementación
 notable siendo la \emph{Generación Aumentada por Recuperación (RAG)}. Esta
 arquitectura se sustenta sobre un agente conectado a una herramienta que
-recolecta información de una base de datos, sustentando al LLM con conocimiento
+recolecta información de una base de datos, proporcionando al LLM conocimiento
 específico de un campo o empresa y mejorando su precisión en entornos controlados.
 
 La aparición de agentes IA abre habilita la oportunidad de realizar más
@@ -61,9 +58,8 @@ informática que investiga el desarrollo de sistemas capaces de replicar
 propiedades de la inteligencia humana como el razonamiento, la percepción, la
 memoria, la planificación y la toma de decisiones. El cognitivismo clásico (la
 primera aproximación hacia los algoritmos cognitivos) se ha estudiado desde
-1956; sin embargo, la relación interdependiente entre múltiples módulos
-necesarios para una arquitectura cognitiva ha planteado una limitación
-bloqueante en investigaciones previas.
+1956; sin embargo, la generalidad de los componentes necesarios para una arquitectura cognitiva ha
+planteado una limitación bloqueante en investigaciones previas.
 
 \begin{quote} \small\textit{ 
     "Tenemos círculos dentro de círculos. La dificultad central para la
@@ -82,13 +78,12 @@ abordado utilizando IA clásica \citep{russell2016artificial}, STRIPS
 enfoques han sido exitosos en múltiples aplicaciones, la llegada de agentes de
 IA abre la puerta a retomar el estudio original de la cognición.
 
-Gracias a los LLMs, es posible \emph{romper el bucle} de la restricción de
-interdependencia al abordar el razonamiento como un problema de optimización
-computable. Será aqui donde los agentes de IA permitirán que los LLMs se
-integren en un sistema cognitivo, aportando una nueva aproximación a la cognición clasica.
-En línea con estas arquitecturas, se define un \emph{agente cognitivo} como un
-agente del cual emergen capacidades cognitivas, y que es capaz de interactuar,
-aprender y modificar su comportamiento o entorno.
+Gracias a los LLMs, es posible superar las restricciones de la IA clásica y
+abordar el razonamiento como un problema de optimización computable. Será aquí
+donde los agentes de IA permitirán que los LLMs se integren en un sistema
+cognitivo. En línea con estas arquitecturas, se define un \emph{agente cognitivo} 
+como un agente del cual emergen capacidades cognitivas, y que es
+capaz de interactuar, aprender y modificar su comportamiento o entorno.
 
 
 \section{GPS vs AGI}
@@ -104,19 +99,18 @@ la IA clásica y la cognición descritas en la Sección
 \ref{sec:agents_and_cognition}.
 
 Con propiedades similares al GPS, la \emph{Inteligencia Artificial General
-(AGI)} es un nuevo enfoque basado en las técnicas de IA moderna y que preretende
+(AGI)} es un nuevo enfoque basado en las técnicas de IA moderna y que pretende
 entender, aprender y aplicar conocimientos en cualquier tarea cognitiva,
-emulando las capacidades de un ser humano. Nótese que dado que la AGI se centra en
+emulando las capacidades de un ser humano. Nótese que una AGI se centra en
 replicar la inteligencia humana en un sentido más amplio que una exploración de
-estados, la capacidad de resolución de problemas emerge como parte de la
+estados, donde la capacidad de resolución de problemas emerge como parte de la
 generalización del conocimiento humano, donde se requiere un nuevo marco que
 interactúe con esta AGI para llevar esas capacidades a la realidad.
 
 Es importante tener en cuenta que aunque la AGI no requiere necesariamente
-interacción con el entorno, este término es comúnmente utilizado por marcos que
-despliegan la AGI como su funcionalidad principal (otros nombres comunes
-incluyen IA autónoma, agentes AGI, etc.). En adelante, nos referiremos a estas
-arquitecturas como \emph{despliegues AGI}.
+interacción con el entorno, este término es comúnmente utilizado por entornos que
+toman usos de agentes AGI como su funcionalidad principal (otros nombres comunes
+incluyen IA autónoma, agentes AGI, etc.).
 
 \begin{quote} \small\textit{
     "Demostrar que un sistema puede realizar un conjunto requerido de tareas en
@@ -125,12 +119,12 @@ arquitecturas como \emph{despliegues AGI}.
     inherente a la definición de AGI."
 \citet{morris2023levels} } \end{quote}
 
-Ha habido múltiples implementaciones de despliegues de AGI. Algunas se centran
-en especializar el conocimiento general en una aplicación específica, donde está
-encapsulado dentro de un agente cognitivo que guía a la IA informándola sobre el
-estado actual del entorno o las herramientas disponibles.
+Múltiples enfoques han surgido en torno a la AGI. Algunas se centran
+en especializar el conocimiento general en una aplicación específica, donde se
+encapsula un agente cognitivo dentro de un entorno que guía a la IA informándola 
+sobre el estado actual del entorno o las herramientas disponibles.
 
-Un ejemplo de un despliegue especializado es \textsc{Voyager}. Este agente
+Un ejemplo de un entorno especializado es \textsc{Voyager}. Este agente
 utiliza una arquitectura basada en tres módulos: el \emph{currículo automático},
 que describe el estado actual del agente y guarda información relevante; el
 \emph{mecanismos de prompting iterativos}, que mantiene un bucle de
@@ -164,19 +158,20 @@ diversas herramientas para interactuar y depurar en tiempo real.
     proyectos completos iterando sobre sus propios prompts." 
 \citet{fezari2023gpt} } \end{quote}
 
-Al igual que AutoGPT, los despliegues de AGI se están extendiendo a proyectos
+Al igual que AutoGPT, los entornos basados en AGI se están extendiendo a proyectos
 para la asistencia de software en empresas (MetaGPT,
 \cite{alexander2023metagpt}), despliegues autónomos (SuperAGI,
 \cite{transformer2023superagi}), asistencia en el diseño-creatividad (AgentGPT,
 \cite{reworkd2023agentgpt}), y más.
 
-\section{Técnicas de Comportamiento para AGI's}
+\section{Técnicas de Comportamiento para Arquitecturas Cognitivas}
 
-En secciones anteriores se ha discutido cómo las LLMs pueden ser utilizadas para
-construir y desplegar AGIs. Sin embargo, existen múltiples maneras de modificar
-o \emph{tunear} el comportamiento de una IA para que pueda implementarse con
-éxito en agentes. A continuación, se destacan las técnicas clave en el estado
-del arte para construir agentes a partir de LLMs:
+En secciones anteriores se han explorado distintos entornos que aprovechan el 
+potencial de arquitecturas agénticas. Sin embargo, para poder "configurar" estas
+arquitecturas, se han plantado diversos métodos para modificar o \emph{tunear}
+el comportamiento de una IA con el fin de que estos puedan implementarse con éxito.
+A continuación, se destacan las técnicas clave en el estado del arte para
+construir agentes a partir de LLMs:
 
 \begin{itemize} \item \textbf{Tuneado (Fine-Tuning):} Todos los LLMs
     consisten en una o varias capas en una red neuronal basada en aprendizaje
@@ -205,7 +200,17 @@ del arte para construir agentes a partir de LLMs:
     que no se han logrado con otros métodos. \cite{sahoo2024systematic}
     profundiza más en este campo.
 
-\item \textbf{Composición:} Al utilizar tanto la ingeniería de prompts como los
+\item \textbf{Excitación del Tiempo de Computo (Test-Time Compute)}: Mediante 
+    mecanismos combinados de prompting y técnicas de fine-tunning, es posible
+    ajustar el comportamiento de los agentes para que iteren de forma exhaustiva
+    sobre pasos de razonamiento y herramientas disponibles. Este tiempo de
+    generación de razonamiento se conoce como \emph{tiempo de computo}, y se
+    refiere al tiempo que la IA necesita para generar una respuesta. Al excitar
+    el tiempo latente, se puede aumentar la precisión de la IA al permitirle
+    explorar más estados y subobjetivos antes de generar una respuesta
+    \cite{norris1978computer}.
+
+\item \textbf{Mezclado de Expertos:} Al utilizar tanto la ingeniería de prompts como los
     métodos de fine-tunning, es posible optimizar múltiples agentes dividiendo el
     comportamiento esperado en varios subobjetivos. A estos agentes se les suele
     llamar \textit{Expertos}, y reducen las alucinaciones de los LLMs distribuyendo
@@ -272,8 +277,11 @@ alternativos de API, comportamiento y módulos. Sin embargo, se necesitan más
 avances en las arquitecturas cognitivas para establecer qué estándar será
 finalmente adoptado.
 
-\section {Estado del Arte en arquitecturas cognitivas}
-\todo{Añadir información sobre arquitecturas más relevantes del estado del arte:
-ReAct, VerifyAgain y/o expectativas sobre Q* de OpenAI}
+\section {Mecanismos Canónicos en Arquitecturas Cognitivas}
 
-% 5 niveles de AGI
+- Structured Prompting
+- short-long term memory
+- tool/function calling
+- messaging
+- model context protocol
+- Guardrails
