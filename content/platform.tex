@@ -51,6 +51,13 @@ soportar operaciones complejas y arquitecturas cognitivas avanzadas, que exigen
 una capacidad de procesamiento superior y una mayor flexibilidad en la gestión
 de recursos.
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.15]{figs/imx8mpevk.png}
+    \caption{\small Kit de desarrollo IMX8MPEVK. Fuente: https://www.nxp.com/}
+    \label{fig:imx8mpevk}
+\end{figure}
+
 \section{Python}
 El lenguaje de programación elegido para el desarrollo de la MCE es Python, 
 considerado actualmente el lenguaje de facto en el ámbito de la inteligencia
@@ -68,6 +75,7 @@ sin reestructurar el sistema completo sino que ademas deben poder configurarse
 de forma automática en tiempo real.
 
 \section{Langchain/LangSmith}
+
 Las bibliotecas LangChain y LangSmith constituyen elementos fundamentales para la
 implementación y monitoreo de la MCE.
 
@@ -90,6 +98,13 @@ latencia, el coste computacional, el número de llamadas a modelos y el flujo de
 decisiones. Esta capacidad resulta especialmente útil durante las fases de
 experimentación e iteración, ya que permite identificar cuellos de botella,
 evaluar el rendimiento y realizar ajustes con mayor precisión.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.5]{figs/langsmith.png}
+    \caption{\small Interfaz de depuración de LangSmith para componentes de LangChain. Fuente: https://docs.smith.langchain.com/}
+    \label{fig:langsmith}
+\end{figure}
 
 \section{PyAutoGUI/Pynput}
 Para habilitar la interacción directa entre la MCE y el sistema operativo del
@@ -116,6 +131,7 @@ manera autónoma y efectiva, sin requerir modificaciones en el sistema operativo
 huésped.
 
 \section{OpenCV / Pillow}
+
 Dado que la MCE debe ser capaz de percibir e interpretar información gráfica del
 entorno se integran las bibliotecas OpenCV y Pillow como herramientas fundamentales 
 para el procesamiento de datos visuales.
@@ -134,3 +150,9 @@ extraer texto de elementos gráficos que luego puede ser interpretado y
 utilizado por los módulos cognitivos.
 
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.5]{figs/icon-detection.png}
+    \caption{\small Detección y graficado de iconos detectados en pantalla usando OpenCV y Pillow. Fuente: Elaboración Propia}
+    \label{fig:icon_detection}
+\end{figure}
