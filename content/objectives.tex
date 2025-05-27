@@ -1,6 +1,68 @@
 % !TEX root = ms.tex
-\chapter{Objectives}
-\section{Problem Description}
+\chapter{Objetivos}
+\section{Descripción del Problema}
+
+El presente proyecto plantea la construcción teórica y práctica de una
+Máquina de Cognición-Ejecución (MCE): Una arquitectura cognitiva diseñada para
+abordar tareas propuestas por el usuario, planificar estrategias de resolución,
+adaptarse a condiciones cambiantes del entorno y llevar a cabo acciones
+computacionales que conduzcan a una solución satisfactoria.
+
+A diferencia de los enfoques tradicionales centrados exclusivamente en el
+procesamiento simbólico o en la generación de texto, la MCE se concibe como un
+sistema integrado que combina razonamiento, percepción y ejecución. Su propósito
+no es únicamente resolver tareas, sino hacerlo de forma autónoma, interactuando
+continuamente con un entorno operativo. Esta interacción requiere no solo la
+interpretación precisa de las instrucciones y la disponibilidad de acciones
+programables, sino también la capacidad de adaptación reactiva frente a
+imprevistos, lo cual impone exigencias particulares sobre el diseño de la
+arquitectura cognitiva subyacente.
+
+El problema central que aborda este proyecto es, por tanto, el diseño y
+validación de una arquitectura cognitiva generalista que pueda ser implementada
+en un sistema físico, el cual funcionará como interfaz entre el usuario, el
+entorno y los módulos de decisión de la MCE. Para ello, se propone una
+aproximación progresiva que comienza con el análisis teórico de los principios
+fundamentales de la arquitectura, continúa con el desarrollo de un entorno
+experimental para evaluar distintas configuraciones e implementaciones, y
+culmina con la integración de un prototipo funcional y parcialmente completo, 
+entendiendose por completo su integración desde un nivel hardware con bajos recursos
+a una implementación software que satisfaga las propiedades de la MCE. 
+
+Este prototipo, aunque limitado en términos de accesibilidad general, 
+permitirá demostrar la viabilidad técnica y escalabilidad del concepto, 
+con vistas a su futura aplicación en dispositivos de uso cotidiano como 
+ordenadores personales o teléfonos inteligentes.
+
+Para abordar el problema descrito, este proyecto se plantean los siguientes
+objetivos tecnicos:
+
+
+\begin{itemize}
+
+	\item Definir de forma rigurosa y completa el fundamento teórico que sustenta el
+    modelo de MCE propuesto.
+
+    \item Desarrollar un entorno modular y experimental que permita probar distintas
+    arquitecturas cognitivas para la implementación de la MCE.
+
+    \item Integrar, a nivel software, las capas de Cognición y Ejecución como componentes
+    diferenciados pero interoperables de la arquitectura.
+
+    \item Implementar la MCE en un microprocesador de bajo coste, concretamente un ARM
+    Cortex-A55, validando su funcionamiento en hardware embebido.
+
+    \item Desplegar la MCE en un entorno operativo no controlado, como un sistema de
+    escritorio, en el que pueda ejecutar acciones tales como abrir aplicaciones o
+    navegar por internet.
+
+    \item Habilitar la interacción entre el usuario y la MCE mediante una interfaz
+    funcional, sin requerir necesariamente capacidades avanzadas de interacción
+    humano-robot (HRI).
+
+\end{itemize}
+
+
 \section{Requirements}
 \section{Methodology}
 \section{Workplan}
