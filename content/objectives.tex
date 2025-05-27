@@ -62,7 +62,112 @@ objetivos tecnicos:
 
 \end{itemize}
 
+\section{Requisitos}
 
-\section{Requirements}
-\section{Methodology}
-\section{Workplan}
+Con el objetivo de alcanzar los objetivos propuestos, se han establecido los
+siguientes requisitos:
+
+\begin{itemize}
+
+    \item El sistema operativo principal para el microprocesador será Arch
+    Linux, por ser un sistema de bajo consumo y con compatibilidad con entornos embebidos.
+
+    \item Toda la arquitectura de la MCE deberá ser portátil y replicable en
+    otros entornos compatibles con ARM Cortex-A55 sin necesidad de modificar el
+    código fuente.
+    
+    \item La MCE deberá ser completamente operativa desde una terminal, sin
+    requerir interfaces gráficas de usuario.
+    
+    \item El sistema deberá funcionar con conexión a Internet y estar capacitado
+    para interactuar con servicios externos mediante APIs, incluyendo modelos
+    LLM alojados en la nube.
+    
+    \item El modelo no asumirá disponibilidad de GPU local; los modelos de
+    lenguaje serán accedidos vía endpoints remotos, con la computación pesada
+    delegada a servicios en la nube.
+    
+    \item La MCE deberá ser capaz de abrir programas instalados, reorganizar
+    archivos, navegar por Internet y generar programas simples a partir de
+    instrucciones en lenguaje natural.
+    
+    \item La arquitectura deberá estar construida sobre una infraestructura
+    modular basada en LangChain, permitiendo la integración con múltiples
+    herramientas y flujos de control.
+    
+    \item El sistema deberá tener capacidad de ejecutar instrucciones en tiempo
+    real, minimizando la latencia perceptible entre la entrada del usuario y la
+    acción del sistema.
+    
+    \item La arquitectura cognitiva deberá estar diseñada de forma que todas las
+    capas (cognición, ejecución, percepción, planificación) sean sustituibles e
+    intercambiables, facilitando la investigación y experimentación modular.
+    
+    \item El diseño del prototipo no contemplará componentes físicos como
+    pantallas, LEDs o botones; la interacción será exclusivamente por software y
+    vía línea de comandos.
+
+\end{itemize}
+
+\section{Metodología}
+El desarrollo de este proyecto se ha estructurado en torno a una metodología de
+trabajo que combina una fase inicial de investigación teórica con un enfoque
+iterativo de implementación y validación experimental, siguiendo prácticas propias
+de metodologías ágiles. Esta estrategia permite avanzar progresivamente
+hacia una versión funcional de la MCE, evaluando en cada iteración tanto la
+coherencia teórica como el rendimiento práctico del sistema.
+
+En primer lugar, se ha realizado una revisión del estado del arte centrada en
+arquitecturas cognitivas y en la integración de modelos de lenguaje 
+dentro de entornos operativos. Esta revisión ha servido como base
+para formular una primera aproximación teórica de la MCE, que incluye la
+definición de sus capas funcionales y de los principios fundamentales que rigen
+su comportamiento.
+
+Posteriormente, se ha desarrollado un primer esquema provisional de la
+arquitectura de la MCE, el cual ha guiado la implementación inicial de sus
+distintos módulos (Capa de Cognición, Espacio de Acciones, etc). A
+partir de esta versión base, el proyecto ha seguido una filosofía iterativa
+centrada en sprints de desarrollo, en los cuales se incorporan nuevas
+capacidades, se integran arquitecturas cognitivas experimentales, y se realizan
+múltiples pruebas para mejorar el desempeño y adaptabilidad del sistema.
+
+A lo largo de este proceso, se han llevado a cabo numerosos experimentos sobre
+entornos no controlados, utilizando ordenadores convencionales como plataforma
+de prueba. Este enfoque busca replicar situaciones reales donde la MCE pueda
+enfrentarse a condiciones impredecibles y tareas diversas.
+
+Todo el desarrollo del proyecto se gestiona mediante un repositorio de GitHub,
+que incluye tanto el código fuente como los distintos recursos empleados.
+Además, se ha construido una wiki detallada donde se documentan los avances
+teóricos y prácticos, así como manuales de uso de los componentes desarrollados,
+instrucciones de instalación y los resultados obtenidos en cada iteración
+experimental. Esta documentación permite un seguimiento exhaustivo del proceso y
+garantiza la trazabilidad de las decisiones tomadas a lo largo del proyecto.
+
+\section{Plan de Trabajo}
+Siguiendo la metodología descrita en la anterior sección, el proyecto se estructura en seis fases principales:
+
+
+\begin{enumerate}
+
+    \item \textbf{Revisión teórica}: Análisis del estado del arte en
+    arquitecturas cognitivas y LLMs.
+    
+    \item \textbf{Diseño inicial}: Definición de la estructura modular de la
+    MCE.
+    
+    \item \textbf{Implementación base}: Desarrollo de las capas principales en
+    entorno local.
+    
+    \item \textbf{Iteración experimental}: Integración progresiva de capacidades
+    cognitivas mediante ciclos de mejora continua.
+    
+    \item \textbf{Despliegue en hardware}: Adaptación de la MCE a un
+    microprocesador ARM Cortex-A55.
+    
+    \item \textbf{Ajustes finales}: Validación funcional y
+    preparación del sistema para su utilización.
+
+\end{enumerate}
+
