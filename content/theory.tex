@@ -1,8 +1,6 @@
 % !TEX root = ms.tex
 \chapter{Fundamento Teórico}
 
-\section{Maquina de Cognición-Ejecución (MCE)}
-
 Una \textit{Máquina de Cognición-Ejecución} (MCE) es un modelo computacional
 hipotético que opera sobre un sistema cognitivo con el objetivo de generar
 soluciones, compuestas por secuencias de acciones, a problemas bien definidos en
@@ -385,3 +383,80 @@ Este mecanísmo nos otorga varias ventajas:
 \end{enumerate}
 
 En resumen, la expansión \(\mathbb{B}^*\) propone combinar un conjunto finito de acciones \(\mathbb{B}\) con un aproximador creciente \(\mathbb{A}^*\) para equilibrar la garantía mínima de resolución (vía \(\mathbb{B}\)) y la optimización progresiva de soluciones (vía \(\mathbb{A}^*\)).```
+
+\section{Máquina de Cognición-Ejecución}
+
+Hasta este punto hemos definido la MCE como una función capaz de seleccionar una secuencia de acciones que resuelva el problema \(p \in \mathbb{P}\), bajo la suposición de que disponemos de una base de conocimiento parcial \(C^*\) y de un conjunto de acciones en \(B^*\). Sin embargo, para modelar con precisión la arquitectura cognitiva real, conviene distinguir dos etapas conceptuales:
+
+\begin{enumerate}
+    \item \textbf{Función de Cognición} (\(T_C\)): Identificación y generación de la \emph{intención} de las acciones necesarias para resolver \(p\), empleando la base de conocimiento parcial \(C^*\).
+    \item \textbf{Función de Ejecución} (\(T_E\)): Transformación de cada acción simbólica en una interacción concreta con el entorno (o con el propio sistema), de modo que la intención generada se materialice efectivamente.
+\end{enumerate}
+
+Para formalizar esta distinción, introducimos el \emph{mapa de correspondencia} \(\Lambda\), que relaciona cada acción simbólica con su ejecución real. Denotamos por \(\lambda \in \Lambda\) el resultado de dicha correspondencia. Así, cada elemento \(\lambda\) describe el “modo de ejecución” de una acción concreta.
+
+Definimos la función de cognición \(T_C\) como un mapeo entre problemas \(p\) y la intención de acciones \(C^*\):
+\[
+T_C : \mathbb{P} \;\times\; C^* \;\longrightarrow\; \Lambda,
+\]
+tal que
+\[
+T_C(p,\,C^*) \;=\; \lambda 
+\;\Longleftrightarrow\;
+\lambda = (\alpha_1, \alpha_2, \dots, \alpha_m),
+\]
+donde cada \(\alpha_i\) es un token simbólico en \(\mathbb{A}^*\) que representa la \emph{intención} de una acción necesaria para resolver \(p\). En esta etapa, \(\lambda\) codifica \emph{qué} acciones deben ejecutarse (por ejemplo, “hacer clic en el ícono de Firefox”), pero no realiza la interacción efectiva.
+
+Definimos la función de ejecución \(T_E\) como un mapeo entre la intención \(\lambda\) y las acciones concretas \(B^*\) que se ejecutarán en el entorno:
+\[
+T_E : \Lambda \;\times\; B^* \;\longrightarrow\; \mathbb{S} \;,
+\]
+donde, para \(\lambda = (\alpha_1, \dots, \alpha_m)\):
+\[
+T_E(\lambda,\,B^*) 
+\;=\; 
+\,s = (b_1, b_2, \dots, b_m) \in \mathbb{S}_p \in \mathbb{S}
+\]
+Aquí, cada \(\alpha_i\) se traduce a una acción concreta \(b_i \in B^*\) mediante el mapa implícito en \(\Lambda\). Si todas las acciones simbólicas \(\alpha_i\) tienen su correspondiente \(b_i \in B^*\), \(T_E\) construye la secuencia \(s\) que satisface \(p\).
+
+En este sentido, \(\Lambda\) es el \emph{lenguaje intermedio} entre la capa de cognición y la de ejecución. Cada \(\lambda = (\alpha_1, \ldots, \alpha_m)\) con \(\alpha_i \in \mathbb{A}^*\) se asocia unívocamente con una acción concreta \(b_i \in B^*\). En la práctica, \(\Lambda\) se implementa como un módulo traductor que mapea tokens simbólicos a rutinas de ejecución concretas.
+
+Finalmente, la MCE en su forma canónica se corresponde con la composición:
+\[
+\begin{aligned}
+T_C\bigl(p,\,C^*\bigr) = \lambda \;|\; T_E(\lambda,\,\mathbb{B}^*) &= s \\
+\end{aligned}
+\]
+
+Donde \(s \models p\) siempre que \(\mathbb{B}\)  sea completo y \(\lambda\) se derive de \(C^*\).
+
+\subsection*{Ejemplo ilustrativo}
+
+Supongamos que \(p\) es el problema “Abrir Firefox”.  
+\begin{enumerate}
+    \item \textbf{Capa de Cognición.} Dado \(p\) y una base de conocimiento parcial \(C^*\), la función de cognición \(T_C\) genera la intención \(\lambda\):
+    \[
+    T_C(\text{“Abrir Firefox”},\,C^*) = \lambda = (\alpha_1)\, \rightarrow\,
+    \alpha_1 = \text{“hacer clic en el ícono de Firefox”}.
+    \]
+    \item \textbf{Capa de Ejecución.}  
+    Dado \(\lambda = (\alpha_1)\), el traductor \(\Lambda\) asocia  
+    \(\alpha_1 \mapsto b_1\), donde  
+    \[
+    b_1 = \texttt{"click(500, 900)"} \in \mathbb{B}^*.
+    \]
+    Entonces,
+    \[
+    T_E\bigl((\alpha_1),\,B^*\bigr) \;=\; s = (b_1).
+    \]
+    Dado que \(b_1 \in \mathbb{B}^*\), obtenemos \(s \models p\) y Firefox se abre.
+\end{enumerate}
+
+\medskip
+
+En los siguientes capítulos se describirá la implementación práctica de esta arquitectura, donde:
+\begin{itemize}
+    \item \(C^*\) estará constituido por uno o varios modelos de lenguaje (LLMs) que aproximen la base de conocimiento \(C\).
+    \item \(\mathbb{B}^*\) incluirá librerías y rutinas de automatización (por ejemplo, control de GUI, APIs del sistema operativo, scripts precompilados, etc.) para garantizar completitud.
+    \item \(\Lambda\) se implementará como un módulo de traducción entre instrucciones simbólicas (en lenguaje natural o código intermedio) y las rutinas concretas de ejecución.
+\end{itemize}
