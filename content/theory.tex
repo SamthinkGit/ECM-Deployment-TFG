@@ -3,91 +3,385 @@
 
 \section{Maquina de Cognición-Ejecución (MCE)}
 
-Una \textit{Máquina de Cognición-Ejecución} (MCE) es un modelo computacional hipotético que opera sobre un sistema cognitivo con el objetivo de generar soluciones, compuestas por secuencias de acciones, a problemas bien definidos en un espacio formal. Este concepto se fundamenta en la idea de que la cognición puede ser modelada computacionalmente como un proceso de transformación entre representaciones abstractas de problemas y secuencias de acciones eficaces.
+Una \textit{Máquina de Cognición-Ejecución} (MCE) es un modelo computacional
+hipotético que opera sobre un sistema cognitivo con el objetivo de generar
+soluciones, compuestas por secuencias de acciones, a problemas bien definidos en
+un espacio formal. Este concepto se fundamenta en la idea de que la cognición
+puede ser modelada computacionalmente como un proceso de transformación entre
+representaciones abstractas de problemas y secuencias de acciones eficaces.
 
 \begin{itemize}
-    \item La MCE no presupone una arquitectura específica, sino una relación funcional entre problemas, soluciones y acciones.
-    \item El sistema cognitivo actúa como un mapeador entre interpretaciones de problemas y soluciones viables dentro de un conjunto estructurado.
-    \item La hipótesis de unicidad e irreductibilidad de la representación de problemas busca eliminar ambigüedades y redundancias en el espacio de entrada.
-\end{itemize}
+ \item La MCE no presupone una arquitectura específica, sino una
+relación funcional entre problemas, soluciones y acciones.
+ \item El sistema
+cognitivo actúa como un mapeador entre interpretaciones de problemas y
+soluciones viables dentro de un conjunto estructurado.
+ \item La hipótesis de
+unicidad e irreductibilidad de la representación de problemas busca eliminar
+ambigüedades y redundancias en el espacio de entrada.
+ \end{itemize}
 
-Sea $\mathbb{P}$ un conjunto infinito e hipotético de problemas. Cada problema $p \in \mathbb{P}$ es independiente y mutuamente exclusivo respecto de los demás, es decir,
-
-\[
-\forall p_i, p_j \in \mathbb{P}, \; p_i \ne p_j \Rightarrow \neg (p_i \equiv p_j)
-\]
-
-donde $\equiv$ denota equivalencia semántica bajo una interpretación cognitiva. Asumimos que cada problema $p$ está representado mediante una descripción única e irreducible, la cual no admite ambigüedad ni redundancia y es inconfundible con cualquier otro $p' \in \mathbb{P}$.
-
-Sea $\mathbb{A}$ un conjunto infinito e hipotético de acciones. Cada acción $a \in \mathbb{A}$ representa una interacción elemental que un sistema cognitivo puede realizar, ya sea con su entorno o consigo mismo.
-
-Sea $\mathbb{S}$ un conjunto hipotético de soluciones. Cada solución $s \in \mathbb{S}$ está compuesta por una secuencia finita y ordenada de acciones:
+Sea $\mathbb{P}$ un conjunto infinito e hipotético de problemas. Cada problema
+$p \in \mathbb{P}$ es independiente y mutuamente exclusivo respecto de los
+demás, es decir,
 
 \[
-s = (a_1, a_2, \dots, a_n), \; a_i \in \mathbb{A}, \; n \in \mathbb{N}^+
-\]
+ \forall p_i, p_j \in \mathbb{P}, \; p_i \ne p_j \Rightarrow \neg (p_i \equiv
+p_j)
+ \]
 
-Dicha secuencia es inmutable y única para la solución dada. El orden de las acciones es relevante, es decir, dos soluciones que contengan las mismas acciones en distinto orden se consideran distintas.
+donde $\equiv$ denota equivalencia semántica bajo una interpretación cognitiva.
+Asumimos que cada problema $p$ está representado mediante una descripción única
+e irreducible, la cual no admite ambigüedad ni redundancia y es inconfundible
+con cualquier otro $p' \in \mathbb{P}$.
 
-Para cada problema $p \in \mathbb{P}$ existe al menos un subconjunto no vacío de soluciones $\mathbb{S}_p \subset \mathbb{S}$ tal que cada $s \in \mathbb{S}_p$ satisface completamente el problema $p$. Notamos esta relación como:
+Sea $\mathbb{A}$ un conjunto infinito e hipotético de acciones. Cada acción $a
+\in \mathbb{A}$ representa una interacción elemental que un sistema cognitivo
+puede realizar, ya sea con su entorno o consigo mismo.
+
+Sea $\mathbb{S}$ un conjunto hipotético de soluciones. Cada solución $s \in
+\mathbb{S}$ está compuesta por una secuencia finita y ordenada de acciones:
 
 \[
-s \in \mathbb{S} _p \iff s \in \mathbb{S} \land s \models p
+ s = (a_1, a_2, \dots, a_n), \; a_i \in \mathbb{A}, \; n \in \mathbb{N}^+
 \]
 
-donde $\models$ denota que $s$ satisface (resuelve) el problema $p$ bajo la semántica del sistema cognitivo. No se considerarán en este modelo las soluciones parciales ni grados de satisfacción.
+Dicha secuencia es inmutable y única para la solución dada. El orden de las
+acciones es relevante, es decir, dos soluciones que contengan las mismas
+acciones en distinto orden se consideran distintas.
+
+Para cada problema $p \in \mathbb{P}$ existe al menos un subconjunto no vacío de
+soluciones $\mathbb{S}_p \subset \mathbb{S}$ tal que cada $s \in \mathbb{S}_p$
+satisface completamente el problema $p$. Notamos esta relación como:
+
+\[
+ s \in \mathbb{S} _p \iff s \in \mathbb{S} \land s \models p
+ \]
+
+donde $\models$ denota que $s$ satisface (resuelve) el problema $p$ bajo la
+semántica del sistema cognitivo. No se considerarán en este modelo las
+soluciones parciales ni grados de satisfacción.
 
 \begin{itemize}
-    \item Esta relación establece una correspondencia semántica entre el espacio de problemas y el de soluciones.
-    \item El modelo asume que la existencia de una solución completa implica que el problema ha sido resuelto de forma definitiva.
-\end{itemize}
+ \item Esta relación establece una correspondencia semántica
+entre el espacio de problemas y el de soluciones.
+ \item El modelo asume que la
+existencia de una solución completa implica que el problema ha sido resuelto de
+forma definitiva.
+ \end{itemize}
 
 Cabe destacar que, aunque un problema puede tener múltiples soluciones, estas
-son mutuamente excluyentes, pero equivalente en tanto cada secuencia de acciones difiere
-estructuralmente de las demás pero todas satisfacen el mismo problema:
+son mutuamente excluyentes, pero equivalente en tanto cada secuencia de acciones
+difiere
+ estructuralmente de las demás pero todas satisfacen el mismo problema:
 
 \[
-\forall s_i, s_j \in \mathbb{S}_p,\; s_i \ne s_j \Rightarrow s_i \equiv s_j
+ \forall s_i, s_j \in \mathbb{S}_p,\; s_i \ne s_j \Rightarrow s_i \equiv s_j
 \]
 
 Finalmente, asumimos la existencia de al menos una solución por cada problema:
 
 \[
-\forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} _p \text{ tal que } s \models p
-\]
+ \forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} _p \text{ tal que } s
+\models p
+ \]
 
 
-Dados los elementos previamente definidos —el espacio de problemas $\mathbb{P}$, el espacio de acciones $\mathbb{A}$ y el espacio de soluciones $\mathbb{S}$—, es necesario introducir el concepto de \textit{base de conocimiento} para posibilitar su aplicación dentro de un sistema cognitivo.
+Dados los elementos previamente definidos —el espacio de problemas $\mathbb{P}$,
+el espacio de acciones $\mathbb{A}$ y el espacio de soluciones $\mathbb{S}$—, es
+necesario introducir el concepto de \textit{base de conocimiento} para
+posibilitar su aplicación dentro de un sistema cognitivo.
 
-Denotamos por $C$ a una \textit{base de conocimiento}, entendida como una abstracción teórica que no especifica su contenido ni su estructura interna, pero que puede ser empleada por sistemas cognitivos para analizar un problema $p \in \mathbb{P}$ y generar una solución $s \in \mathbb{S}_p$.
+Denotamos por $C$ a una \textit{base de conocimiento}, entendida como una
+abstracción teórica que no especifica su contenido ni su estructura interna,
+pero que puede ser empleada por sistemas cognitivos para analizar un problema $p
+\in \mathbb{P}$ y generar una solución $s \in \mathbb{S}_p$.
 
 En este marco, se impone la siguiente condición sobre $C$:
 
 \begin{quote}
-    La base de conocimiento $C$ debe contener, representar o permitir el acceso a la información necesaria sobre el problema $p$ que haga posible que un sistema cognitivo encuentre al menos una solución $s \in \mathbb{S}_p$ tal que $s \models p$.
-\end{quote}
+ La base de conocimiento $C$ debe contener, representar o permitir
+el acceso a la información necesaria sobre el problema $p$ que haga posible que
+un sistema cognitivo encuentre al menos una solución $s \in \mathbb{S}_p$ tal
+que $s \models p$.
+ \end{quote}
 
-Temporalmente, asumiremos que $C$ es una \textit{base de conocimiento perfecta}, lo que implica que:
+Temporalmente, asumiremos que $C$ es una \textit{base de conocimiento ideal},
+lo que implica que:
 
 \[
-\forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} \text{ tal que } s \models p \text{ y } s \text{ es derivable a partir de } C
-\]
+ \forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} \text{ tal que } s
+\models p \text{ y } s \text{ es derivable a partir de } C
+ \]
 
-Cabe destacar que $C$ no necesariamente posee una representación simbólica explícita. En el caso de sistemas cognitivos implementados mediante redes neuronales artificiales, $C$ puede estar distribuida de manera implícita en los parámetros internos del modelo. Así, la información relevante no reside en estructuras legibles externamente, sino como propiedades emergentes del comportamiento del sistema.
+Cabe destacar que $C$ no necesariamente posee una representación simbólica
+explícita. En el caso de sistemas cognitivos implementados mediante redes
+neuronales artificiales, $C$ puede estar distribuida de manera implícita en los
+parámetros internos del modelo. Así, la información relevante no reside en
+estructuras legibles externamente, sino como propiedades emergentes del
+comportamiento del sistema.
 
 
-Con todos los elementos anteriores, podemos establecer una definición operativa para una \textit{Máquina de Cognición-Ejecución} (MCE). Una MCE es un sistema cognitivo que, dado un problema $p \in \mathbb{P}$, una base de conocimiento $C$, y un conjunto de acciones elementales $\mathbb{A}$, es capaz de generar una solución $s \in \mathbb{S}_p$ tal que $s$ satisface completamente el problema $p$.
+Con todos los elementos anteriores, podemos establecer una definición operativa
+para una \textit{Máquina de Cognición-Ejecución} (MCE). Una MCE es un sistema
+cognitivo que, dado un problema $p \in \mathbb{P}$, una base de conocimiento
+$C$, y un conjunto de acciones elementales $\mathbb{A}$, es capaz de generar una
+solución $s \in \mathbb{S}_p$ tal que $s$ satisface completamente el problema
+$p$.
 
 Formalmente, se define como una función computable:
 
 \[
-T: \mathbb{P} \times C \times \mathbb{A} \to \mathbb{S}
-\]
+ T: \mathbb{P} \times C \times \mathbb{A} \to \mathbb{S}
+ \]
 
 tal que:
 
 \[
-\forall p \in \mathbb{P}, \; T(p, C, \mathbb{A}) = s \in \mathbb{S}_p \subseteq \mathbb{S}, \quad \text{con } s \models p
+ \forall p \in \mathbb{P}, \; T(p, C, \mathbb{A}) = s \in \mathbb{S}_p
+\subseteq \mathbb{S}, \quad \text{con } s \models p
+ \]
+
+Es decir, la MCE implementa un proceso de transformación cognitiva que mapea un
+problema bien definido al conjunto de acciones resolutivas adecuadas, utilizando
+conocimiento previo contenido (explícita o implícitamente) en $C$.
+
+\section{Implementación de una MCE en un sistema cognitivo}
+
+Para describir cómo se implementa una MCE en un sistema cognitivo,
+introduciremos formalmente el concepto de \emph{aproximador}. Sea el símbolo
+“\(*\)” la notación para indicar una versión aproximada o parcial de una
+entidad. A continuación, definiremos los dos aproximadores principales: \(
+\mathbb{A}^* \) (aproximador de acciones) y \( C^* \) (aproximador de base de
+conocimiento).
+
+
+Denotemos por \(\mathbb{A}\) el espacio infinito e hipotético de acciones
+elementales. El aproximador de acciones \(\mathbb{A}^*\) es un único conjunto
+creciente que, en cada etapa de aprendizaje o evolución del sistema, contiene un
+subconjunto de \(\mathbb{A}\). Formalmente, podemos describirlo de la siguiente
+manera:
+
+\[
+ \mathbb{A}^* \;=\; \bigcup_{n=0}^{\infty} A_n^*, 
+ \quad
+ A_0^* =
+\varnothing, 
+ \quad
+ A_n^* \subset A_{n+1}^* \subseteq \mathbb{A} \quad,
+ \]
+\[
+ \text{y } \lim_{n \to \infty} A_n^* \;=\; \mathbb{A}.
+ \]
+
+\begin{itemize}
+ \item En la etapa inicial ($n = 0$), \(\mathbb{A}^*\) contiene
+cero acciones: \(A_0^* = \varnothing\).
+ \item En cada etapa \(n\), el sistema
+incorpora nuevas acciones \(a \in \mathbb{A}\) a \(A_{n}^*\), de modo que
+\(A_n^* \subset A_{n+1}^*\).
+ \item En el límite (cuando \(n \to \infty\)), el
+aproximador \(\mathbb{A}^*\) coincide con el espacio completo de acciones
+\(\mathbb{A}\).
+ \end{itemize}
+
+Así, en cualquier instante finito, \(\mathbb{A}^*\) es un subconjunto estricto
+de \(\mathbb{A}\), pero crece a lo largo de la evolución del sistema cognitivo.
+Mientras \(\mathbb{A}^*\) no alcance \(\mathbb{A}\), habrá problemas cuya
+solución requiera acciones \(a \notin \mathbb{A}^*\), imposibilitando
+resolverlos.
+
+
+Sea \(\mathbb{P}\) el espacio infinito e hipotético de problemas. El aproximador
+de base de conocimiento \(C^*\) se define en términos del \emph{alcance} de los
+problemas que puede resolver. Sea \(P_1 \subset \mathbb{P}\) un subconjunto de
+problemas; decimos que una base \(C_1^*\) tiene alcance \(P_1\) si, para cada
+\(p \in P_1\), existe al menos una solución \(s\in \mathbb{S}\) con \(s \models
+p\) derivable a partir de \(C_1^*\). A medida que se “amplía” el alcance, se
+obtiene otro aproximador \(C_2^*\) con \(P_1 \subset P_2 \subset \mathbb{P}\).
+Formalmente:
+
+\[
+ P_1 \subset P_2 \subset \cdots \subset \mathbb{P}, 
+ \quad
+ C_1^*
+\rightsquigarrow P_1, 
+ \quad
+ C_2^* \rightsquigarrow P_2,
+ \quad
+ \text{y}\quad
+\bigcup_{i=1}^{\infty} P_i \;=\; \mathbb{P}.
+ \]
+
+\begin{itemize}
+ \item Cada \(C_i^*\) es una base de conocimiento “parcial” que
+resuelve el subconjunto \(P_i\).
+ \item Cuando \(P_{i} \subset P_{i+1}\), la
+base \(C_{i+1}^*\) contiene información (explícita o implícita) para resolver
+más problemas que \(C_i^*\).
+ \item En el límite, si \(\bigcup_i P_i =
+\mathbb{P}\), entonces la unión de todos los aproximadores equivaldría a una
+base de conocimiento ideal \(C\).
+ \end{itemize}
+
+En particular:
+
+\[
+ \forall p \in P_i,\;\; \exists\,s \in \mathbb{S} \text{ tal que } s \models
+p 
+ \quad\text{y}\quad s \text{ se deriva de } C_i^*.
+ \]
+
+Si un problema \(p\) no pertenece al alcance de \(C_i^*\), entonces \(C_i^*\) no
+contiene la información necesaria para derivar ninguna solución \(s\)
+satisfactoria para \(p\).
+
+
+Al combinar los aproximadores \(\mathbb{A}^*\) (acciones parciales) y \(C^*\)
+(conocimiento parcial) en la función cognitiva, obtenemos una versión “limitada”
+de la MCE en cada etapa de evolución. Denotemos por \(\mathbb{S}^*\) el
+aproximador del espacio de soluciones, que crece a medida que \(\mathbb{A}^*\) y
+\(C^*\) se expanden:
+
+\[
+ \mathbb{S}^* \;=\; \bigcup_{n=0}^\infty S_n^*, 
+ \quad 
+ S_n^* \subset
+\mathbb{S}, 
+ \quad
+ S_0^* = \varnothing,
+ \]
+ \[
+ \text{y } \lim_{n \to \infty}
+S_n^* = \mathbb{S}.
+ \]
+
+El sistema cognitivo parcial, en la etapa \(n\), está representado por:
+
+\[
+ T: \mathbb{P} \;\times\; A_n^* \;\times\; C_n^* \;\longrightarrow\; S_n^*,
+\]
+ \[
+ \forall\,p \in \mathbb{P},\quad T(p,\,A_n^*,\,C_n^*) = 
+ \begin{cases}
+\,s \in S_n^* \subseteq \mathbb{S}, & \text{si existe } s \models p \text{
+usando } A_n^*,\,C_n^*,\\
+ \,\varnothing, & \text{en caso contrario (no se
+encuentra solución).}
+ \end{cases}
+ \]
+
+\begin{itemize}
+ \item Si \(p\) requiere alguna acción \(a \notin A_n^*\),
+entonces \(T\) no puede construir \(s\). En tal caso, se dice que la salida es
+el conjunto vacío \(\varnothing\) (no hay solución alcanzable).
+ \item Si \(p\)
+exige conocimiento que no está en \(C_n^*\) (i.e., \(p \notin
+\mathrm{alcance}(C_n^*)\)), nuevamente \(T\) retornará \(\varnothing\).
+ \item
+Conforme \(n\) crece, \(A_n^* \to \mathbb{A}\) y \(C_n^* \to C\), de modo que
+\(S_n^* \to \mathbb{S}\). En el límite, recuperamos la MCE ideal:
+ \[
+ T:
+\mathbb{P} \times \mathbb{A} \times C \;\longrightarrow\; \mathbb{S}.
+ \]
+\end{itemize}
+
+Con esto, hemos establecido una descripción rigurosa de cómo una MCE
+parcial—equipada con aproximadores de acciones y de conocimiento—puede 
+converge hacia una MCE ideal en el infinito al incrementar sucesivamente
+\(A_n^*\) y \(C_n^*\).
+
+\section{Técnica de Expansión \(\mathbb{B}^*\)}
+
+En la sección anterior vimos que una MCE ideal se alcanza solamente en el límite cuando los aproximadores \(\mathbb{A}^*\) y \(C^*\) agregan infinitamente nuevas acciones y conocimiento, respectivamente. Sin embargo, desde un punto de vista práctico deseamos que la MCE sea capaz de encontrar soluciones para un gran número de problemas sin tener que incorporar todas las acciones de \(\mathbb{A}\). Para ello introduciremos una técnica que denominamos \emph{expansión \(\mathbb{B}^*\)}.
+
+Sea \(\mathbb{B}\) un conjunto finito de acciones con la siguiente propiedad:
+
+\[
+\forall a \in \mathbb{A}, \;\; a \text{ puede expresarse como una composición finita de elementos en } \mathbb{B}.
 \]
 
-Es decir, la MCE implementa un proceso de transformación cognitiva que mapea un problema bien definido al conjunto de acciones resolutivas adecuadas, utilizando conocimiento previo contenido (explícita o implícitamente) en $C$.
+Más concretamente, existe una función de composición
+\[
+\mathrm{comp} : \bigcup_{n=1}^N \mathbb{B}^n \;\longrightarrow\; \mathbb{A},
+\]
+tal que para cada \(a \in \mathbb{A}\) existe alguna secuencia \((b_{i_1},b_{i_2},\dots,b_{i_k}) \in \mathbb{B}^k\) (con \(k \le N\)) que satisface
+\[
+\mathrm{comp}(b_{i_1},b_{i_2},\dots,b_{i_k}) \;=\; a.
+\]
+En entornos parcialmente controlados —por ejemplo, un ordenador— es habitual que \(\mathbb{B}\) sea el conjunto finito de acciones de muy bajo nivel (como “pulsar tecla” y “mover ratón”), y dichas acciones basten para resolver cualquier problema \(p \in \mathbb{P}\) en ese entorno.
+
+Diremos que \(\mathbb{B}\) es completo si, para cada problema \(p \in \mathbb{P}\) existe al menos una solución
+\[
+s = (a_1,a_2,\dots,a_n) \in \mathbb{S}_p
+\]
+tal que cada \(a_i\) se puede descomponer en términos de acciones en \(\mathbb{B}\). En consecuencia, cada problema \(p\) tiene al menos una solución compuesta exclusivamente por elementos de \(\mathbb{B}\).
+
+
+Hasta ahora también hemos asumido que todas las soluciones \(s \in \mathbb{S}_p\) son equivalentes en tanto resuelven el mismo problema \(p\). En la práctica, sin embargo, existe un criterio de \emph{optimalidad} según algún parámetro (tiempo, recursos, longitud de la secuencia, etc.). Denotemos por “\(\succ\)” la relación de orden en \(\mathbb{S}_p\) tal que
+
+\[
+s_i \succ s_j 
+\quad \Longleftrightarrow \quad 
+\text{\(s_i\) es más óptima que \(s_j\) respecto a algún parámetro dado.}
+\]
+
+Bajo la propiedad de completitud de \(\mathbb{B}\), la MCE que solo dispone de \(\mathbb{B}\) (y de un \(C^*\) parcial) generará siempre una \emph{solución subóptima} para cada \(p \in \mathbb{P}\), dado que no puede razonar con acciones de nivel más fino en \(\mathbb{A}\). 
+
+Para mejorar la calidad de las soluciones (esto es, aproximarnos a las soluciones óptimas según \(\succ\)) sin renunciar a la garantía de encontrar alguna solución cuando \(p\) está en el alcance de \(C^*\), definimos la técnica de \emph{expansión \(\mathbb{B}^*\)} de la siguiente forma:
+
+\[
+\mathbb{B}^* \;=\; \mathbb{B} \;\cup\; \mathbb{A}^*,
+\]
+Con esto, definimos una MCE expandida que opera con el espacio de acciones \(\mathbb{B}^*\) y la base de conocimiento parcial \(C^*\):
+
+\[
+T:\, \mathbb{P} \;\times\; \mathbb{B}^* \;\times\; C^* 
+\;\longrightarrow\; \mathbb{S}^*.
+\]
+Para cada problema \(p \in \mathbb{P}\), se tiene:
+
+\[
+T(p,\,\mathbb{B}^*,\,C^*) 
+\;=\; 
+\begin{cases}
+\,s_{\text{sub}} \in S_0^* = \mathbb{S}_{\mathbb{B}}^*, 
+& \text{si } p \in \mathrm{alcance}(C^*) 
+\quad\bigl(\text{solución subóptima}\bigr),\\
+\,s_{\text{opt}} \in S_n^*, 
+\;n>0,\;s_{\text{opt}}\succ s_{\text{sub}}, 
+& \text{si } \mathbb{A}^*\text{ ha crecido lo suficiente para incluir acciones} \\
+& \quad\text{que optimicen }\;s_{\text{sub}}.
+\end{cases}
+\]
+En particular:
+
+\begin{itemize}
+    \item Si \(p \in \mathrm{alcance}(C^*)\), existe siempre al menos una secuencia \(s_{\text{sub}}\) compuesta únicamente de acciones de \(\mathbb{B}\). Así, \(T_{\mathbb{B}^*}\) retorna una solución inicial subóptima.
+    \item A medida que \(\mathbb{A}^*\) incorpora nuevas acciones de \(\mathbb{A}\), la MCE podrá generar secuencias \(s_{\text{opt}}\) tales que \(s_{\text{opt}}\succ s_{\text{sub}}\). Es decir, la calidad de la solución mejora conforme crece \(\mathbb{A}^*\).
+    \item En el límite, cuando \(\mathbb{A}^* \to \mathbb{A}\), recuperamos la MCE ideal:
+    \[
+    T_{\text{ideal}} : \mathbb{P} \times \mathbb{A} \times C \;\longrightarrow\; \mathbb{S},
+    \quad
+    T_{\text{ideal}}(p,\,\mathbb{A},\,C) = s_{\mathrm{opt}} \in \mathbb{S}_p,
+    \]
+    donde \(s_{\mathrm{opt}}\) es una solución óptima (o al menos factible) para \(p\).
+\end{itemize}
+
+Este mecanísmo nos otorga varias ventajas:
+
+\begin{enumerate}
+    \item \textbf{Garantía de Solución Subóptima:}  
+    Si \(p \in \mathrm{alcance}(C^*)\), entonces siempre existe \(s_{\text{sub}} \in \mathbb{S}_{\mathbb{B}}^*\) con \(s_{\text{sub}} \models p\), sin necesidad de que \(\mathbb{A}^*\) contenga todas las acciones de \(\mathbb{A}\).
+    \item \textbf{Mejora Progresiva:}  
+    A medida que \(\mathbb{A}^*\) crece, las nuevas acciones permiten \emph{refinar} o \emph{acortar} la secuencia \(s_{\text{sub}}\), generando \(s_{\text{mej}}\) tales que \(s_{\text{mej}}\succ s_{\text{sub}}\).
+    \item \textbf{Modularidad:}  
+    El comportamiento del sistema se divide en dos componentes:  
+    \(\bullet\) Un conjunto finito \(\mathbb{B}\) que asegura solución inicial.  
+    \(\bullet\) Un aproximador \(\mathbb{A}^*\) que mejora la óptima con el tiempo.  
+    \item \textbf{Flexibilidad en la Base de Conocimiento:}  
+    Mientras \(C^*\) siga ampliándose, la técnica \(\mathbb{B}^*\) garantiza que el sistema resolverá todos los problemas en el alcance, independientemente de la extensión actual de \(\mathbb{A}^*\).
+\end{enumerate}
+
+En resumen, la expansión \(\mathbb{B}^*\) propone combinar un conjunto finito de acciones \(\mathbb{B}\) con un aproximador creciente \(\mathbb{A}^*\) para equilibrar la garantía mínima de resolución (vía \(\mathbb{B}\)) y la optimización progresiva de soluciones (vía \(\mathbb{A}^*\)).```
