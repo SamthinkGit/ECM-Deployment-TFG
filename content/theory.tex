@@ -1,2 +1,93 @@
 % !TEX root = ms.tex
 \chapter{Fundamento Teórico}
+
+\section{Maquina de Cognición-Ejecución (MCE)}
+
+Una \textit{Máquina de Cognición-Ejecución} (MCE) es un modelo computacional hipotético que opera sobre un sistema cognitivo con el objetivo de generar soluciones, compuestas por secuencias de acciones, a problemas bien definidos en un espacio formal. Este concepto se fundamenta en la idea de que la cognición puede ser modelada computacionalmente como un proceso de transformación entre representaciones abstractas de problemas y secuencias de acciones eficaces.
+
+\begin{itemize}
+    \item La MCE no presupone una arquitectura específica, sino una relación funcional entre problemas, soluciones y acciones.
+    \item El sistema cognitivo actúa como un mapeador entre interpretaciones de problemas y soluciones viables dentro de un conjunto estructurado.
+    \item La hipótesis de unicidad e irreductibilidad de la representación de problemas busca eliminar ambigüedades y redundancias en el espacio de entrada.
+\end{itemize}
+
+Sea $\mathbb{P}$ un conjunto infinito e hipotético de problemas. Cada problema $p \in \mathbb{P}$ es independiente y mutuamente exclusivo respecto de los demás, es decir,
+
+\[
+\forall p_i, p_j \in \mathbb{P}, \; p_i \ne p_j \Rightarrow \neg (p_i \equiv p_j)
+\]
+
+donde $\equiv$ denota equivalencia semántica bajo una interpretación cognitiva. Asumimos que cada problema $p$ está representado mediante una descripción única e irreducible, la cual no admite ambigüedad ni redundancia y es inconfundible con cualquier otro $p' \in \mathbb{P}$.
+
+Sea $\mathbb{A}$ un conjunto infinito e hipotético de acciones. Cada acción $a \in \mathbb{A}$ representa una interacción elemental que un sistema cognitivo puede realizar, ya sea con su entorno o consigo mismo.
+
+Sea $\mathbb{S}$ un conjunto hipotético de soluciones. Cada solución $s \in \mathbb{S}$ está compuesta por una secuencia finita y ordenada de acciones:
+
+\[
+s = (a_1, a_2, \dots, a_n), \; a_i \in \mathbb{A}, \; n \in \mathbb{N}^+
+\]
+
+Dicha secuencia es inmutable y única para la solución dada. El orden de las acciones es relevante, es decir, dos soluciones que contengan las mismas acciones en distinto orden se consideran distintas.
+
+Para cada problema $p \in \mathbb{P}$ existe al menos un subconjunto no vacío de soluciones $\mathbb{S}_p \subset \mathbb{S}$ tal que cada $s \in \mathbb{S}_p$ satisface completamente el problema $p$. Notamos esta relación como:
+
+\[
+s \in \mathbb{S} _p \iff s \in \mathbb{S} \land s \models p
+\]
+
+donde $\models$ denota que $s$ satisface (resuelve) el problema $p$ bajo la semántica del sistema cognitivo. No se considerarán en este modelo las soluciones parciales ni grados de satisfacción.
+
+\begin{itemize}
+    \item Esta relación establece una correspondencia semántica entre el espacio de problemas y el de soluciones.
+    \item El modelo asume que la existencia de una solución completa implica que el problema ha sido resuelto de forma definitiva.
+\end{itemize}
+
+Cabe destacar que, aunque un problema puede tener múltiples soluciones, estas
+son mutuamente excluyentes, pero equivalente en tanto cada secuencia de acciones difiere
+estructuralmente de las demás pero todas satisfacen el mismo problema:
+
+\[
+\forall s_i, s_j \in \mathbb{S}_p,\; s_i \ne s_j \Rightarrow s_i \equiv s_j
+\]
+
+Finalmente, asumimos la existencia de al menos una solución por cada problema:
+
+\[
+\forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} _p \text{ tal que } s \models p
+\]
+
+
+Dados los elementos previamente definidos —el espacio de problemas $\mathbb{P}$, el espacio de acciones $\mathbb{A}$ y el espacio de soluciones $\mathbb{S}$—, es necesario introducir el concepto de \textit{base de conocimiento} para posibilitar su aplicación dentro de un sistema cognitivo.
+
+Denotamos por $C$ a una \textit{base de conocimiento}, entendida como una abstracción teórica que no especifica su contenido ni su estructura interna, pero que puede ser empleada por sistemas cognitivos para analizar un problema $p \in \mathbb{P}$ y generar una solución $s \in \mathbb{S}_p$.
+
+En este marco, se impone la siguiente condición sobre $C$:
+
+\begin{quote}
+    La base de conocimiento $C$ debe contener, representar o permitir el acceso a la información necesaria sobre el problema $p$ que haga posible que un sistema cognitivo encuentre al menos una solución $s \in \mathbb{S}_p$ tal que $s \models p$.
+\end{quote}
+
+Temporalmente, asumiremos que $C$ es una \textit{base de conocimiento perfecta}, lo que implica que:
+
+\[
+\forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} \text{ tal que } s \models p \text{ y } s \text{ es derivable a partir de } C
+\]
+
+Cabe destacar que $C$ no necesariamente posee una representación simbólica explícita. En el caso de sistemas cognitivos implementados mediante redes neuronales artificiales, $C$ puede estar distribuida de manera implícita en los parámetros internos del modelo. Así, la información relevante no reside en estructuras legibles externamente, sino como propiedades emergentes del comportamiento del sistema.
+
+
+Con todos los elementos anteriores, podemos establecer una definición operativa para una \textit{Máquina de Cognición-Ejecución} (MCE). Una MCE es un sistema cognitivo que, dado un problema $p \in \mathbb{P}$, una base de conocimiento $C$, y un conjunto de acciones elementales $\mathbb{A}$, es capaz de generar una solución $s \in \mathbb{S}_p$ tal que $s$ satisface completamente el problema $p$.
+
+Formalmente, se define como una función computable:
+
+\[
+T: \mathbb{P} \times C \times \mathbb{A} \to \mathbb{S}
+\]
+
+tal que:
+
+\[
+\forall p \in \mathbb{P}, \; T(p, C, \mathbb{A}) = s \in \mathbb{S}_p \subseteq \mathbb{S}, \quad \text{con } s \models p
+\]
+
+Es decir, la MCE implementa un proceso de transformación cognitiva que mapea un problema bien definido al conjunto de acciones resolutivas adecuadas, utilizando conocimiento previo contenido (explícita o implícitamente) en $C$.
