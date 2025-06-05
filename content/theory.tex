@@ -292,7 +292,13 @@ converge hacia una MCE ideal en el infinito al incrementar sucesivamente
 
 \section{Técnica de Expansión \(\mathbb{B}^*\)}
 
-En la sección anterior vimos que una MCE ideal se alcanza solamente en el límite cuando los aproximadores \(\mathbb{A}^*\) y \(C^*\) agregan infinitamente nuevas acciones y conocimiento, respectivamente. Sin embargo, desde un punto de vista práctico deseamos que la MCE sea capaz de encontrar soluciones para un gran número de problemas sin tener que incorporar todas las acciones de \(\mathbb{A}\). Para ello introduciremos una técnica que denominamos \emph{expansión \(\mathbb{B}^*\)}.
+En la sección anterior vimos que una MCE ideal se alcanza solamente en el límite
+cuando los aproximadores \(\mathbb{A}^*\) y \(C^*\) agregan infinitamente nuevas
+acciones y conocimiento, respectivamente. Sin embargo, desde un punto de vista
+práctico deseamos que la MCE sea capaz de encontrar soluciones para un gran
+número de problemas sin tener que incorporar todas las acciones de
+\(\mathbb{A}\). Para ello introduciremos una técnica que denominamos
+\emph{expansión \(\mathbb{B}^*\)}.
 
 Sea \(\mathbb{B}\) un conjunto finito de acciones con la siguiente propiedad:
 
@@ -304,20 +310,33 @@ Más concretamente, existe una función de composición
 \[
 \mathrm{comp} : \bigcup_{n=1}^N \mathbb{B}^n \;\longrightarrow\; \mathbb{A},
 \]
-tal que para cada \(a \in \mathbb{A}\) existe alguna secuencia \((b_{i_1},b_{i_2},\dots,b_{i_k}) \in \mathbb{B}^k\) (con \(k \le N\)) que satisface
+tal que para cada \(a \in \mathbb{A}\) existe alguna secuencia
+\((b_{i_1},b_{i_2},\dots,b_{i_k}) \in \mathbb{B}^k\) (con \(k \le N\)) que
+satisface
 \[
 \mathrm{comp}(b_{i_1},b_{i_2},\dots,b_{i_k}) \;=\; a.
 \]
-En entornos parcialmente controlados —por ejemplo, un ordenador— es habitual que \(\mathbb{B}\) sea el conjunto finito de acciones de muy bajo nivel (como “pulsar tecla” y “mover ratón”), y dichas acciones basten para resolver cualquier problema \(p \in \mathbb{P}\) en ese entorno.
 
-Diremos que \(\mathbb{B}\) es completo si, para cada problema \(p \in \mathbb{P}\) existe al menos una solución
+En entornos parcialmente controlados —por ejemplo, un ordenador— es habitual que
+\(\mathbb{B}\) sea el conjunto finito de acciones de muy bajo nivel (como
+“pulsar tecla” y “mover ratón”), y dichas acciones basten para resolver
+cualquier problema \(p \in \mathbb{P}\) en ese entorno.
+
+Diremos que \(\mathbb{B}\) es completo si, para cada problema \(p \in
+\mathbb{P}\) existe al menos una solución
 \[
 s = (a_1,a_2,\dots,a_n) \in \mathbb{S}_p
 \]
-tal que cada \(a_i\) se puede descomponer en términos de acciones en \(\mathbb{B}\). En consecuencia, cada problema \(p\) tiene al menos una solución compuesta exclusivamente por elementos de \(\mathbb{B}\).
+tal que cada \(a_i\) se puede descomponer en términos de acciones en
+\(\mathbb{B}\). En consecuencia, cada problema \(p\) tiene al menos una solución
+compuesta exclusivamente por elementos de \(\mathbb{B}\).
 
 
-Hasta ahora también hemos asumido que todas las soluciones \(s \in \mathbb{S}_p\) son equivalentes en tanto resuelven el mismo problema \(p\). En la práctica, sin embargo, existe un criterio de \emph{optimalidad} según algún parámetro (tiempo, recursos, longitud de la secuencia, etc.). Denotemos por “\(\succ\)” la relación de orden en \(\mathbb{S}_p\) tal que
+Hasta ahora también hemos asumido que todas las soluciones \(s \in
+\mathbb{S}_p\) son equivalentes en tanto resuelven el mismo problema \(p\). En
+la práctica, sin embargo, existe un criterio de \emph{optimalidad} según algún
+parámetro (tiempo, recursos, longitud de la secuencia, etc.). Denotemos por
+“\(\succ\)” la relación de orden en \(\mathbb{S}_p\) tal que
 
 \[
 s_i \succ s_j 
@@ -325,14 +344,21 @@ s_i \succ s_j
 \text{\(s_i\) es más óptima que \(s_j\) respecto a algún parámetro dado.}
 \]
 
-Bajo la propiedad de completitud de \(\mathbb{B}\), la MCE que solo dispone de \(\mathbb{B}\) (y de un \(C^*\) parcial) generará siempre una \emph{solución subóptima} para cada \(p \in \mathbb{P}\), dado que no puede razonar con acciones de nivel más fino en \(\mathbb{A}\). 
+Bajo la propiedad de completitud de \(\mathbb{B}\), la MCE que solo dispone de
+\(\mathbb{B}\) (y de un \(C^*\) parcial) generará siempre una \emph{solución
+subóptima} para cada \(p \in \mathbb{P}\), dado que no puede razonar con
+acciones de nivel más fino en \(\mathbb{A}\). 
 
-Para mejorar la calidad de las soluciones (esto es, aproximarnos a las soluciones óptimas según \(\succ\)) sin renunciar a la garantía de encontrar alguna solución cuando \(p\) está en el alcance de \(C^*\), definimos la técnica de \emph{expansión \(\mathbb{B}^*\)} de la siguiente forma:
+Para mejorar la calidad de las soluciones (esto es, aproximarnos a las
+soluciones óptimas según \(\succ\)) sin renunciar a la garantía de encontrar
+alguna solución cuando \(p\) está en el alcance de \(C^*\), definimos la técnica
+de \emph{expansión \(\mathbb{B}^*\)} de la siguiente forma:
 
 \[
 \mathbb{B}^* \;=\; \mathbb{B} \;\cup\; \mathbb{A}^*,
 \]
-Con esto, definimos una MCE expandida que opera con el espacio de acciones \(\mathbb{B}^*\) y la base de conocimiento parcial \(C^*\):
+Con esto, definimos una MCE expandida que opera con el espacio de acciones
+\(\mathbb{B}^*\) y la base de conocimiento parcial \(C^*\):
 
 \[
 T:\, \mathbb{P} \;\times\; \mathbb{B}^* \;\times\; C^* 
@@ -382,20 +408,32 @@ Este mecanísmo nos otorga varias ventajas:
     Mientras \(C^*\) siga ampliándose, la técnica \(\mathbb{B}^*\) garantiza que el sistema resolverá todos los problemas en el alcance, independientemente de la extensión actual de \(\mathbb{A}^*\).
 \end{enumerate}
 
-En resumen, la expansión \(\mathbb{B}^*\) propone combinar un conjunto finito de acciones \(\mathbb{B}\) con un aproximador creciente \(\mathbb{A}^*\) para equilibrar la garantía mínima de resolución (vía \(\mathbb{B}\)) y la optimización progresiva de soluciones (vía \(\mathbb{A}^*\)).```
+En resumen, la expansión \(\mathbb{B}^*\) propone combinar un conjunto finito de
+acciones \(\mathbb{B}\) con un aproximador creciente \(\mathbb{A}^*\) para
+equilibrar la garantía mínima de resolución (vía \(\mathbb{B}\)) y la
+optimización progresiva de soluciones (vía \(\mathbb{A}^*\)).```
 
 \section{Máquina de Cognición-Ejecución}
 
-Hasta este punto hemos definido la MCE como una función capaz de seleccionar una secuencia de acciones que resuelva el problema \(p \in \mathbb{P}\), bajo la suposición de que disponemos de una base de conocimiento parcial \(C^*\) y de un conjunto de acciones en \(B^*\). Sin embargo, para modelar con precisión la arquitectura cognitiva real, conviene distinguir dos etapas conceptuales:
+Hasta este punto hemos definido la MCE como una función capaz de seleccionar una
+secuencia de acciones que resuelva el problema \(p \in \mathbb{P}\), bajo la
+suposición de que disponemos de una base de conocimiento parcial \(C^*\) y de un
+conjunto de acciones en \(B^*\). Sin embargo, para modelar con precisión la
+arquitectura cognitiva real, conviene distinguir dos etapas conceptuales:
 
 \begin{enumerate}
     \item \textbf{Función de Cognición} (\(T_C\)): Identificación y generación de la \emph{intención} de las acciones necesarias para resolver \(p\), empleando la base de conocimiento parcial \(C^*\).
     \item \textbf{Función de Ejecución} (\(T_E\)): Transformación de cada acción simbólica en una interacción concreta con el entorno (o con el propio sistema), de modo que la intención generada se materialice efectivamente.
 \end{enumerate}
 
-Para formalizar esta distinción, introducimos el \emph{mapa de correspondencia} \(\Lambda\), que relaciona cada acción simbólica con su ejecución real. Denotamos por \(\lambda \in \Lambda\) el resultado de dicha correspondencia. Así, cada elemento \(\lambda\) describe el “modo de ejecución” de una acción concreta.
+Para formalizar esta distinción, introducimos el \emph{mapa de correspondencia}
+\(\Lambda\), que relaciona cada acción simbólica con su ejecución real.
+Denotamos por \(\lambda \in \Lambda\) el resultado de dicha correspondencia.
+Así, cada elemento \(\lambda\) describe el “modo de ejecución” de una acción
+concreta.
 
-Definimos la función de cognición \(T_C\) como un mapeo entre problemas \(p\) y la intención de acciones \(C^*\):
+Definimos la función de cognición \(T_C\) como un mapeo entre problemas \(p\) y
+la intención de acciones \(C^*\):
 \[
 T_C : \mathbb{P} \;\times\; C^* \;\longrightarrow\; \Lambda,
 \]
@@ -405,9 +443,13 @@ T_C(p,\,C^*) \;=\; \lambda
 \;\Longleftrightarrow\;
 \lambda = (\alpha_1, \alpha_2, \dots, \alpha_m),
 \]
-donde cada \(\alpha_i\) es un token simbólico en \(\mathbb{A}^*\) que representa la \emph{intención} de una acción necesaria para resolver \(p\). En esta etapa, \(\lambda\) codifica \emph{qué} acciones deben ejecutarse (por ejemplo, “hacer clic en el ícono de Firefox”), pero no realiza la interacción efectiva.
+donde cada \(\alpha_i\) es un token simbólico en \(\mathbb{A}^*\) que representa
+la \emph{intención} de una acción necesaria para resolver \(p\). En esta etapa,
+\(\lambda\) codifica \emph{qué} acciones deben ejecutarse (por ejemplo, “hacer
+clic en el ícono de Firefox”), pero no realiza la interacción efectiva.
 
-Definimos la función de ejecución \(T_E\) como un mapeo entre la intención \(\lambda\) y las acciones concretas \(B^*\) que se ejecutarán en el entorno:
+Definimos la función de ejecución \(T_E\) como un mapeo entre la intención
+\(\lambda\) y las acciones concretas \(B^*\) que se ejecutarán en el entorno:
 \[
 T_E : \Lambda \;\times\; B^* \;\longrightarrow\; \mathbb{S} \;,
 \]
@@ -417,9 +459,16 @@ T_E(\lambda,\,B^*)
 \;=\; 
 \,s = (b_1, b_2, \dots, b_m) \in \mathbb{S}_p \in \mathbb{S}
 \]
-Aquí, cada \(\alpha_i\) se traduce a una acción concreta \(b_i \in B^*\) mediante el mapa implícito en \(\Lambda\). Si todas las acciones simbólicas \(\alpha_i\) tienen su correspondiente \(b_i \in B^*\), \(T_E\) construye la secuencia \(s\) que satisface \(p\).
+Aquí, cada \(\alpha_i\) se traduce a una acción concreta \(b_i \in B^*\)
+mediante el mapa implícito en \(\Lambda\). Si todas las acciones simbólicas
+\(\alpha_i\) tienen su correspondiente \(b_i \in B^*\), \(T_E\) construye la
+secuencia \(s\) que satisface \(p\).
 
-En este sentido, \(\Lambda\) es el \emph{lenguaje intermedio} entre la capa de cognición y la de ejecución. Cada \(\lambda = (\alpha_1, \ldots, \alpha_m)\) con \(\alpha_i \in \mathbb{A}^*\) se asocia unívocamente con una acción concreta \(b_i \in B^*\). En la práctica, \(\Lambda\) se implementa como un módulo traductor que mapea tokens simbólicos a rutinas de ejecución concretas.
+En este sentido, \(\Lambda\) es el \emph{lenguaje intermedio} entre la capa de
+cognición y la de ejecución. Cada \(\lambda = (\alpha_1, \ldots, \alpha_m)\) con
+\(\alpha_i \in \mathbb{A}^*\) se asocia unívocamente con una acción concreta
+\(b_i \in B^*\). En la práctica, \(\Lambda\) se implementa como un módulo
+traductor que mapea tokens simbólicos a rutinas de ejecución concretas.
 
 Finalmente, la MCE en su forma canónica se corresponde con la composición:
 \[
@@ -428,7 +477,8 @@ T_C\bigl(p,\,C^*\bigr) = \lambda \;|\; T_E(\lambda,\,\mathbb{B}^*) &= s \\
 \end{aligned}
 \]
 
-Donde \(s \models p\) siempre que \(\mathbb{B}\)  sea completo y \(\lambda\) se derive de \(C^*\).
+Donde \(s \models p\) siempre que \(\mathbb{B}\)  sea completo y \(\lambda\) se
+derive de \(C^*\).
 
 \subsection*{Ejemplo ilustrativo}
 
@@ -454,7 +504,8 @@ Supongamos que \(p\) es el problema “Abrir Firefox”.
 
 \medskip
 
-En los siguientes capítulos se describirá la implementación práctica de esta arquitectura, donde:
+En los siguientes capítulos se describirá la implementación práctica de esta
+arquitectura, donde:
 \begin{itemize}
     \item \(C^*\) estará constituido por uno o varios modelos de lenguaje (LLMs) que aproximen la base de conocimiento \(C\).
     \item \(\mathbb{B}^*\) incluirá librerías y rutinas de automatización (por ejemplo, control de GUI, APIs del sistema operativo, scripts precompilados, etc.) para garantizar completitud.

@@ -1,2 +1,492 @@
 % !TEX root = ms.tex
-\chapter{Software Development}
+\chapter{Arquitectura Software}
+
+En el presente capítulo se describe la arquitectura software empleada para la
+implementación de la MCE. Es importante resaltar que dicha arquitectura debe
+coordinar y optimizar múltiples componentes que interactúan entre sí, donde la forma 
+en la que se integran estos componentes impacta directamente en la
+capacidad de la MCE para resolver problemas de manera eficiente y efectiva. Por
+ello, en este capítulo se presenta una arquitectura modular que facilita la
+experimentación y el reemplazo de componentes sin afectar al resto del sistema.
+Gracias a esta modularidad, el capítulo de experimentación podrá evaluar
+distintas aproximaciones cognitivas para la MCE sin necesidad de desarrollar un
+sistema independiente para cada una de ellas.
+
+Con el fin de simplificar la lectura de los capítulos posteriores, a partir de
+ahora se entenderá por \emph{MCE} a la arquitectura software descrita en este capítulo.
+Cuando se haga referencia al fundamento teórico de la MCE, se empleará el término
+\emph{modelo teórico} de la MCE.
+
+\section{Capas y Módulos de la MCE}
+
+La MCE desarrollada está compuesta por cuatro módulos principales, cada uno
+directamente relacionado con las entidades definidas en el modelo teórico de la
+MCE. Estos módulos son:
+
+\begin{itemize}
+
+    \item \textbf{Capa de Cognición}: Este módulo contiene la lógica cognitiva
+    de la MCE. Aquí se integran los algoritmos de percepción, aprendizaje,
+    comportamiento, planificación y razonamiento de los agentes de la MCE. Cada
+    agente utiliza la información obtenida de las demás capas para tomar
+    decisiones e interactuar con su entorno de manera específica. No obstante,
+    todos ellos comparten la dependencia de uno o varios modelos de lenguaje
+    para la toma de decisiones.
+    
+    Esta capa se corresponde directamente con la función de cognición del modelo 
+    teórico de la MCE, donde la base de
+    conocimiento \(\mathbb{C}\) equivale a la información extraída de los LLMs y
+    el mapa de correspondencia \(\Lambda\) resulta de la conversión de dicho
+    razonamiento en tokens que, posteriormente, serán procesados por la Capa de
+    Ejecución.
+
+    \item \textbf{Capa de Ejecución}: Este módulo es el responsable de traducir
+    los tokens generados por la Capa de Cognición en un conjunto de acciones que
+    la MCE ejecutará. En capítulos posteriores se describirá este proceso como
+    “interpretación” del plan generado por la LLM. Más allá de una simple
+    concatenación de acciones, la Capa de Ejecución gestiona la creación de
+    procesos, la desambiguación de tokens, la paralelización, la trazabilidad y
+    la gestión de errores a nivel software. 
+    
+    Al igual que la Capa de Cognición,
+    esta capa se relaciona directamente con la función de ejecución del modelo
+    teórico de la MCE, al traducir tokens \(\Lambda\) en acciones pertenecientes
+    al espacio \(\mathbb{B}^*\).
+
+    \item \textbf{Espacio de Acciones}: Este módulo contiene el conjunto finito
+    de acciones que la MCE puede ejecutar. Incluye tanto las acciones
+    elementales del espacio \(\mathbb{B}\) del modelo teórico de la MCE como un
+    conjunto creciente de acciones correspondientes al aproximador
+    \(\mathbb{A}^*\). Entre las acciones elementales se encuentran mecanismos
+    para la percepción de elementos en pantalla e interacción con el entorno vía
+    mouse o teclado, mientras que las acciones de \(\mathbb{A}^*\) abarcan
+    operaciones de alto nivel e integración con APIs del sistema operativo. 
+
+    Como se detallará más adelante, la MCE puede dividirse en dos máquinas: una
+    máquina maestra que ejecuta todas las capas de la MCE y una máquina esclava
+    que realiza las acciones recibidas del maestro. Por esta razón, el Espacio
+    de Acciones es compatible con diversos sistemas operativos (por ejemplo,
+    Windows, Linux/Ubuntu o Raspbian), de modo que cualquiera de ellos puede
+    actuar como esclavo de una MCE remota.
+
+    \item \textbf{Capa Núcleo}: Este módulo se encarga de orquestar y coordinar
+    todos los módulos de la MCE, además de construir los recursos necesarios
+    para su funcionamiento. A diferencia de los demás módulos, la Capa Núcleo no
+    está diseñada para ser reemplazada ni forma parte del modelo teórico de la
+    MCE. En cambio, su función es aprovechar las capacidades de las demás capas
+    para ejecutar la MCE, ya sea de forma local o remota.
+
+\end{itemize}
+
+Adicionalmente a estos módulos, la MCE incluye un conjunto de herramientas
+como el registro de entidades, instaladores o manejadores del sistema que ayudan
+en la coordinación de todos las capas y módulos. 
+
+En las siguientes secciones se describirá con mayor detalle cada uno de los módulos
+y herramientas de la MCE. La descripción se realizará comenzando desde las interacciones
+a más bajo nivel, es decir, desde el propio espacio de acciones, y se irán conformando
+abstracciones de alto nivel a medida que nos acercamos a las capas de cognición.
+
+\section{Espacio de Acciones}
+
+Dentro de esta capa debemos integrar acciones que satisfagan las propiedades
+definidas en el espacio de acciones \(\mathbb{B}^*\) del modelo teórico de la
+MCE.Todas estas acciones serán ejecutadas en la máquina controlada, a la que
+denominaremos como máquina esclava. Estas acciones se disviden en dos grupos,
+el espacio de acciones elementales \(\mathbb{B}\) y el espacio de acciones
+\(\mathbb{A}^*\). 
+
+A su vez, el espacio de acciones también puede ser categorizado en 3 distintas categorías:
+
+\begin{itemize}
+
+    \item \textbf{Acciones actuadoras}: Son aquellas que interactuan con el entorno en el
+    se encuentra la máquina controlada. Estas permiten al agente cambiar el estado actual
+    y la composición de este tipo de acciones permite alcanzar el objetivo final. No es posible
+    completar en su totalidad un objetivo sin la ejecución de al menos una acción actuadora.
+
+    \item \textbf{Acciones perceptivas}: Son aquellas que permiten al agente obtener 
+    información de su entorno. Estas acciones son fundamentales para la toma de decisiones,
+    pues no será posible alcanzar muchos objetivos sin previamente conocer el estado actual
+    de la máquina esclava.
+
+    \item \textbf{Meta-Acciones}: Son aquellas que permiten al agente modificarse a si mismo,
+    ya sea para guardar razonamientos en memoria, para activar distintos modos de razonamiento
+    o para cambiar el estado del agente. Esto permite al agente adapatarse a entornos cambiantes.
+
+\end{itemize}
+
+A continuación se describen algunas de las acciones más relevantes de la MCE. A su vez,
+categorizaremos cada una de ellas según su tipo y espacio de acciones al que pertenecen.
+
+\subsection{Acciones Elementales}
+
+Aunque el espacio de acciones \(\mathbb{B}\) puede ser discutido y ampliado con
+el tiempo, a continuación se realizará un resumen de la implementación de las acciones más fundamentales para una
+MCE en el entorno de un escritorio clásico. Estas son, el control del teclado,
+la captura de pantalla y el control del mouse.
+
+\subsubsection{Control del Teclado}
+
+Las acciones de control del teclado son sencillas de implementar dadas las librerías
+\texttt{pyautogui} y \texttt{uinput} de Python. En el primero caso la función 
+\texttt{write()} de \texttt{pytautogui} realiza la escritura de un texto dado de forma automática.
+
+En el caso de usar un sistema operativo Linux o Raspbian, la librería \texttt{uinput} nos
+ofrece un control mas granular sobre los eventos del teclado, donde \texttt{pyautogui} puede fallar
+debido a problemas de incompatiibilidad o permisos con distintas distribciones de Linux. 
+En este caso, resulta necesario realizar un remapeo entre las los posibles eventos de teclado
+(\texttt{uinput.KEY\_A}, \texttt{uinput.KEY\_MINUS}, etc.) y los caracteres de la cadena de 
+texto objetivo a escribir (\texttt{'a'}, \texttt{'-'}, etc.).
+
+Esta funcionalidad, se envolverá dentro de una función unica para todos los sistemas operativos, 
+y permitira al agente escribir texto en la máquina esclava de forma autónoma:
+
+\begin{verbatim}
+>> write("Este texto será escrito usando el teclado")
+>> Este texto será escrito usando el teclado
+\end{verbatim}
+
+Un caso de uso un poco más complejo es el de utilizar combinaciones de teclas
+o atajos de teclado. En este caso, podemos utilizar las funciones de \texttt{pyautogui}
+o \texttt{uinput} para enviar una secuencia de teclas, sin embargo, necesitamos definir
+un estándar para la representación de estas combinaciones. Para resolver esto, se
+ha creado un diccionario de combinaciones de teclas que incluyen multiples represntaciones
+de una misma combinacion o tecla, como puede ser \texttt{CTRL}, \texttt{CONTROL} o \texttt{CTRL\_LEFT}.
+De esta forma el agente podría utilizar la siguiente sintaxis:
+\begin{verbatim}
+>> press("CTRL + C")
+KeyboardInterrupt
+\end{verbatim}
+
+Estos dos tipos de acciones, entran en la categoría de acciones actuadoras y pertenecen al 
+espacio de acciones elementales \(\mathbb{B}\). Esto se debe a que multiples aplicaciones 
+no pueden ser controladas sin la capacidad de escribir texto o enviar combinaciones de teclas.
+
+\subsubsection{Captura de Pantalla}
+La captura de pantalla es una de las acciones perceptivas que más información
+brinda sobre el estado actual de la máquina esclava. Sin embargo, a su vez esta
+información tiene el coste computacional más alto, ya que requiere tanto un 
+preprocesamiento de la imagen como un análisis posterior para extraer la información
+necesaria.
+
+Para la captura de pantalla se utiliza la librería \texttt{pyautogui}, que 
+atravesará por varios modulos de OCR (Reconocimiento Óptico de Caracteres),
+algoritmos de detección de elementos (creados con \texttt{OpenCV})\footnote{Adicionalmente para eliminar los falsos positivos, se utiliza una métrica basada en Iou (Intersection over Union)}
+y modelos multimodales basados en LLM para extraer tanto las entidades visuales como
+textuales de la imagen capturada. Una vez procesada la imagen, se puede 
+generar una representación de la misma mediante un conjunto de bounding
+boxes que indican la posición de los elementos detectados y que, posteriormente,
+será utilizada para la toma de decisiones.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{figs/ocr_image.png}
+	\caption{\small Procesamiento de una captura de pantalla con algoritmos de detección de elementos. Fuente: Elaboración Propia.}
+	\label{fig:ocr_image}
+\end{figure}
+
+Notese que aunque esta acción es perceptiva, tambien forma parte de las acciones
+elementales \(\mathbb{B}\) del espacio de acciones, ya que multiples 
+problemas no pueden ser resueltos sin distinguir los elementos presentes
+de forma visual, como por ejemplo, la interfaz gráfica de un videojuego.
+
+\subsubsection{Control del Mouse}
+
+El control del mouse es una acción actuadora y elemental que permite al agente interactuar
+con la interfaz gráfica de la máquina esclava. Para llevarla a cabo, se puede
+utilizar la librería \texttt{pyautogui} tanto en Windows como en Raspbian.
+
+En sistemas Linux sin embargo, es importante considerar el tipo de entorno
+gráfico utilizado. En entornos basados en X11, los permisos para controlar el
+mouse son relativamente permisivos. En cambio en sistemas que utilizan Wayland,
+por motivos de seguridad, los eventos del mouse solo pueden enviarse a la ventana que esté activa
+originalmente.
+
+Esto significa que, si el agente intenta controlar una ventana distinta, el
+movimiento del mouse quedará bloqueado hasta que el usuario vuelva a activar
+manualmente la ventana original.
+
+Estos problemas de compatibilidad se pueden resolver utilizando herramientas
+como \texttt{ydotool} o bien realizando una calibración previa de la sensibilidad 
+del mouse y usando \texttt{uinput} para enviar eventos de mouse.
+
+Una vez resueltos estos problemas, el agente podrá interactuar con la máquina
+tal que:
+
+\begin{verbatim}
+>> move_mouse(100, 200)
+>> double_click()
+>> move_mouse(300, 400)
+>> right_click()
+\end{verbatim}
+
+\subsection{Espacio de Acciones \(\mathbb{A}^*\)}
+El espacio de acciones \(\mathbb{A}^*\) es infinito por definición. En el caso 
+de la arquitectura implementada se han desarrollado alrededor de 20 paquetes 
+de acciones, donde cada uno de estos paquetes contiene entre 1 y 3 acciones
+dependiendo de la complejidad del problema a resolver.
+
+A continuación se describen algunas de las acciones más relevantes
+del espacio de acciones \(\mathbb{A}^*\):
+
+\subsubsection{Espera Condicional}
+La espera condicional o \texttt{wait\_for()} es una meta-acción que permite al agente
+esperar hasta que se cumpla una determinada condición antes de continuar con la
+ejecución de la siguiente acción. Esta acción permite ahorrar una gran parte de los
+recursos computacionales gastados mientras un elemento se carga o una ventana se abre.
+
+Para dejar al agente bloqueado, bastará con utilizar la función \texttt{sleep()}
+de Python, sin embargo la detección de la condición a esperar es una tarea más
+sensible y compleja. Para ello, se utiliza un modelo multimodal que es capaz de
+recibir una condición dada en lenguaje natural, y analizará periodicamente
+la pantalla para determinar si la condición se ha cumplido o no.
+
+Como ejemplo, el agente podría esperar a que aparezca un botón de
+\texttt{Aceptar} en la pantalla tal que:
+
+Es importante tener en cuenta los casos en los que la condición nunca se
+cumple, ya que esto podría bloquear al agente indefinidamente. Para evitarlo,
+el propio agente puede establecer un tiempo máximo de espera, tras el cual
+se cancelará la espera y se continuará con la ejecución del programa.
+
+\begin{verbatim}
+>> wait_for("Aparición del botón 'Aceptar'", timeout=30)
+Esperando a que aparezca el botón Aceptar...
+Esperando a que aparezca el botón Aceptar...
+Esperando a que aparezca el botón Aceptar...
+Condición cumplida: El botón Aceptar ha aparecido en la pantalla.
+>> 
+\end{verbatim}
+
+\subsubsection{Abrir Aplicación}
+La acción de abrir una aplicación es una de las más comunes y útiles para
+la MCE, pues una gran parte de los problemas a resolver requieren la
+interacción con aplicaciones específicas. Así pues esta acción permite traducir
+lenguaje natural a una busqueda de aplicaciones en el sistema operativo esclavo.
+
+Para realizar esto, se realiza una busqueda en múltiples directorios con usualmente
+utilizados como directorios de instalación de aplicaciones, como por ejemplo, \texttt{/usr/bin} en
+el caso de Linux o \texttt{C:\textbackslash Program Files} en el caso de Windows; y se
+utiliza un algoritmo de similitud de cadenas para encontrar la aplicación más
+similar al nombre de la aplicación proporcionado por el agente.
+
+Gracias a esta acción, el agente puede abrir e interactuar con aplicaciones tal que:
+
+\begin{verbatim}
+>> open_application("Spotify")
+Abriendo Spotify...
+>>
+\end{verbatim}
+
+Nótese que aunque esta acción puede ser completada unicamente mediante acciones elementales
+(clicks y escritura de texto), su implementación permite una interacción mas agil y eficiente
+con el sistema. Formalmente, reeemplazamos una solucion \(s_{sub}\) con una solución \(s_{opt}\)
+ambas pertenecientes a \(\mathbb{S}_p\)
+
+\subsubsection{Ejecución de Código}
+La acción de ejecución de código permite al agente ejecutar código Python, JavaScript, bash
+o powershell en la máquina esclava. Esta acción tiene optimiza especialmente
+las tareas de gestión y/o modificación de archivos, ya que permite al agente
+realizar operaciones complejas de forma rápida y eficiente.
+
+Sin embargo, es importante tener en cuenta que esta acción puede ser peligrosa si
+el agente no esta debidamente controlado, es por ello que se ha implementado 
+adicionalmente una interfaz gráfica de seguridad que mantiene al usuario informado
+del código que se está ejecutando y le permite garantizar o denegar la ejecución
+de la acción en cualquier momento.
+
+\begin{figure}[!b]
+	\centering
+	\includegraphics[scale=0.4]{figs/code_execution.png}
+	\caption{\small Interfaz gráfica de seguridad para ejecución de código. Elaboración Propia}
+	\label{fig:code_execution}
+\end{figure}
+
+\section{Capa de Ejecución}
+
+Como se ha descrito en secciones anteriores, la capa de ejecución es
+la encargada de traducir los tokens generados por la capa de cognición en
+acciones que la MCE ejecutará en la máquina esclava. 
+
+Este proceso de ejecución utiliza 2 componentes principales: 
+
+\begin{itemize}
+
+    \item \textbf{Exelent}: Exelent es un lenguaje declarativo de alto nivel 
+    concebido y diseñado en este proyecto para ser utilizado por modelos de lenguaje. 
+    Este lenguaje viene junto a un mecanismo de procesamiento que tokeniza/compila este 
+    lenguaje y lo convierte en una representación que puede ser entendida por un intérprete.
+
+    \item \textbf{Intérprete}: El intérprete es el componente encargado de
+    enlazar los tokens generados por la capa de Cognición con las acciones
+    correspondientes en el espacio de acciones \(\mathbb{B}^*\). A su vez, el
+    intérprete convierte los tokens en "tareas" que pueden ser ejecutadas.
+    Estas tareas siempre se asegura que estan definidas siguiendo el protocolo
+    TSP (Task-Sequence Protocol), que define el conjunto de reglas que ambos
+    componentes deben seguir para garantizar la correcta sincronización de los 
+    componentes.
+    
+\end{itemize}
+
+A continuación se describen con más detalle los mecanismos internos de cada uno
+de estos componente y su funcionamiento en la capa de ejecución.
+
+\subsection{Task-Sequence Protocol (TSP)}
+
+El protocolo TSP es un conjunto de reglas que define cómo deben ejecutarse
+las acciones en la MCE. Este protocolo contiene una estructura de 3 niveles 
+que permite organizar las acciones de forma jerárquica. 
+
+Estos 3 niveles son:
+
+\begin{itemize}
+
+    \item \textbf{Acción}: Una acción es la unidad más básica de ejecución en
+    el protocolo TSP. Cada acción representa una única acción correspondiente al
+    espacio de acciones \(\mathbb{B}^*\). Puesto que todas las acciones se representan
+    a su vez mediante una única funcion Python, cada acción estará compuesta por
+    un nombre de la acción y un conjunto de argumentos que serán utilizados por la
+    función correspondiente.
+
+    \item \textbf{Secuencia}: Una secuencia es un elemento que agrupa acciones
+    y/o otras secuencias y define un mecanismo de ejecución. Este mecanismo
+    puede ser secuencial, paralelo, condicional, iterativo, etc. Las secuencias y/o 
+    acciones serán ejecutadas siguiendo el mecanismo definido por la secuencia. Esto 
+    permite al agente combinar acciones de forma flexible y adaptativa.
+
+    \item \textbf{Tarea}: Una tarea es el elemento más alto del protocolo TSP y
+    representa una unidad de trabajo que puede ser ejecutada por la MCE. Una tarea
+    puede (de forma opcional) contener una prioridad, un identificador y modificadores
+    de control. 
+    
+    La prioridad permite al agente crear situaciones en las que ciertas
+    acciones deben ser ejecutadas interrumpiendo otras acciones en curso; por ejemplo,
+    un agente puede decidir parar un ánalisis si recibe una notificación de un
+    evento importante.
+    
+    El identificador es generado automaticamente por el intérprete y permite a
+    la capa de ejecución mantener un registro de las tareas en curso. 
+
+    Los modificadores de control permiten al agente definir condiciones de ejecución como
+    "esta tarea debe ejecutarse solo si la tarea anterior ha finalizado con éxito". 
+    Estos modificadores son especialmente útiles para la creación de tareas
+    complejas que requieren de una ejecución controlada y secuencial.
+
+\end{itemize}
+
+En el caso del lenguaje exelent, este esta estructurado de forma que todas las tareas
+contienen los tres niveles del protocolo TSP. A su vez, el intérprete debe ser capaz
+de convertir cualquier tarea que siga el protocolo TSP en código ejecutable por la MCE.
+
+\subsection{Exelent}
+Exelent (haciendo referencia al juego de palabras "Exe-cution Lan-guage") es un
+lenguaje declarativo que permite a los modelos de lenguaje escribir acciones
+siguiendo el protocolo TSP utilizando lenguaje natural. A su vez, este lenguaje
+esta diseñado para poder ser generado por LLMs sin necesidad de realizar
+fine-tunning o entrenamiento adicional. Esto se debe a su sencillez de
+estructura y gramática lo que permite su utilización con distintos modelos de
+forma efectiva.
+
+
+A modo de ejemplo conceptual, se presenta a continuación un fragmento de
+pseudocódigo que representa la lógica general de exelent sin exponer
+detalles de implementación concretos:
+
+\begin{verbatim}
+>> start opening firefox with priority normal
+>>     parallel run
+>>         open_application "Firefox"
+>>         wait_for "Firefox is ready"
+>>
+>>     on exit
+>>         if "Firefox is not ready" then
+>>             replan "Firefox failed to open"
+>>         else
+>>             complete "Firefox opened successfully"
+>>         end if
+>>
+>>     on error
+>>         replan "An error occurred while opening Firefox"
+>>
+\end{verbatim}
+
+En este ejemplo, el agente inicia la apertura de Firefox con una prioridad 
+normal. Dentro de esta tarea, vemos como distintos tipos de secuancia permiten
+definir la lógica de ejecución. Por ejemplo, la secuencia \texttt{parallel run} permite
+ejecutar dos acciones de forma simultánea. A su vez estas secuencias contienen 
+acciones que se ejecutarán siguiendo el protocolo TSP.
+
+Para poder tokenizar este lenguaje, se ha desarrollado un tokenizador que 
+convierte cada linea de código en estructuras de datos que serán utilizados 
+por el intérprete. A continuación, se muestra una tokenización hipotética del
+código, útil para entender la estructura del formato.
+
+
+\begin{verbatim}
+>> {
+>>     "task": {
+>>         "name": "opening firefox",
+>>         "priority": "normal",
+>>         "sequences": [
+>>             {
+>>                 "type": "parallel",
+>>                 "actions": [
+>>                     {"action": "open_application", "args": ["Firefox"]},
+>>                     {"action": "wait_for", "args": ["Firefox is ready"]}
+>>                 ]
+>>             }
+>>         ],
+>>         "on_exit": {
+>>             "if": {
+>>                 "condition": "Firefox is not ready",
+>>                 "then": {"action": "replan", "args": ["Firefox failed to open"]},
+>>                 "else": {"action": "complete", "args": ["Firefox opened successfully"]}
+>>             }
+>>         },
+>>         "on_error": {"action": "replan", "args": ["An error occurred while opening Firefox"]}
+>>     }
+>> }
+\end{verbatim}
+
+\subsection{Intérprete}
+El intérprete es el componente encargado de procesar los tokens generados desde
+el lenguaje exelent tokenizado y crear una estructura de datos ejecutable que
+cumpla las condiciones del protocolo TSP. A su vez el intérprete es el encargado
+de enlazar las acciones con las funciones correspondientes del espacio de
+acciones \(\mathbb{B}^*\).
+
+En este proyecto se han implementado dos intérpretes distintos\footnote{
+Nótese que la naturaleza modular de la MCE permite que el intérprete pueda ser
+reemplazado por cualquier otro intérprete que cumpla las condiciones del
+protocolo TSP.}, uno basado en servicios del framework ROS2 (denominado como
+ROSA) que permitió la creación de un prototipo funcional y depurable; y otro
+creado puramente en Python (denominado como Pyxcel, del juego de palabrras
+"Py-thon E-xcel-ent") que realiza enlaza las acciones \emph{just-in-time}, es
+decir, cargando los módulos necesarios únicamente cuando son necesarios.
+
+
+Pyxcel es un intérprete mas eficiente, ligero y modular que ROSA, eliminando complejidades
+innecesarias (debido principalmente a la naturaleza modular de ROS2) y permitiendo
+una integración más sencilla con el resto de la MCE.
+
+Para realizar el enlace de las acciones, el intérprete consulta un mecanismo global
+de la MCE denominado como \texttt{ItemRegistry} o \emph{Registro de Entidades}. 
+Este registro (que será descrito en más profundidad en secciones posteriores) contiene una 
+base de datos de todas las acciones disponibles en el espacio de acciones \(\mathbb{B}^*\) y
+el codigo Python correspondiente a cada una de ellas. De esta forma, el intérprete
+consulta el registro para obtener todas las acciones similares a la acción solicitada y
+realiza un proceso de desambiguación para seleccionar la acción más adecuada.
+
+Una vez se ha seleccionado la acción, el intérprete crea un proceso paralelo y vigila 
+su ejecución. Esta acción puede a su vez generar fragmentos de retroalimentación que 
+recibidos por el intérprete, serán procesados y enviados a la capa de cognición. Mientras
+la ejecución se encuentra en curso, el intérprete también puede recibir nuevos eventos
+desde la capa de cognición, donde el intérprete puede decidir si continuar con la ejecución,
+mandar señales de parada, cancelación o realizar un envío de recursos adicionales.
+
+Gracias a este mecanismo, el resto de capas de la MCE pueden utilizar lenguaje Exelent para
+poner en marcha la ejecución de una tarea, sin necesidad de preocuparse por los detalles
+de control o implementación de cada acción.
+
+\section{Capa de Cognición}
