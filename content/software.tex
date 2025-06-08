@@ -490,3 +490,409 @@ poner en marcha la ejecución de una tarea, sin necesidad de preocuparse por los
 de control o implementación de cada acción.
 
 \section{Capa de Cognición}
+
+La capa de cognición es el conjunto de componentes que permiten dotar de 
+"inteligencia" cognitiva a la MCE. Formalmente, esta capa se corresponde 
+con la función de cognición del modelo teórico de la MCE. Nótese que en esta capa
+asumiremos que la base de conocimiento \(\mathbb{C}\) es un modelo de lenguaje
+natural.
+
+Así pues esta capa contiene tanto un kit de herramientas agénticas que dotarán
+al sistema de capacidades cognitivas, como un conjunto de agentes que,
+utilizando estas herramientas, serán capaces de integrarse en la MCE y consecuentemente, 
+resolver problemas de forma autónoma.
+
+En este capítulo se describirán algunos de los mecanismos internos más 
+relevantes de la capa de cognición independientemente de los agentes que los utilicen. Estos agentes serán
+descritos en el capítulo de experimentación, donde se presentarán distintas
+aproximaciones cognitivas para la MCE.
+
+\subsection{Autodescriptor de Acciones}
+Para que un agente pueda utilizar el espacio de acciones \(\mathbb{B}^*\) de la 
+MCE, es necesario que se cumplan las siguientes condiciones:
+
+
+\begin{enumerate}
+    \item El agente debe ser previamente informado de las acciones 
+    disponibles en el espacio de acciones \(\mathbb{B}^*\).
+
+    \item El agente debe ser informado de los requisitos o entradas de cada
+    una de las acciones disponibles en el espacio de acciones, así como de los
+    posibles resultados o salidas de cada una de ellas.
+
+    \item El agente debe conocer un formato de representación adecuado para poder
+    utilizar el espacio de acciones de forma efectiva.
+\end{enumerate}
+
+Para resolver estos 3 problemas, se ha desarrollado un mecanismo denominado como
+\emph{Autodescriptor de Acciones}. Este mecanismo permite generar una descripción
+automática de las acciones disponibles en el espacio de acciones \(\mathbb{B}^*\) de la MCE.
+
+
+\begin{itemize}
+    \item \textbf{Autoformato}: El autodescriptor utiliza el \emph{registro de entidades} de la 
+    MCE para obtener todas las acciones disponibles en el espacio de acciones. Para cada una de ellas
+    utiliza un formato json que contiene el nombre de la acción, una breve descripción de su caso de uso,
+    los argumentos necesarios para su ejecución y una breve descripción de los posibles resultados.
+
+    \item \textbf{Mapa de Correspondencia}: Para cada una de las acciones, el autodescriptor enlaza
+    el nombre de la acción con un conjunto de sinónimos y términos relacionados. Todos estos términos
+    son correlacionados con la acción y se almacenarán en el mapa de correspondencia \(\Lambda\) utilizado
+    en la capa de ejecución. De esta forma, cuando el agente solicite una acción, la capa de cognición
+    podrá buscar en el mapa de correspondencia \(\Lambda\) y generar codigo exelent que
+    pueda ser ejecutado por la capa de ejecución.
+
+    A su vez el autodescriptor también genera un set de instrucciones que
+    pueden ser utilizadas por el agente para comprender cómo utilizar el espacio 
+    de acciones \(\mathbb{B}^*\) de la MCE.
+
+\end{itemize}
+
+
+Como ejemplo ilustrativo, supongamos un espacio de acciones conformado exclusivamente por
+la acción de control de teclado \texttt{write()}. El autodescriptor generaría
+la siguiente descripción:
+
+\begin{verbatim}
+>> {
+>>     "name": "write",
+>>     "description": "Escribe un texto dado en la máquina esclava.",
+>>     "args": {
+>>         "text": "El texto a escribir.
+>>     },
+>>     "returns": {
+>>         "success": "Indica si la escritura fue exitosa."
+>>     }
+>> }
+\end{verbatim}
+
+A su vez, el mapa de correspondencia \(\Lambda\) sería actualizado tal que:
+\begin{verbatim}
+>> {
+>>     "write": [
+>>         "write",
+>>         "escribir",
+>>         "introducir texto",
+>>         "input"
+>>     ]
+>> }
+\end{verbatim}
+De esta forma, el agente puede utilizar el espacio de acciones \(\mathbb{B}^*\) de la MCE
+de forma efectiva, generando código exelent siguiendo las instrucciones embedidas en el autodescriptor.
+
+\begin{verbatim}
+>> agent.invoke("Por favor escribe 'Hola Mundo' en la máquina esclava")
+>> Resultado: 
+>> ```
+>> start writing hello world with priority normal
+>>     sequentially run
+>>         write "Hello World"
+>> ```
+
+\end{verbatim}
+
+Posteriormente, este fragmento de código sería enviado a la capa de ejecución
+para ser procesado por el intérprete y ejecutado en la máquina esclava.
+
+Gracias a este mecanismo los agentes de la MCE podrán utilizar el espacio de
+acciones \(\mathbb{B}^*\) de forma efectiva, sin necesidad de preocuparse por los
+detalles de la implementación.
+
+\subsection{Buffer de Memoria}
+Siguiendo la arquitectura PMPA discutida en la sección \ref{sec:components_of_cognitive_architectures}
+la MCE implementa un buffer de memoria que permite a los agentes mantener coherencia
+a lo largo de la ejecución de una tarea. 
+
+En su forma más básica, una memoria no es más que un vector de mensajes que 
+contienen tanto la entrada del usuario, como información del entorno,
+y los resultados de las acciones realizadas por el agente. Sin embargo,
+a nivel práctico la memoria debe contener únicamente la información relevante
+que el agente necesita para tomar decisiones y resolver problemas.
+
+Para ello, la MCE implementa un buffer de memoria que en cada actualización
+realiza un análisis de la información almacenada, eliminando la información 
+redundante, de gran volumen, o que no es relevante para la tarea en curso.
+
+Como ejemplo ilustrativo, supongamos que un agente ha recibido la siguiente
+información en su buffer de memoria:
+
+\begin{verbatim}
+>> [
+>>     ("user", "Por favor escribe 'Hola Mundo' en la máquina esclava 
+>>        y luego haz click en cerrar pestaña"),
+>>     ("environment", "La máquina esclava está en el escritorio"),
+>>     ("action", "start writing hello world with priority normal"),
+>>     ("action", "write 'Hello World'"),
+>>     ("result", "Escritura exitosa")
+>> ]
+\end{verbatim}
+
+En este caso, el buffer de memoria podría eliminar algunas entradas que
+ya no son relevantes para las proximas tareas. Así, el buffer de memoria
+podría actualizarse a:
+
+\begin{verbatim}
+>> [
+>>     ("user", "Por favor escribe 'Hola Mundo' en la máquina esclava 
+>>        y luego haz click en cerrar pestaña"),
+>>     ("environment", "La máquina esclava está en el escritorio"),
+>>     ("result", "Escritura exitosa")
+>> ]
+\end{verbatim}
+
+Adicionalmente, el buffer de memoria tambíen contiene mecanismos para minimizar
+el volumen de información gráfica (como capturas de pantalla) o generación automática
+de resúmenes para salidas con gran volumen de texto. Con todos estos mecanismos,
+los agentes mantendran un estado coherente a lo largo de la ejecución de una tarea,
+sin necesidad de preocuparse por la gestión de la memoria.
+
+\subsection{Estado Cognitivo}
+El estado cognitivo es un mecanismo que permite a los agentes el uso de 
+las meta-acciones. De forma simplificada, un estado cognitivo no es mas que
+un conjunto de variables que definen el comportamiento que debe seguir
+el agente. Cuando un agente realiza una meta-acción, esta modifica su estado cognitivo, permitiendole
+influir en su propio comportamiento. 
+
+Nótese como estas \emph{variables} en el estado cognitivo no tienen una funcionalidad específica
+ni afectan en modo alguno a la MCE, sino que son utilizadas por el propio agente como indicadores 
+de su comportamiento.
+
+Como ejemplo ilustrativo, supongamos que un agente comienza una tarea 
+con el siguiente estado cognitivo:
+
+\begin{verbatim}
+>> {
+>>    "state": "normal",
+>>    "short-term-goal": "None",
+>>    "long-term-goal": "Play a song on Spotify"
+>> }
+\end{verbatim}
+
+En este caso, el agente podría cambiar su estado cognitivo a un modo de planificación
+utilizando la siguiente meta-acción:
+\begin{verbatim}
+>> start thinking with priority normal
+>>     parallel run
+>>         set_state "planning"
+>>         set_short_term_goal "Generate a plan to play a song on Spotify"
+\end{verbatim}
+
+De este modo, el agente habría cambiado su estado cognitivo a:
+\begin{verbatim}
+>> {
+>>    "state": "planning",
+>>    "short-term-goal": "Generate a plan to play a song on Spotify",
+>>    "long-term-goal": "Play a song on Spotify"
+>> }
+\end{verbatim}
+
+Así pues, el estado cognitivo no necesita alterar directamente los mecanismos internos 
+del agente, sino que su influencia se limita a modificar las instrucciones que el propio agente recibe.
+
+De forma practica, si por ejemplo, el agente recibe un estado cognitivo que le indica que previamente
+él mismo se ha asignado un objetivo a corto plazo, este seguirá su propio protocolo de ejecución
+para alcanzar dicho objetivo, cambiando su estado nuevamente cuando lo considere apropiado.
+
+El estado cognitivo a su vez, tambien puede ser programado de forma externa para 
+modificarse automáticamente en función de eventos o condiciones del entorno. Por ejemplo,
+un agente, podria cambiar su estado cognitivo a "razonamiento rápido" si llevara 
+más de 5 minutos realizando una tarea.
+
+Adicionalmente, una de las meta-acciones mas importantes de la MCE es la capacidad para establecer
+el estado de "objetivo completado". Esta meta-acción será vigilada por la MCE para determinar si
+el agente ha completado su tarea o no. Mientras que el agente no complete su objetivo, la MCE continuará
+ejecutando las acciones enviadas a la capa de ejecución. Finalmente, cuando el agente complete su objetivo,
+la MCE recuperará el control y decidirá si continuar con la ejecución de la tarea o finalizarla.
+
+\subsection{Fast Agent-Protocol (FastAP)}
+El protocolo FastAP esta basado en el protocolo de agentes discutido en la sección 
+\ref{sec:components_of_cognitive_architectures}. En contraste con el protocolo de agentes
+original, FastAP es un protocolo mucho más rápido y con una implementación sencilla que permite
+embeber todas las capacidades de un agente en una única funcion de Python.
+
+A su vez, este protocolo es totalmente síncrono y basado en un sistema de mensajes, donde
+al enviar un mensaje a un agente que utiliza el protocolo FastAP, este tomára el control
+de la MCE de forma temporal hasta que haya completado su tarea.
+
+Utilizando este protocolo todos los agentes de la MCE, independientemente de su implementación
+y mecanismos internos, pueden ser integrados en la MCE con una interfaz unificada.
+
+A su vez, FastAP esta sincronizado con el resto de capas de la MCE para realizar las 
+siguientes funcionalidades:
+
+\begin{itemize}
+
+    \item \textbf{Resolución automática de dependencias}: FastAP realiza un análisis dinámico
+    de las dependencias de cada agente, tanto a nivel de librerías como a nivel de las acciones
+    necesarias para cada agente. Una vez cone estas dependencias, FastAP generá un entorno virtual
+    que contiene todas las dependencias necesarias para la ejecución del agente. De esta forma,
+    los agentes pueden ser ejecutados sin tener conflictos con el resto de agentes o capas de la MCE.
+
+    \item \textbf{Control de Ejecución}: FastAP permite pausar, reanudar o cancelar la ejecución
+    de un agente en cualquier momento. Esto es debido, a que todos los agentes necesitan que FastAP
+    envie mensajes de confirmación para continuar con la ejecución de su tarea. Cuando una señal de 
+    parada es enviada, FastAP no envía más mensajes de confirmación al agente y, en caso de que una posterior
+    cancelación sea enviada, FastAP eliminará el entorno virtual del agente y devolverá el control a la MCE.
+
+    \item \textbf{Logging y Depuración}: FastAP permite registrar todas las acciones realizadas por el agente
+    independiente de que este utilice acciones, meta-acciones o que llame a otros agentes. Todas esta información
+    puede ser enviada a un fichero de log o a cualquier sistema de depuración que sea especificado por el sistema.
+
+\end{itemize}
+
+Este protocolo es un mecanismo fundamental en la MCE, pues sin el no sería posible la experimentación y contraste
+de distintos agentes en la MCE. A su vez, este protocolo permite a los agentes
+integrarse de forma sencilla y rápida en la MCE, pues provee de una plantilla de código
+que puede ser facilmente adaptada a los mecanismos internos de cada agente.
+
+\section{Capa de Núcleo}
+La capa de núcleo tiene la responsabilidad de conectar todos los componentes
+de la MCE y coordinar su funcionamiento. El modelo teórico de la MCE, no contempla
+ninguna función específica para esta capa, sin embargo en la práctica, esta capa
+es la que permite la correcta comunicación entre las distintas capas y componentes
+de la MCE.
+
+En este capitulo se describirán algunos de los mecanismos internos más relevantes de 
+la capa de núcleo, finalmente, se presentará una visión general del funcionamiento
+de la MCE.
+
+\subsection{Registro de Entidades}
+El registro de entidades es un mecanismo que permite a la MCE almacenar
+todas las acciones del espacio de acciones \(\mathbb{B}^*\), sus metadatos asociados
+y crear una interfaz estandarizada para que todas las capas puedan interactuar con estas acciones.
+
+Entre las funcionalidades más relevantes del registro de entidades se encuentran:
+
+\begin{itemize}
+
+    \item \textbf{Resolución de Dependencias}: Mientas que FastAP se encarga de resolver
+    las dependencias de los agentes, el registro de entidades se encarga de resolver
+    las dependencias de las acciones. Esto incluye tanto las dependencias de librerías
+    como interdependencias entre acciones. Por ejemplo, si una accion de reconocimiento de
+    caracteres (OCR) depende de la librería \texttt{pytesseract}, el registro de entidades
+    se encargará de asegurar que esta librería esté disponible en un entorno virtual
+    que luego será utilizado por la capa de ejecución.
+
+    \item \textbf{Carga Perezosa}: El registro permite la carga perezosa de acciones, es decir, las acciones
+    no se cargan hasta que son llamadas por la capa de ejecución. Esto permite que acciones que no son utilizadas no
+    consuman recursos innecesarios en el sistema. Este mecanismo resulta fundamental dado que el espacio de acciones \(\mathbb{B}^*\) 
+    es teoricamente tendiente a infinito, por lo que en caso de que la carga no fuera perezosa, el sistema
+    podría consumir una cantidad de recursos computacionales excesiva tanto en el inicio de la MCE como en la ejecución de las acciones.
+
+    \item \textbf{Mapa de Correspondencia}: El registro guarda un mapa de correspondencia \(\Lambda\) basado en multiples
+    diccionarios clave-valor que permiten a la capa de ejecución encontrar las acciones correspondientes a los tokens
+    encontrados durante el análisis del lenguaje exelent. Debido a la carga perezosa, este mapa no apunta directamente a las funcionalidades
+    de las acciones, sino que apunta a un disparador que, al ser invocado, cargará la acción en memoria y la ejecutará. En caso de 
+    haber sido cargada previamente, el disparador simplemente ejecutará la acción sin necesidad de cargarla de nuevo.
+
+    \item \textbf{Entorno Maestro-Esclavo}: El registro permite crear un entorno maestro-esclavo para dividir la ECM en dos máquinas:
+    una máquina maestra que sera la encargada de ejecutar la MCE y otra esclava que ejecutará las acciones del espacio de acciones. Para
+    realizar esto, el registro es capaz de modificar el disparador de las acciones para que, en lugar de ejecutar la acción directamente, 
+    envíe un mensaje a la máquina esclava para que esta ejecute la acción en su lugar. A su vez, el registro evita que la acción 
+    se cargue en la máquina maestra, de forma que esta no consuma recursos innecesarios.
+
+    \item \textbf{Almacenamiento de Configuraciones}: El registro tambien permite almacenar configuraciones que pueden ser utilizadas
+    por distintas capas de la MCE. De esta forma, todas las capas pueden interactuar entre sin depender de la integración de cada una de ellas.
+    A su vez, también permite al cliente cambiar el comportamiento de la MCE sin necesidad de modificar el código de cada una de las capas.
+
+    \item \textbf{Empaquetado de Acciones}: El registro permite a su vez empaquetar conjuntos de acciones en un único paquete que comparten
+    funcionalidades comunes. Estos paquetes agilizan la resolucion de dependencias y a su vez permiten a los agentes simplificar la invocación 
+    de acciones que generalmente son utilizadas juntas. Por ejemplo, un paquete de acciones podría contener acciones para abrir una 
+    aplicación, esperar a que esta se cargue y realizar una acción específica en la aplicación, etc.
+
+    \item \textbf{Ejecución Segura}: El registro tambíen permite a la MCE ejecutar acciones de forma segura,
+    esto es el registro puede cambiar las funcionalidades de las acciones para que estas
+    no se ejecuten directamente, en su lugar, pueden pedir una confirmación al usuario o bien
+    ejecutar una acción simulada que no afecte al sistema. Esto es especialmente
+    útil para acciones que pueden tener un impacto significativo en el sistema, como
+    eliminar archivos, modificar configuraciones del sistema, etc.
+
+\end{itemize}
+
+\subsection{Servicio Maestro-Esclavo}
+El servicio maestro-esclavo (SME) es el mecanismo encargado de gestionar las comunicaciones
+entre la máquina controlada (esclava) y la máquina que ejecuta la MCE (maestra). 
+
+Este servicio se realizó a traves de una implementación basada en RabbitMQ con
+mensajes de tipo string entre ambas máquinas. Debido a la naturaleza de la MCE, 
+se requiere que la ejecución de codigo en una máquina remota sea lo más segura 
+posible, por lo que esta implementación ha sido reemplazada por un mecanismo 
+externo basado en gRPC (Google Remote Procedure Call).
+
+Esta implementación ha sido integrada dentro del registro de entidades, de forma
+que toda la carga de acciones, metadatos y ejecución de funcionalidades sea mediante
+este servicio.
+
+\subsection{Ejemplo de Funcionamiento de la MCE}
+De forma ilustrativa, el siguiente ejemplo muestra el funcionamiento
+de la MCE desde el punto de vista de la capa de núcleo. En este ejemplo,
+el usuario solicitará al agente que abra Spotify.
+
+Nótese que multiples mecanismos internos han sido omitidos para
+simplificar el ejemplo, a su vez, algunas simplificaciones han sido 
+realizadas para facilitar la comprensión del funcionamiento de la MCE.
+
+\begin{enumerate}
+    \item El usuario arranca la MCE:
+    \begin{enumerate}
+        \item El registro de entidades es inicializado y se realiza una precarga 
+        de todas las acciones (y metadatos) disponibles en el espacio de acciones \(\mathbb{B}^*\).
+        \item El Interprete, por ejemplo Pyxcel es inicializado y se enlaza con el registro de entidades 
+        y al mapa de correspondencia \(\Lambda\).
+        \item Se inicializa la capa de cognición y se carga el agente integrado en 
+        la MCE, por ejemplo, DarkVFR
+        \item DarkVFR inicializa los modulos de la capa de cognición necesarios, como por ejemplo,
+        inicializa el buffer de memoria y el estado cognitivo con los valores por defecto.
+        \item FastAP es inicializado y se enlaza con la capa de cognición. Crea un entorno virtual,
+        analiza las dependencias del agente, y si existen dependencias obligatorias, carga en el 
+        registro de entidades las acciones necesarias.
+        \item FastAP enlaza al agente (DarkVFR) con el interprete, permitiendole enviar acciones a
+        la capa de ejecución.
+        \item FastAP crea un servidor de control para el usuario, de forma que este pueda pararlo,
+        cancelarlo o reiniciarlo en cualquier momento.
+    \end{enumerate}
+
+    \item La MCE esta lista para recibir comandos, el usuario solicita al agente que abra Spotify 
+    usando el comando "Por favor abre Spotify".
+
+    \begin{enumerate}   
+        \item FastAP recibe el mensaje del usuario y lo envía a DarkVFR
+        \item DarkVFR consulta el registro de entidades y utiliza el autodescriptor de acciones para generar un set
+        de instrucciones para el LLM.
+        \item DarkVFR guarda el mensaje en su buffer de memoria, y llama al LLM para realizar 
+        una planificación.
+        \item El LLM genera un plan de acción utilizando el lenguaje exelent, por ejemplo:
+        \begin{verbatim}
+        >> start opening spotify with priority normal
+        >>     sequentially run
+        >>         open_application "Spotify"
+        \end{verbatim}
+        \item DarkVFR envia el plan de acción a la capa de ejecución a traves del interprete.
+    \end{enumerate}
+
+    \item El interprete recibe el plan de acción y lo envia a la capa de ejecución.
+    \begin{enumerate}
+        \item El interprete analiza el plan de acción y lo tokeniza, generando una estructura de datos
+        que sigue el protocolo TSP.
+        \item El interprete consulta el registro de entidades y encuentra la acción \texttt{open\_application}
+        y sus metadatos asociados a traves de su identificador único y el mapa de correspondencia \(\Lambda\).
+        \item El interprete crea un proceso paralelo y ejecuta la acción \texttt{open\_application} con los
+        argumentos necesarios, en este caso, el nombre de la aplicación "Spotify".
+        \item El registro de entidades es disparado con la acción \texttt{open\_application} y carga todas las librerias
+        necesarias para la ejecución de la acción.
+        \item El interprete controla la ejecución de la acción y espera su resultado.
+        \item Una vez que la acción ha sido completada, el interprete recibe el resultado y lo envía de vuelta a DarkVFR.
+    \end{enumerate}
+
+    \item DarkVFR recibe el resultado de la acción y lo guarda en su buffer de memoria.
+    \item DarkVFR decide finalizar la tarea debido a que el objetivo ha sido completado (omitido en este ejemplo).
+    \item La ECM recibe el flag de tarea completada y finaliza la ejecución de la tarea.
+    \begin{enumerate}
+        \item El registro de entidades revisa si hay librerias que pueden ser liberadas, y si es así, las elimina.
+        \item FastAP deja el entorno virtual del agente bloqueado hasta proximo aviso.
+        \item El interprete librera los recursos utilizados por acciones previas y revisa que no haya procesos abiertos.
+    \end{enumerate}
+\end{enumerate}
+
+
+\section{Otros Componentes}
