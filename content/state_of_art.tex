@@ -184,6 +184,7 @@ construir agentes a partir de LLMs:
     \textit{congelamiento} de capas pueden ser usadas para mejorar los
     resultados del ajuste fino.
 
+\label{sec:prompting}
 \item \textbf{Ingeniería de Prompts (Prompting):} Sin modificar los parámetros del
     LLM, todavía podemos cambiar el comportamiento esperado introduciendo un
     \textit{prompt} diseñado para un objetivo específico que la IA recibirá como
@@ -192,7 +193,7 @@ construir agentes a partir de LLMs:
     y permite la definición de estructuras de razonamiento más complejas. Es importante
     señalar que, aunque este método puede generar riesgos de seguridad debido a un
     mal comportamiento de la IA, técnicas como la Cadena de Pensamiento (Chain of
-    Thought, CoT), la Generación Aumentada por Recuperación (RAG) o los
+    Thought, CoT, ReAct), la Generación Aumentada por Recuperación (RAG) o los
     \textit{Few-Shot prompting} conducen a propiedades de razonamiento de alto nivel
     que no se han logrado con otros métodos. \cite{sahoo2024systematic}
     profundiza más en este campo.
@@ -272,6 +273,7 @@ avances en las arquitecturas cognitivas para establecer qué estándar será
 finalmente adoptado.
 
 \section {Mecanismos Canónicos en Arquitecturas Cognitivas}
+\label{sec:canonical_mechanisms}
 En los últimos años han emergido una multiples de mecanismos funcionales que, 
 si bien no constituyen aún un estándar formal, están siendo ampliamente 
 adoptados en arquitecturas cognitivas. Estos mecanismos permiten una integración 

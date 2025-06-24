@@ -896,3 +896,169 @@ realizadas para facilitar la comprensión del funcionamiento de la MCE.
 
 
 \section{Otros Componentes}
+A continuación se describen otros componentes de este proyecto que,
+si bien no son parte de la MCE, se han desarrollado para facilitar
+la experimentación y el desarrollo de la MCE.
+
+\subsection{Instalador Modular Automático}
+La MCE ha sido diseñada para ser modular y funcionar con distintos 
+componentes de forma independiente. Por este motivo, se ha desarrollado
+un instalador que permite seleccionar distintas opciones de configuración
+y realizar una instalación automatizada de la MCE de forma unificada.
+
+Este instalador permite, entre otros las siguientes configuraciones:
+
+\begin{itemize}
+    \item Seleccionar la capa de ejecución a utilizar (Pyxcel o ROSA).
+    \item Seleccionar el agente/s a utilizar (DarkVFR, FastReact, etc.) 
+    con sus respectivaas dependencias. 
+    \item Detectar automaticamente el sistema operativo
+    \item Seleccionar una instalación con soporte para el servicio maestro-esclavo
+    \item Integrar claves y tokens de acceso a servicios externos que serán guardados
+    en ficheros de configuración seguros y anónimos.
+    \item Instalar la MCE en un entorno virtual de Conda (o directamente en el sistema)
+    \item Actualizar automaticamente las variables de entorno del sistema necesarias
+    para proximas ejecuciones.\footnote{En versiones previas del espacio de ejecución
+    como el caso de ROSA, el instalador automáticamente realizaba el proceso
+    de compilación y enlazado de los paquetes de ROS2 necesarios.}
+    \item Instalar herramientas de desarrollo como linters y formateadores de código.
+\end{itemize}
+
+Estas funcionalidades, a su vez, pueden ser accedidas desde tres interfaces distintas:
+
+\begin{itemize}
+    \item \textbf{Interfaz Gráfica de Usuario}: Esta interfaz permite la instalación de
+    la MCE utilizando la configuración más actualizada de forma sencilla y rápida.
+
+    \item \textbf{Interfaz Gráfica de Desarrollador}: Esta interfaz permite
+    la instalación de la MCE utilizando una configuración avanzada, permitiendo 
+    al usuario personalizar cada aspecto de la instalación y seleccionar
+    componentes específicos según sus necesidades.
+
+    \item \textbf{Script de Instalación}: Este script permite la instalación
+    de la MCE de forma totalmente automática y sin intervención del usuario.
+    Este script es especialmente útil para la integración en múltiples dispositivos
+    con una configuración similar.
+\end{itemize}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.2]{figs/installer.png}
+	\caption{\small Interfaz gráfica de desarrollador. Fuente: elaboración propia.}
+	\label{fig:installer}
+\end{figure}
+
+Este instalador ha sido desarrollado en Python y utiliza la librería
+\texttt{streamlit} para la creación de la interfaz gráfica. A su vez, el 
+instalador esta envuelto en dos scripts, uno para Windows y otro para
+Linux, que permiten la ejecución del instalador sin necesidad
+de instalar ninguna dependencia más allá de tener Python3 instalado en
+la máquina.
+
+\subsection{Imagen y Kernel para Sistemas Embebidos}
+Con el fin de poder integrar la MCE en un sistema embebido, 
+(donde la MCE se ejecuta como maestro en el sistema embebido
+y la máquina esclava es un dispositivo externo) se ha desarrollado
+una imagen de sistema y un bootloader personalizado.
+
+Ambas imagenes han sido desarrolladas desde la placa de desarrollo
+IMX8MP de NXP, con un microprocesador ARM Cortex A53 de 4 núcleos. No
+se asegura que estas imagenes sean compatibles en su totalidad con otros 
+sistemas embebidos, sin embargo, se ha realizado un esfuerzo para que
+esta imagen sea lo más portable posible y pueda ser utilizada en otros
+entornos.
+
+\subsubsection{Kernel Personalizado}
+
+Usando el repositorio \textit{linux-imx} de \cite{nxp-imx-linux}
+como base. Se ha compilado un kernel personalizado que contiene
+los requisitos mínimos necesarios para la ejecución de la MCE.
+
+Concretamente, en este kernel se han incluido los drivers necesarios
+para la comunicación con la máquina esclava a través de MarvellWifi;
+arquitectura de red estandar para comunicaciones a traves de, por ejemplo,
+el chipset 88W8997 de Marvell.
+
+A su vez, se han generado los headers necesarios para la compilación
+de drivers adicionales que puedan ser necesarios en el futuro.
+
+Junto a este kernel, se ha generado un DTB (Device Tree Blob) que
+describe la configuración del hardware del sistema embebido y permite
+que el kernel reconozca y utilice correctamente los dispositivos
+conectados.
+
+Finalmente, se ha generado fichero \texttt{extlinux.conf} que permite
+configurar el arranque del sistema y seleccionar el root filesystem
+a utilizar.
+
+\subsubsection{Imagen del Sistema}
+La imagen del sistema ha sido generada a partir de la distribución
+\emph{Arch Linux ARM} y contiene los siguientes componentes ya instalados:
+
+\begin{itemize}
+    \item \textbf{Python 3}: El lenguaje de programación utilizado para la MCE,
+    así como todas las dependencias necesarias para su ejecución.
+    \item \textbf{Drivers de Red}: Los drivers necesarios para la comunicación
+    con la máquina esclava a través de MarvellWifi.
+    \item \textbf{Herramientas de Desarrollo}: Herramientas como \texttt{git}, \texttt{make},
+    \texttt{gcc} y \texttt{btop} para la gestión del sistema y desarrollo de la MCE.
+    \item \textbf{Arranque Automático}: Se ha configurado el sistema para que la MCE se 
+    pueda arrancar automáticamente al inicio del sistema gracias a un servicio de systemd.
+    \item \textbf{Configuración básica de Seguridad}: Se ha configurado el sistema para 
+    que la MCE se ejecute con un usuario específico y se han deshabilitado
+    los servicios innecesarios para minimizar los riesgos de posibles ataques.
+\end{itemize}
+
+Nótese como a esta imágen no se le ha integrado una interfaz gráfica o gestor de ventanas, 
+pues esta solo es necesaria en la máquina esclava, donde se ejecutarán las acciones del espacio 
+de acciones \(\mathbb{B}^*\).
+
+\subsubsection{Integración de Kernel e Imagen del Sistema}
+Para integrar el kernel y la imagen del sistema, basta con crear
+dos particiones en la tarjeta SD del sistema embebido:
+
+\begin{itemize}
+    \item \textbf{Partición de arranque}: Esta partición contendrá la imagen del kernel personalizado,
+    el DTB y el fichero \texttt{extlinux.conf}.
+    \item \textbf{Partición raíz}: Esta partición contendrá la imagen del
+    sistema operativo.
+\end{itemize}
+
+Es importante revisar que el bootloader este configurado para arrancar
+el kernel desde la partición de arranque. Este bootloader generalmente
+se encuentra en el comienzo de la memoria de la tarjeta SD y esta
+disponible en la documentación del sistema embebido.
+
+\subsection{Integración Continua}
+Utilizando las librerías \texttt{pre-commit} y \texttt{pytest} se ha generado
+un set de pruebas automatizadas que permite verificar el correcto
+funcionamiento de la MCE y sus componentes. 
+
+Estas pruebas son ejecutadas automáticamente cada vez que se realiza un commit
+en el repositorio de la MCE, permitiendo verificar que los cambios realizados
+no rompen ninguna funcionalidad existente.
+
+Entre los tests automáticos se encuentran:
+\begin{itemize}
+
+    \item \textbf{Test Unitarios}: Estos tests verifican el correcto funcionamiento
+    de mecanismos independientes como el registro de entidades, el interprete, etc.
+
+    \item \textbf{Test de Integración}: Estos tests verifican que los distintos
+    componentes de la MCE funcionan correctamente juntos. Por ejemplo, se verifica
+    que el interprete puede cargar acciones desde el registro de entidades y ejecutarlas
+
+    \item \textbf{Bootstraps}: Estos tests pueden ser ejecutados manualmente y verifican
+    que la MCE puede ser arrancada correctamente, utilizando distintos compoentes y 
+    configuraciones.
+
+    \item \textbf{Tests del espacio de acciones \(\mathbb{B}^*\)}: Estos tests verifican 
+    que las acciones del espacio de acciones son realmente ejecutadas en la máquina local y/o 
+    máquina esclava y que modifican el entorno de forma correcta.
+
+\end{itemize}
+
+Adicionalmente, se ha configurado el sistema de pre-commit para que
+realice un proceso de formateo y revisión de código antes de realizar un commit.
+Esto permite mantener un código limpio y legible, así como evitar errores comunes
+de sintaxis o estilo.

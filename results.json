@@ -1,0 +1,394 @@
+{
+    "planex": {
+        "hello-world": {
+            "1": {
+                "actions": 1,
+                "time-to-completion": 13.26,
+                "token-usage": 1231,
+                "success": true
+            },
+            "2": {
+                "actions": 1,
+                "time-to-completion": 13.05,
+                "token-usage": 1210,
+                "success": true
+            },
+            "3": {
+                "actions": 1,
+                "time-to-completion": 13.15,
+                "token-usage": 1229,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "success": false,
+                "reason:": "out-of-actions"
+            },
+            "2": {
+                "success": false,
+                "reason:": "out-of-actions"
+            },
+            "3": {
+                "success": false,
+                "reason:": "out-of-actions"
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "success": false,
+                "reason:": "out-of-time"
+            },
+            "2": {
+                "success": false,
+                "reason:": "out-of-time"
+            },
+            "3": {
+                "success": false,
+                "reason:": "out-of-time"
+            }
+        }
+    },
+    "planexv2": {
+        "hello-world": {
+            "1": {
+                "actions": 1,
+                "time-to-completion": 12.95,
+                "token-usage": 1212,
+                "success": true
+            },
+            "2": {
+                "actions": 1,
+                "time-to-completion": 13.55,
+                "token-usage": 1225,
+                "success": true
+            },
+            "3": {
+                "actions": 1,
+                "time-to-completion": 13.66,
+                "token-usage": 1212,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "success": false,
+                "reason": "out-of-actions"
+            },
+            "2": {
+                "success": false,
+                "reason": "out-of-actions"
+            },
+            "3": {
+                "success": false,
+                "reason": "out-of-actions"
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "success": false,
+                "reason": "out-of-time"
+            },
+            "2": {
+                "success": false,
+                "reason": "out-of-time"
+            },
+            "3": {
+                "success": false,
+                "reason": "out-of-time"
+            }
+        }
+    },
+    "replan": {
+        "hello-world": {
+            "1": {
+                "actions": 1,
+                "time-to-completion": 6.52,
+                "token-usage": 650,
+                "success": true
+            },
+            "2": {
+                "actions": 1,
+                "time-to-completion": 11.98,
+                "token-usage": 1482,
+                "success": true
+            },
+            "3": {
+                "actions": 2,
+                "time-to-completion": 15.33,
+                "token-usage": 1452,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "success": false,
+                "reason": "out-of-actions"
+            },
+            "2": {
+                "actions": 8,
+                "time-to-completion": 102.33,
+                "token-usage": 5978,
+                "success": true
+            },
+            "3": {
+                "success": false,
+                "reason": "out-of-actions"
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "success": false,
+                "reason": "out-of-actions"
+            },
+            "2": {
+                "success": false,
+                "reason": "out-of-actions"
+            },
+            "3": {
+                "success": false,
+                "reason": "out-of-actions"
+            }
+        }
+    },
+    "xplore": {
+        "hello-world": {
+            "1": {
+                "actions": 3,
+                "time-to-completion": 9.42,
+                "token-usage": 12490,
+                "success": true
+            },
+            "2": {
+                "actions": 5,
+                "time-to-completion": 24.17,
+                "token-usage": 22954,
+                "success": true
+            },
+            "3": {
+                "actions": 2,
+                "time-to-completion": 8.97,
+                "token-usage": 12896,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "actions": 5,
+                "time-to-completion": 29.34,
+                "token-usage": 73990,
+                "success": true
+            },
+            "2": {
+                "actions": 7,
+                "time-to-completion": 38.62,
+                "token-usage": 95113,
+                "success": true
+            },
+            "3": {
+                "actions": 4,
+                "time-to-completion": 26.03,
+                "token-usage": 49961,
+                "success": true
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "success": false,
+                "reason": "out-of-time"
+            },
+            "2": {
+                "success": false,
+                "reason": "out-of-time"
+            },
+            "3": {
+                "actions": 32,
+                "time-to-completion": 482.11,
+                "token-usage": 512990,
+                "success": true
+            }
+        }
+    },
+    "fastreact": {
+        "hello-world": {
+            "1": {
+                "actions": 3,
+                "time-to-completion": 19.74,
+                "token-usage": 4402,
+                "success": true
+            },
+            "2": {
+                "actions": 2,
+                "time-to-completion": 7.57,
+                "token-usage": 4190,
+                "success": true
+            },
+            "3": {
+                "actions": 2,
+                "time-to-completion": 4.72,
+                "token-usage": 3171,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "actions": 4,
+                "time-to-completion": 62.82,
+                "token-usage": 42110,
+                "success": true
+            },
+            "2": {
+                "actions": 5,
+                "time-to-completion": 77.35,
+                "token-usage": 46250,
+                "success": true
+            },
+            "3": {
+                "actions": 4,
+                "time-to-completion": 53.71,
+                "token-usage": 41121,
+                "success": true
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "actions": 18,
+                "time-to-completion": 305.46,
+                "token-usage": 295400,
+                "success": true
+            },
+            "2": {
+                "success": false,
+                "reason": "out-of-time"
+            },
+            "3": {
+                "success": false,
+                "reason": "out-of-time"
+            }
+        }
+    },
+    "visual-fast-react": {
+        "hello-world": {
+            "1": {
+                "actions": 2,
+                "time-to-completion": 9.83,
+                "token-usage": 2901,
+                "success": true
+            },
+            "2": {
+                "actions": 1,
+                "time-to-completion": 8.64,
+                "token-usage": 2750,
+                "success": true
+            },
+            "3": {
+                "actions": 2,
+                "time-to-completion": 10.27,
+                "token-usage": 3005,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "actions": 6,
+                "time-to-completion": 22.48,
+                "token-usage": 49500,
+                "success": true
+            },
+            "2": {
+                "actions": 5,
+                "time-to-completion": 27.63,
+                "token-usage": 47890,
+                "success": true
+            },
+            "3": {
+                "actions": 4,
+                "time-to-completion": 21.31,
+                "token-usage": 36800,
+                "success": true
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "actions": 16,
+                "time-to-completion": 232.85,
+                "token-usage": 221547,
+                "success": true
+            },
+            "2": {
+                "actions": 18,
+                "time-to-completion": 265.42,
+                "token-usage": 250310,
+                "success": true
+            },
+            "3": {
+                "actions": 15,
+                "time-to-completion": 210.96,
+                "token-usage": 198700,
+                "success": true
+            }
+        }
+    },
+    "darkvfr": {
+        "hello-world": {
+            "1": {
+                "actions": 2,
+                "time-to-completion": 5.21,
+                "token-usage": 1891,
+                "success": true
+            },
+            "2": {
+                "actions": 2,
+                "time-to-completion": 4.88,
+                "token-usage": 1785,
+                "success": true
+            },
+            "3": {
+                "actions": 2,
+                "time-to-completion": 5.03,
+                "token-usage": 1820,
+                "success": true
+            }
+        },
+        "play-a-song": {
+            "1": {
+                "actions": 3,
+                "time-to-completion": 15.94,
+                "token-usage": 16844,
+                "success": true
+            },
+            "2": {
+                "actions": 4,
+                "time-to-completion": 17.32,
+                "token-usage": 16526,
+                "success": true
+            },
+            "3": {
+                "actions": 3,
+                "time-to-completion": 14.21,
+                "token-usage": 14515,
+                "success": true
+            }
+        },
+        "navigate-web": {
+            "1": {
+                "actions": 12,
+                "time-to-completion": 112.47,
+                "token-usage": 98058,
+                "success": true
+            },
+            "2": {
+                "actions": 14,
+                "time-to-completion": 129.23,
+                "token-usage": 103612,
+                "success": true
+            },
+            "3": {
+                "actions": 12,
+                "time-to-completion": 105.34,
+                "token-usage": 96277,
+                "success": true
+            }
+        }
+    }
+}
