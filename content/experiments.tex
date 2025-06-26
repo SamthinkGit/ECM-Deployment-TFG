@@ -647,11 +647,9 @@ tareas complejas de forma eficiente y efectiva.
 \subsection{Comparativa Global de Agentes}
 
 Además del análisis detallado por entorno, resulta útil realizar una comparación
-global entre los agentes para identificar tendencias generales y comportamientos
-destacados. Con este fin, la siguiente tabla presenta un resumen de las métricas de 
+global para identificar tendencias generales de los agentes. Con este fin, 
+la siguiente tabla presenta un resumen de las métricas de 
 cada agente a lo largo de los tres entornos evaluados.
-
-\subsubsection{Tiempos de completado promedio}
 
 \begin{table}[!h]
 \centering
@@ -672,7 +670,37 @@ DarkVFR          & 5.71      & 15.82  & 115.68 \\
 \end{tabular}
 \end{table}
 
-\bigskip
+En la Tabla~\ref{tab:avg-times} se presentan los tiempos medios de resolución,
+en segundos, obtenidos por cada agente en los tres entornos evaluados:
+\emph{Hello World}, \emph{Play a Song} y \emph{Buy on Amazon}. 
+
+Como puede observarse, los agentes \textbf{Planex} y \textbf{PlanexV2} presentan
+una ejecución eficiente en el entorno más sencillo (\emph{Hello World}), con
+tiempos promedio de 13.15 y 13.39 segundos respectivamente. No obstante, ambos
+agentes fallaron en resolver las tareas más complejas, lo que sugiere una falta
+de adaptabilidad a entornos dinámicos que requieren razonamiento contextual o
+verificación previa del estado del entorno.
+
+Por el contrario, los agentes \textbf{Xplore} y aquellos basados en \textbf{FastReact} 
+fueron capaces de completar satisfactoriamente los tres entornos, aunque con
+diferencias relevantes en el tiempo de ejecución. \textbf{Xplore} muestra
+tiempos considerablemente más altos, especialmente en el entorno \emph{Buy on
+Amazon}, con un promedio de 482.11 segundos, lo cual indica una estrategia más
+exhaustiva y posiblemente redundante. En comparación, \textbf{FastReact} logra
+una mayor eficiencia con un tiempo medio de 305.46 segundos en ese mismo
+entorno.
+
+Finalmente, destaca el rendimiento de \textbf{DarkVFR}, que no solo completa
+exitosamente todos los entornos, sino que además lo hace con los tiempos más
+bajos en cada uno de ellos. En particular, alcanza un tiempo medio de apenas
+115.68 segundos en la tarea más exigente, posicionándose como el agente más
+eficiente del conjunto evaluado.
+
+Estos resultados sugieren que, si bien la estrategia de ejecución directa puede
+ser efectiva en entornos simples, la capacidad de verificación, adaptabilidad y
+optimización en agentes como \textbf{DarkVFR} es determinante para un
+rendimiento robusto en escenarios complejos.
+
 
 \subsubsection{Consumo de tokens y coste estimado en “Buy on Amazon”}
 
@@ -695,7 +723,43 @@ DarkVFR            &  99\,649 & 0.04   \\
 \end{tabular}
 \end{table}
 
-\bigskip
+La Tabla~\ref{tab:tokens-cost-navigate-web} presenta el consumo promedio de
+tokens y el coste estimado por ejecución para cada agente durante la tarea
+\emph{Buy on Amazon}. Dado que los experimentos se han llevado a cabo en un
+entorno de bajos recursos (sistema empotrado), todas las llamadas a modelos 
+de lenguaje se realizaron mediante APIs en la nube y por tanto, el coste
+asociado se calcula en función del número de tokens consumidos.
+
+El promedio de tokens mostrado corresponde al total consumido desde el envío del
+primer prompt hasta la finalización exitosa de la tarea, incluyendo
+razonamientos intermedios, reformulaciones y planificación. En todos los casos
+se ha utilizado el modelo \texttt{gpt-4o-mini} de OpenAI, cuyo coste en el momento
+de redacción de esta memoria es de \emph{0.45€ por millón de tokens}. Este modelo fue
+seleccionado por ofrecer un equilibrio adecuado entre rendimiento y coste.
+
+Tal como se aprecia en los datos, existe una relación directa entre el tiempo de
+ejecución observado en la Tabla~\ref{tab:avg-times} y el número total de tokens
+consumidos. Los agentes con estrategias más lentas y deliberativas tienden a
+generar más interacciones con la LLM, lo que incrementa significativamente el
+coste asociado. Esto es consistente con el diseño de los agentes: mientras que
+la capa de ejecución y el espacio de acciones se ejecuta de forma prácticamente 
+instantánea, la mayor parte del tiempo y consumo proviene del proceso de planificación y razonamiento
+a través del modelo de lenguaje.
+
+Entre todos los agentes evaluados, \textbf{DarkVFR} destaca no solo por ser el
+más rápido, sino también por lograr la ejecución con el menor coste: tan solo
+\emph{0.04€ por tarea}. Este rendimiento está alineado con su arquitectura, que
+reutiliza razonamientos previos de forma optimizada y minimiza las llamadas
+innecesarias a la LLM.
+
+Como punto de referencia, se ha comparado este rendimiento con el de
+\textsc{Operator}, un agente desarrollado por OpenAI. Si bien el número exacto
+de tokens consumidos por \textsc{Operator} no es público, estimaciones
+realizadas en condiciones locales utilizando el mismo modelo \texttt{gpt-4o-mini} 
+indican un coste por tarea de navegación web que oscila entre \emph{0.30€} y \emph{0.50€}, es
+decir, entre 7 y 12 veces más costoso que \textbf{DarkVFR}. Este resultado
+refuerza la eficiencia del diseño propuesto en este trabajo, tanto desde una
+perspectiva computacional como económica.
 
 \subsubsection{Motivos de fallo}
 
@@ -718,29 +782,23 @@ DarkVFR      & 0/3 (—)                  & 0/3 (—)              & 0/3 (—)  
 \end{tabular}
 \end{table}
 
+Finalmente, en la Tabla~\ref{tab:failure-reasons-count} se detallan los motivos
+de fallo observados para cada agente en los diferentes entornos de prueba. En el
+caso de \textbf{Planex}, \textbf{PlanexV2} y \textbf{RePlan}, los errores están
+dominados por situaciones en las que el agente agotó el número máximo de
+acciones permitidas (\emph{out-of-actions}). Esto sugiere una dificultad
+estructural para explorar de forma eficiente el entorno o para identificar las
+acciones relevantes necesarias para completar la tarea.
 
-La tabla \ref{tab:completion-rate} muestra cómo los agentes más simples,
-como \emph{Planex} y \emph{PlanexV2}, completan con éxito únicamente el entorno
-más básico. A medida que la complejidad aumenta, estos agentes fallan
-de forma consistente al carecer de mecanismos robustos de recuperación, visión
-o razonamiento adaptativo.
+Por otro lado, los agentes \textbf{Xplore} y \textbf{FastReact} presentan fallos
+principalmente asociados al agotamiento del tiempo disponible
+(\emph{out-of-time}). Esto indica que, si bien son capaces de generar acciones
+útiles e interactuar con el entorno de forma efectiva, sus estrategias de
+exploración pueden resultar demasiado lentas o poco eficientes para completar
+tareas complejas dentro del marco temporal impuesto.
 
-Por el contrario, los agentes de tipo \emph{FastReact}, y en particular sus
-variantes visuales como \emph{V-FastReact} y \emph{DarkVFR}, logran una tasa
-de completado del \textbf{100\%}, mostrando una mayor capacidad de adaptación
-a entornos desconocidos o cambiantes.
-
-En cuanto al consumo de recursos, especialmente el número de tokens procesados
-por cada agente en sus interacciones, se han observado diferencias notables
-que serán analizadas en la sección posterior. Este aspecto es fundamental para
-valorar la eficiencia cognitiva y computacional de cada arquitectura.
-
-Por último, es importante destacar que aunque agentes como \emph{Xplore} o
-\emph{FastReact} no completan todas las tareas, sí muestran estrategias 
-flexibles y comportamientos interesantes que pueden resultar relevantes para
-su reutilización o mejora en futuras iteraciones.
-
-Este análisis global permite establecer una primera noción del balance entre
-simplicidad arquitectónica y robustez adaptativa, cuestión que será retomada 
-en el capítulo de conclusiones con mayor profundidad.
-
+En contraste, los agentes \textbf{V-FastReact} y \textbf{DarkVFR} han sido
+capaces de completar satisfactoriamente los tres entornos sin registrar fallos.
+En estos casos, las métricas de tiempo de ejecución y coste computacional se
+convierten en los principales indicadores comparativos de rendimiento, ya que la
+robustez funcional está garantizada.

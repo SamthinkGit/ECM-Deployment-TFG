@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ms.aux
+Reallocating 'name_of_file' (item size: 1) to 18 items.
+A level-1 auxiliary file: content/cover.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: content/frontmatter.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: content/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: content/state_of_art.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: content/objectives.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: content/platform.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: content/theory.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: content/software.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: content/experiments.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: content/conclusions.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Database file #1: citations.bib
+Warning--there's a number but no volume in saeidnia2023welcome
+Warning--empty school in vervaeke1999naturalistic
+Warning--empty booktitle in wu2023autogen
+You've used 26 entries,
+            1935 wiz_defined-function locations,
+            612 strings with 8199 characters,
+and the built_in function-call counts, 10087 in all, are:
+= -- 921
+> -- 622
+< -- 16
++ -- 234
+- -- 222
+* -- 872
+:= -- 1890
+add.period$ -- 76
+call.type$ -- 26
+change.case$ -- 234
+chr.to.int$ -- 26
+cite$ -- 29
+duplicate$ -- 334
+empty$ -- 548
+format.name$ -- 254
+if$ -- 1851
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 19
+newline$ -- 130
+num.names$ -- 78
+pop$ -- 213
+preamble$ -- 1
+purify$ -- 237
+quote$ -- 0
+skip$ -- 263
+stack$ -- 0
+substring$ -- 431
+swap$ -- 23
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 152
+warning$ -- 3
+while$ -- 62
+width$ -- 0
+write$ -- 317
+(There were 3 warnings)
