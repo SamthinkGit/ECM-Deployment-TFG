@@ -21,16 +21,20 @@ arquitectura cognitiva subyacente.
 El problema central que aborda este proyecto es, por tanto, el diseño y
 validación de una arquitectura cognitiva generalista que pueda ser implementada
 en un sistema físico, el cual funcionará como interfaz entre el usuario, el
-entorno y los módulos de decisión de la MCE. Para ello, se propone una
-aproximación progresiva que comienza con el análisis teórico de los principios
-fundamentales de la arquitectura, continúa con el desarrollo de un entorno
-experimental para evaluar distintas configuraciones e implementaciones, y
+entorno y los módulos de decisión de la MCE. De forma simplificada, la MCE
+actuará como un algoritmo/agente autónomo capaz de traducir peticiones del 
+usuario como "abrir un navegador web", "abre spotify y pon una cancion" a 
+un control continuo y consistente del ordenador sin requerir de un plan preprogramado.
+
+Para ello, se propone una aproximación progresiva que comienza con el análisis 
+teórico de los principios fundamentales de la arquitectura, continúa con el 
+desarrollo de un entorno experimental para evaluar distintas configuraciones e implementaciones, y
 culmina con la integración de un prototipo funcional y parcialmente completo, 
 entendiendose por completo su integración desde un nivel hardware con bajos recursos
 a una implementación software que satisfaga las propiedades de la MCE. 
 
 Este prototipo, aunque limitado en términos de accesibilidad general, 
-permitirá demostrar la viabilidad técnica y escalabilidad del concepto, 
+permitirá demostrar la viabilidad técnica y escalabilidad de una MCE, 
 con vistas a su futura aplicación en dispositivos de uso cotidiano como 
 ordenadores personales o teléfonos inteligentes.
 
@@ -87,8 +91,8 @@ siguientes requisitos:
     lenguaje serán accedidos vía endpoints remotos, con la computación pesada
     delegada a servicios en la nube.
     
-    \item La MCE deberá ser capaz de abrir programas instalados, reorganizar
-    archivos, navegar por Internet y generar programas simples a partir de
+    \item La MCE deberá ser capaz de abrir programas instalados, 
+    navegar por Internet y controlar el teclado y/o ratón a partir de
     instrucciones en lenguaje natural.
     
     \item La arquitectura deberá estar construida sobre una infraestructura
@@ -133,8 +137,8 @@ capacidades, se integran arquitecturas cognitivas experimentales, y se realizan
 múltiples pruebas para mejorar el desempeño y adaptabilidad del sistema.
 
 A lo largo de este proceso, se han llevado a cabo numerosos experimentos sobre
-entornos no controlados, utilizando ordenadores convencionales como plataforma
-de prueba. Este enfoque busca replicar situaciones reales donde la MCE pueda
+entornos no controlados, utilizando tanto ordenadores convencionales como placas (Raspberry o IMX8MP) 
+como plataforma de prueba. Este enfoque busca replicar situaciones reales donde la MCE pueda
 enfrentarse a condiciones impredecibles y tareas diversas.
 
 Todo el desarrollo del proyecto se gestiona mediante un repositorio de GitHub,
@@ -143,7 +147,10 @@ Además, se ha construido una wiki detallada donde se documentan los avances
 teóricos y prácticos, así como manuales de uso de los componentes desarrollados,
 instrucciones de instalación y los resultados obtenidos en cada iteración
 experimental. Esta documentación permite un seguimiento exhaustivo del proceso y
-garantiza la trazabilidad de las decisiones tomadas a lo largo del proyecto.
+garantiza la trazabilidad de las decisiones tomadas a lo largo del proyecto. Así
+pues, cada uno de los componentes descritos en la Arquitectura Software y experimentación
+cuentan con su propia sección en la wiki. Donde se incluyen de forma adicional tutoriales y guías
+de uso para los componentes mas relevantes (agentes, registro de entidades, etc).
 
 \section{Plan de Trabajo}
 Siguiendo la metodología descrita en la anterior sección, el proyecto se estructura en seis fases principales:
@@ -153,6 +160,9 @@ Siguiendo la metodología descrita en la anterior sección, el proyecto se estru
 
     \item \textbf{Revisión teórica}: Análisis del estado del arte en
     arquitecturas cognitivas y LLMs.
+
+    \item \textbf{Diseño teórico}: Definición hipotética de la arquitectura de la MCE
+    a mediante un conjunto de principios y estrategias fundamentales.
     
     \item \textbf{Diseño inicial}: Definición de la estructura modular de la
     MCE.
@@ -166,7 +176,7 @@ Siguiendo la metodología descrita en la anterior sección, el proyecto se estru
     \item \textbf{Despliegue en hardware}: Adaptación de la MCE a un
     microprocesador ARM Cortex-A55.
     
-    \item \textbf{Ajustes finales}: Validación funcional y
+    \item \textbf{Ajustes finales}: Validación funcional en entornos de pruebas y
     preparación del sistema para su utilización.
 
 \end{enumerate}
