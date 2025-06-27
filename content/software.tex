@@ -147,7 +147,7 @@ Un caso de uso un poco más complejo es el de utilizar combinaciones de teclas
 o atajos de teclado. En este caso, podemos utilizar las funciones de \texttt{pyautogui}
 o \texttt{uinput} para enviar una secuencia de teclas, sin embargo, necesitamos definir
 un estándar para la representación de estas combinaciones. Para resolver esto, se
-ha creado un diccionario de combinaciones de teclas que incluyen multiples represntaciones
+ha creado un diccionario de combinaciones de teclas que incluyen multiples representaciones
 de una misma combinacion o tecla, como puede ser \texttt{CTRL}, \texttt{CONTROL} o \texttt{CTRL\_LEFT}.
 De esta forma el agente podría utilizar la siguiente sintaxis:
 
@@ -242,11 +242,6 @@ la pantalla para determinar si la condición se ha cumplido o no.
 Como ejemplo, el agente podría esperar a que aparezca un botón de
 \texttt{Aceptar} en la pantalla tal que:
 
-Es importante tener en cuenta los casos en los que la condición nunca se
-cumple, ya que esto podría bloquear al agente indefinidamente. Para evitarlo,
-el propio agente puede establecer un tiempo máximo de espera, tras el cual
-se cancelará la espera y se continuará con la ejecución del programa.
-
 \begin{lstlisting}[caption={Espera condicional}, label={cod:wait_for}]
 >> wait_for("Aparicion del boton 'Aceptar'", timeout=30)
 Esperando a que aparezca el boton Aceptar...
@@ -255,6 +250,12 @@ Esperando a que aparezca el boton Aceptar...
 Condicion cumplida: El boton Aceptar ha aparecido en la pantalla.
 >> 
 \end{lstlisting}
+
+Es importante tener en cuenta los casos en los que la condición nunca se
+cumple, ya que esto podría bloquear al agente indefinidamente. Para evitarlo,
+el propio agente puede establecer un tiempo máximo de espera, tras el cual
+se cancelará la espera y se continuará con la ejecución del programa.
+
 
 \subsubsection{Abrir Aplicación}
 La acción de abrir una aplicación es una de las más comunes y útiles para
@@ -473,7 +474,7 @@ reemplazado por cualquier otro intérprete que cumpla las condiciones del
 protocolo TSP.}, uno basado en servicios del framework ROS2 (denominado como
 ROSA) que permitió la creación de un prototipo funcional y depurable; y otro
 creado puramente en Python (denominado como Pyxcel, del juego de palabrras
-"Py-thon E-xcel-ent") que realiza enlaza las acciones \emph{just-in-time}, es
+"Py-thon E-xcel-ent") que enlaza las acciones \emph{just-in-time}, es
 decir, cargando los módulos necesarios únicamente cuando son necesarios.
 
 
@@ -500,12 +501,14 @@ Gracias a este mecanismo, el resto de capas de la MCE pueden utilizar lenguaje E
 poner en marcha la ejecución de una tarea, sin necesidad de preocuparse por los detalles
 de control o implementación de cada acción.
 
+\todo{Añadir un diagrama aquí del funcionamiento del intérprete :D}
+
 \section{Capa de Cognición}
 
 La capa de cognición es el conjunto de componentes que permiten dotar de 
 "inteligencia" cognitiva a la MCE. Formalmente, esta capa se corresponde 
 con la función de cognición del modelo teórico de la MCE. Nótese que en esta capa
-asumiremos que la base de conocimiento \(\mathbb{C}\) es un modelo de lenguaje
+asumiremos que la base de conocimiento \(\mathbb{C}^*\) es un modelo de lenguaje
 natural.
 
 Así pues esta capa contiene tanto un kit de herramientas agénticas que dotarán
@@ -633,12 +636,27 @@ información en su buffer de memoria:
 
 \begin{lstlisting}[caption={Buffer de memoria}, label={cod:memory_buffer_example}]
 >> [
->>     ("user", "Por favor escribe 'Hola Mundo' en la maquina esclava 
->>        y luego haz click en cerrar ventana"),
->>     ("environment", "La maquina esclava esta en el escritorio"),
->>     ("action", "start writing hello world with priority normal"),
->>     ("action", "write 'Hello World'"),
->>     ("result", "Escritura exitosa")
+>>   (
+>>     "user",
+>>     "Por favor escribe 'Hola Mundo' en la maquina 
+>>      esclava y luego haz click en cerrar ventana"
+>>   ),
+>>   (
+>>     "environment",
+>>     "La maquina esclava esta en el escritorio"
+>>   ),
+>>   (
+>>     "action",
+>>     "start writing hello world with priority normal"
+>>   ),
+>>   (
+>>     "action",
+>>     "write 'Hello World'"
+>>   ),
+>>   (
+>>     "result",
+>>     "Escritura exitosa"
+>>   )
 >> ]
 \end{lstlisting}
 
@@ -648,10 +666,19 @@ podría actualizarse a:
 
 \begin{lstlisting}[caption={Buffer de memoria actualizado}, label={cod:memory_buffer_updated_example}]
 >> [
->>     ("user", "Por favor escribe 'Hola Mundo' en la maquina esclava 
->>        y luego haz click en cerrar ventana"),
->>     ("environment", "La maquina esclava esta en el escritorio"),
->>     ("result", "Escritura exitosa")
+>>   (
+>>     "user",
+>>     "Por favor escribe 'Hola Mundo' en la maquina esclava 
+>>      y luego haz click en cerrar ventana"
+>>   ),
+>>   (
+>>     "environment",
+>>     "La maquina esclava esta en el escritorio"
+>>   ),
+>>   (
+>>     "result",
+>>     "Escritura exitosa"
+>>   )
 >> ]
 \end{lstlisting}
 
@@ -687,17 +714,17 @@ En este caso, el agente podría cambiar su estado cognitivo a un modo de planifi
 utilizando la siguiente meta-acción:
 \begin{lstlisting}[caption={Cambio de estado cognitivo}, label={cod:cognitive_state_change_example}]
 >> start thinking with priority normal
->>     parallel run
->>         set_state "planning"
->>         set_short_term_goal "Generate a plan to play a song on Spotify"
+>>   parallel run
+>>     set_state "planning"
+>>     set_short_term_goal "Generate a plan to play a song on Spotify"
 \end{lstlisting}
 
 De este modo, el agente habría cambiado su estado cognitivo a:
 \begin{lstlisting}[caption={Estado cognitivo actualizado}, label={cod:cognitive_state_updated_example}]
 >> {
->>    "state": "planning",
->>    "short-term-goal": "Generate a plan to play a song on Spotify",
->>    "long-term-goal": "Play a song on Spotify"
+>>  "state": "planning",
+>>  "short-term-goal": "Generate a plan to play a song on Spotify",
+>>  "long-term-goal": "Play a song on Spotify"
 >> }
 \end{lstlisting}
 
@@ -739,7 +766,7 @@ siguientes funcionalidades:
 
     \item \textbf{Resolución automática de dependencias}: FastAP realiza un análisis dinámico
     de las dependencias de cada agente, tanto a nivel de librerías como a nivel de las acciones
-    necesarias para cada agente. Una vez cone estas dependencias, FastAP generá un entorno virtual
+    necesarias para cada agente. Una vez con estas dependencias, FastAP generá un entorno virtual
     que contiene todas las dependencias necesarias para la ejecución del agente. De esta forma,
     los agentes pueden ser ejecutados sin tener conflictos con el resto de agentes o capas de la MCE.
 
@@ -759,6 +786,8 @@ Este protocolo es un mecanismo fundamental en la MCE, pues sin el no sería posi
 de distintos agentes en la MCE. A su vez, este protocolo permite a los agentes
 integrarse de forma sencilla y rápida en la MCE, pues provee de una plantilla de código
 que puede ser facilmente adaptada a los mecanismos internos de cada agente.
+
+\todo{Otro diagrama por acá de FastAP con los agentes}
 
 \section{Capa de Núcleo}
 La capa de núcleo tiene la responsabilidad de conectar todos los componentes
