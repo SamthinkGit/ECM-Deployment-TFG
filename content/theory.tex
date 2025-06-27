@@ -19,14 +19,32 @@ unicidad e irreductibilidad de la representación de problemas busca eliminar
 ambigüedades y redundancias en el espacio de entrada.
  \end{itemize}
 
+Este modelo se inspira en el trabajo de \citet{wang2024survey}, quienes
+presentan un extenso estudio sobre agentes autónomos basados en modelos de
+lenguaje. En dicho trabajo, se identifican componentes fundamentales como la
+memoria, la planificación, los ejecutores de acciones y los módulos de
+percepción como elementos clave para el diseño de agentes cognitivos. Esta
+caracterización ha servido de base para arquitecturas reconocidas como
+\textsc{AutoGPT}, la cual adopta explícitamente esta metodología funcional en su
+diseño. 
+
+En este contexto, la Máquina de Cognición-Ejecución se
+propone como una formalización de estas ideas, con el objetivo de establecer un
+conjunto de principios elementales que traduzcan dichos componentes a una
+estructura lógica bien definida, reutilizable y extrapolable a sistemas reales.
+La MCE busca así dotar de un marco axiomático y sistemático a la implementación
+de capacidades cognitivas en agentes autónomos.
+
+\section{Definición operativa de la MCE}
+
 Sea $\mathbb{P}$ un conjunto infinito e hipotético de problemas. Cada problema
 $p \in \mathbb{P}$ es independiente y mutuamente exclusivo respecto de los
 demás, es decir,
 
-\[
- \forall p_i, p_j \in \mathbb{P}, \; p_i \ne p_j \Rightarrow \neg (p_i \equiv
+\begin{equation}
+\forall p_i, p_j \in \mathbb{P}, \; p_i \ne p_j \Rightarrow \neg (p_i \equiv
 p_j)
- \]
+\end{equation}
 
 donde $\equiv$ denota equivalencia semántica bajo una interpretación cognitiva.
 Asumimos que cada problema $p$ está representado mediante una descripción única
@@ -40,31 +58,31 @@ puede realizar, ya sea con su entorno o consigo mismo.
 Sea $\mathbb{S}$ un conjunto hipotético de soluciones. Cada solución $s \in
 \mathbb{S}$ está compuesta por una secuencia finita y ordenada de acciones:
 
-\[
- s = (a_1, a_2, \dots, a_n), \; a_i \in \mathbb{A}, \; n \in \mathbb{N}^+
-\]
+\begin{equation}
+s = (a_1, a_2, \dots, a_n), \; a_i \in \mathbb{A}, \; n \in \mathbb{N}^+
+\end{equation}
 
 Dicha secuencia es inmutable y única para la solución dada. El orden de las
 acciones es relevante, es decir, dos soluciones que contengan las mismas
 acciones en distinto orden se consideran distintas.
 
-Para cada problema $p \in \mathbb{P}$ existe al menos un subconjunto no vacío de
+Como axioma, se asume que para cada problema $p \in \mathbb{P}$ existe al menos un subconjunto no vacío de
 soluciones $\mathbb{S}_p \subset \mathbb{S}$ tal que cada $s \in \mathbb{S}_p$
 satisface completamente el problema $p$. Notamos esta relación como:
 
-\[
+\begin{equation}
  s \in \mathbb{S} _p \iff s \in \mathbb{S} \land s \models p
- \]
+\end{equation}
 
 donde $\models$ denota que $s$ satisface (resuelve) el problema $p$ bajo la
-semántica del sistema cognitivo. No se considerarán en este modelo las
+semántica del sistema cognitivo. No se considerarán por ahora las
 soluciones parciales ni grados de satisfacción.
 
 \begin{itemize}
  \item Esta relación establece una correspondencia semántica
 entre el espacio de problemas y el de soluciones.
  \item El modelo asume que la
-existencia de una solución completa implica que el problema ha sido resuelto de
+existencia de una solución completa implica que el problema puede ser resuelto de
 forma definitiva.
  \end{itemize}
 
@@ -73,16 +91,17 @@ son mutuamente excluyentes, pero equivalente en tanto cada secuencia de acciones
 difiere
  estructuralmente de las demás pero todas satisfacen el mismo problema:
 
-\[
+\begin{equation}
  \forall s_i, s_j \in \mathbb{S}_p,\; s_i \ne s_j \Rightarrow s_i \equiv s_j
-\]
+\end{equation}
 
 Finalmente, asumimos la existencia de al menos una solución por cada problema:
 
-\[
+
+\begin{equation}
  \forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} _p \text{ tal que } s
 \models p
- \]
+\end{equation}
 
 
 Dados los elementos previamente definidos —el espacio de problemas $\mathbb{P}$,
@@ -107,10 +126,10 @@ que $s \models p$.
 Temporalmente, asumiremos que $C$ es una \textit{base de conocimiento ideal},
 lo que implica que:
 
-\[
- \forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} \text{ tal que } s
+\begin{equation}
+\forall p \in \mathbb{P}, \; \exists s \in \mathbb{S} \text{ tal que } s
 \models p \text{ y } s \text{ es derivable a partir de } C
- \]
+\end{equation}
 
 Cabe destacar que $C$ no necesariamente posee una representación simbólica
 explícita. En el caso de sistemas cognitivos implementados mediante redes
@@ -129,16 +148,16 @@ $p$.
 
 Formalmente, se define como una función computable:
 
-\[
+\begin{equation}
  T: \mathbb{P} \times C \times \mathbb{A} \to \mathbb{S}
- \]
+\end{equation}
 
 tal que:
 
-\[
+\begin{equation}
  \forall p \in \mathbb{P}, \; T(p, C, \mathbb{A}) = s \in \mathbb{S}_p
 \subseteq \mathbb{S}, \quad \text{con } s \models p
- \]
+\end{equation}
 
 Es decir, la MCE implementa un proceso de transformación cognitiva que mapea un
 problema bien definido al conjunto de acciones resolutivas adecuadas, utilizando
@@ -160,17 +179,19 @@ creciente que, en cada etapa de aprendizaje o evolución del sistema, contiene u
 subconjunto de \(\mathbb{A}\). Formalmente, podemos describirlo de la siguiente
 manera:
 
-\[
+
+\begin{equation}
  \mathbb{A}^* \;=\; \bigcup_{n=0}^{\infty} A_n^*, 
  \quad
  A_0^* =
 \varnothing, 
  \quad
  A_n^* \subset A_{n+1}^* \subseteq \mathbb{A} \quad,
- \]
-\[
+\end{equation}
+
+\begin{equation}
  \text{y } \lim_{n \to \infty} A_n^* \;=\; \mathbb{A}.
- \]
+\end{equation}
 
 \begin{itemize}
  \item En la etapa inicial ($n = 0$), \(\mathbb{A}^*\) contiene
@@ -199,7 +220,7 @@ p\) derivable a partir de \(C_1^*\). A medida que se “amplía” el alcance, s
 obtiene otro aproximador \(C_2^*\) con \(P_1 \subset P_2 \subset \mathbb{P}\).
 Formalmente:
 
-\[
+\begin{equation}
  P_1 \subset P_2 \subset \cdots \subset \mathbb{P}, 
  \quad
  C_1^*
@@ -209,7 +230,7 @@ Formalmente:
  \quad
  \text{y}\quad
 \bigcup_{i=1}^{\infty} P_i \;=\; \mathbb{P}.
- \]
+\end{equation}
 
 \begin{itemize}
  \item Cada \(C_i^*\) es una base de conocimiento “parcial” que
@@ -224,11 +245,10 @@ base de conocimiento ideal \(C\).
 
 En particular:
 
-\[
- \forall p \in P_i,\;\; \exists\,s \in \mathbb{S} \text{ tal que } s \models
-p 
+\begin{equation}
+ \forall p \in P_i,\;\; \exists\,s \in \mathbb{S} \text{ tal que } s \models p 
  \quad\text{y}\quad s \text{ se deriva de } C_i^*.
- \]
+\end{equation}
 
 Si un problema \(p\) no pertenece al alcance de \(C_i^*\), entonces \(C_i^*\) no
 contiene la información necesaria para derivar ninguna solución \(s\)
@@ -241,25 +261,26 @@ de la MCE en cada etapa de evolución. Denotemos por \(\mathbb{S}^*\) el
 aproximador del espacio de soluciones, que crece a medida que \(\mathbb{A}^*\) y
 \(C^*\) se expanden:
 
-\[
+\begin{equation}
  \mathbb{S}^* \;=\; \bigcup_{n=0}^\infty S_n^*, 
  \quad 
  S_n^* \subset
 \mathbb{S}, 
  \quad
  S_0^* = \varnothing,
- \]
- \[
- \text{y } \lim_{n \to \infty}
-S_n^* = \mathbb{S}.
- \]
+\end{equation}
 
-El sistema cognitivo parcial, en la etapa \(n\), está representado por:
+\begin{equation}
+ \text{y } \lim_{n \to \infty} S_n^* = \mathbb{S}.
+\end{equation}
 
-\[
+En este contexto, una MCE en la etapa \(n\), está representada por:
+
+\begin{equation}
  T: \mathbb{P} \;\times\; A_n^* \;\times\; C_n^* \;\longrightarrow\; S_n^*,
-\]
- \[
+\end{equation}
+
+\begin{equation}
  \forall\,p \in \mathbb{P},\quad T(p,\,A_n^*,\,C_n^*) = 
  \begin{cases}
 \,s \in S_n^* \subseteq \mathbb{S}, & \text{si existe } s \models p \text{
@@ -267,7 +288,7 @@ usando } A_n^*,\,C_n^*,\\
  \,\varnothing, & \text{en caso contrario (no se
 encuentra solución).}
  \end{cases}
- \]
+\end{equation}
 
 \begin{itemize}
  \item Si \(p\) requiere alguna acción \(a \notin A_n^*\),
@@ -279,15 +300,16 @@ exige conocimiento que no está en \(C_n^*\) (i.e., \(p \notin
  \item
 Conforme \(n\) crece, \(A_n^* \to \mathbb{A}\) y \(C_n^* \to C\), de modo que
 \(S_n^* \to \mathbb{S}\). En el límite, recuperamos la MCE ideal:
- \[
- T:
-\mathbb{P} \times \mathbb{A} \times C \;\longrightarrow\; \mathbb{S}.
- \]
+
+\begin{equation}
+ T: \mathbb{P} \times \mathbb{A} \times C \;\longrightarrow\; \mathbb{S}.
+\end{equation}
+
 \end{itemize}
 
 Con esto, hemos establecido una descripción rigurosa de cómo una MCE
 parcial—equipada con aproximadores de acciones y de conocimiento—puede 
-converge hacia una MCE ideal en el infinito al incrementar sucesivamente
+converger hacia una MCE ideal en el infinito al incrementar sucesivamente
 \(A_n^*\) y \(C_n^*\).
 
 \section{Técnica de Expansión \(\mathbb{B}^*\)}
@@ -302,20 +324,21 @@ número de problemas sin tener que incorporar todas las acciones de
 
 Sea \(\mathbb{B}\) un conjunto finito de acciones con la siguiente propiedad:
 
-\[
+
+\begin{equation}
 \forall a \in \mathbb{A}, \;\; a \text{ puede expresarse como una composición finita de elementos en } \mathbb{B}.
-\]
+\end{equation}
 
 Más concretamente, existe una función de composición
-\[
+\begin{equation}
 \mathrm{comp} : \bigcup_{n=1}^N \mathbb{B}^n \;\longrightarrow\; \mathbb{A},
-\]
+\end{equation}
 tal que para cada \(a \in \mathbb{A}\) existe alguna secuencia
 \((b_{i_1},b_{i_2},\dots,b_{i_k}) \in \mathbb{B}^k\) (con \(k \le N\)) que
 satisface
-\[
+\begin{equation}
 \mathrm{comp}(b_{i_1},b_{i_2},\dots,b_{i_k}) \;=\; a.
-\]
+\end{equation}
 
 En entornos parcialmente controlados —por ejemplo, un ordenador— es habitual que
 \(\mathbb{B}\) sea el conjunto finito de acciones de muy bajo nivel (como
@@ -324,10 +347,13 @@ cualquier problema \(p \in \mathbb{P}\) en ese entorno.
 
 Diremos que \(\mathbb{B}\) es completo si, para cada problema \(p \in
 \mathbb{P}\) existe al menos una solución
-\[
+
+\begin{equation}
 s = (a_1,a_2,\dots,a_n) \in \mathbb{S}_p
-\]
-tal que cada \(a_i\) se puede descomponer en términos de acciones en
+\end{equation}
+
+
+tal que cada \(a_i\), esta se puede descomponer en términos de acciones en
 \(\mathbb{B}\). En consecuencia, cada problema \(p\) tiene al menos una solución
 compuesta exclusivamente por elementos de \(\mathbb{B}\).
 
@@ -338,11 +364,11 @@ la práctica, sin embargo, existe un criterio de \emph{optimalidad} según algú
 parámetro (tiempo, recursos, longitud de la secuencia, etc.). Denotemos por
 “\(\succ\)” la relación de orden en \(\mathbb{S}_p\) tal que
 
-\[
+\begin{equation}
 s_i \succ s_j 
 \quad \Longleftrightarrow \quad 
 \text{\(s_i\) es más óptima que \(s_j\) respecto a algún parámetro dado.}
-\]
+\end{equation}
 
 Bajo la propiedad de completitud de \(\mathbb{B}\), la MCE que solo dispone de
 \(\mathbb{B}\) (y de un \(C^*\) parcial) generará siempre una \emph{solución
@@ -354,43 +380,50 @@ soluciones óptimas según \(\succ\)) sin renunciar a la garantía de encontrar
 alguna solución cuando \(p\) está en el alcance de \(C^*\), definimos la técnica
 de \emph{expansión \(\mathbb{B}^*\)} de la siguiente forma:
 
-\[
+\begin{equation}
 \mathbb{B}^* \;=\; \mathbb{B} \;\cup\; \mathbb{A}^*,
-\]
+\end{equation}
+
 Con esto, definimos una MCE expandida que opera con el espacio de acciones
 \(\mathbb{B}^*\) y la base de conocimiento parcial \(C^*\):
 
-\[
+\begin{equation}
 T:\, \mathbb{P} \;\times\; \mathbb{B}^* \;\times\; C^* 
 \;\longrightarrow\; \mathbb{S}^*.
-\]
+\end{equation}
+
 Para cada problema \(p \in \mathbb{P}\), se tiene:
 
-\[
+\begin{equation}
+\begin{aligned}
 T(p,\,\mathbb{B}^*,\,C^*) 
-\;=\; 
+&= 
 \begin{cases}
-\,s_{\text{sub}} \in S_0^* = \mathbb{S}_{\mathbb{B}}^*, 
+s_{\text{sub}} \in S_0^* = \mathbb{S}_{\mathbb{B}}^*, 
 & \text{si } p \in \mathrm{alcance}(C^*) 
-\quad\bigl(\text{solución subóptima}\bigr),\\
-\,s_{\text{opt}} \in S_n^*, 
-\;n>0,\;s_{\text{opt}}\succ s_{\text{sub}}, 
-& \text{si } \mathbb{A}^*\text{ ha crecido lo suficiente para incluir acciones} \\
-& \quad\text{que optimicen }\;s_{\text{sub}}.
+\;(\text{solución subóptima}), \\
+s_{\text{opt}} \in S_n^*,\; n>0,\; s_{\text{opt}}\succ s_{\text{sub}}, 
+& \text{si } \mathbb{A}^*\text{ ha crecido lo suficiente} \\
+& \quad \text{para incluir acciones que optimicen } s_{\text{sub}}.
 \end{cases}
-\]
+\end{aligned}
+\end{equation}
+
 En particular:
 
 \begin{itemize}
     \item Si \(p \in \mathrm{alcance}(C^*)\), existe siempre al menos una secuencia \(s_{\text{sub}}\) compuesta únicamente de acciones de \(\mathbb{B}\). Así, \(T_{\mathbb{B}^*}\) retorna una solución inicial subóptima.
     \item A medida que \(\mathbb{A}^*\) incorpora nuevas acciones de \(\mathbb{A}\), la MCE podrá generar secuencias \(s_{\text{opt}}\) tales que \(s_{\text{opt}}\succ s_{\text{sub}}\). Es decir, la calidad de la solución mejora conforme crece \(\mathbb{A}^*\).
+
     \item En el límite, cuando \(\mathbb{A}^* \to \mathbb{A}\), recuperamos la MCE ideal:
-    \[
+    \leavevmode
+    \begin{equation}
     T_{\text{ideal}} : \mathbb{P} \times \mathbb{A} \times C \;\longrightarrow\; \mathbb{S},
     \quad
     T_{\text{ideal}}(p,\,\mathbb{A},\,C) = s_{\mathrm{opt}} \in \mathbb{S}_p,
-    \]
+    \end{equation}
     donde \(s_{\mathrm{opt}}\) es una solución óptima (o al menos factible) para \(p\).
+
 \end{itemize}
 
 Este mecanísmo nos otorga varias ventajas:
@@ -402,8 +435,8 @@ Este mecanísmo nos otorga varias ventajas:
     A medida que \(\mathbb{A}^*\) crece, las nuevas acciones permiten \emph{refinar} o \emph{acortar} la secuencia \(s_{\text{sub}}\), generando \(s_{\text{mej}}\) tales que \(s_{\text{mej}}\succ s_{\text{sub}}\).
     \item \textbf{Modularidad:}  
     El comportamiento del sistema se divide en dos componentes:  
-    \(\bullet\) Un conjunto finito \(\mathbb{B}\) que asegura solución inicial.  
-    \(\bullet\) Un aproximador \(\mathbb{A}^*\) que mejora la óptima con el tiempo.  
+        \subitem Un conjunto finito \(\mathbb{B}\) que asegura solución inicial.  
+        \subitem Un aproximador \(\mathbb{A}^*\) que mejora la óptima con el tiempo.  
     \item \textbf{Flexibilidad en la Base de Conocimiento:}  
     Mientras \(C^*\) siga ampliándose, la técnica \(\mathbb{B}^*\) garantiza que el sistema resolverá todos los problemas en el alcance, independientemente de la extensión actual de \(\mathbb{A}^*\).
 \end{enumerate}
@@ -411,7 +444,7 @@ Este mecanísmo nos otorga varias ventajas:
 En resumen, la expansión \(\mathbb{B}^*\) propone combinar un conjunto finito de
 acciones \(\mathbb{B}\) con un aproximador creciente \(\mathbb{A}^*\) para
 equilibrar la garantía mínima de resolución (vía \(\mathbb{B}\)) y la
-optimización progresiva de soluciones (vía \(\mathbb{A}^*\)).```
+optimización progresiva de soluciones (vía \(\mathbb{A}^*\)).
 
 \section{Máquina de Cognición-Ejecución}
 
@@ -434,15 +467,19 @@ concreta.
 
 Definimos la función de cognición \(T_C\) como un mapeo entre problemas \(p\) y
 la intención de acciones \(C^*\):
-\[
+
+\begin{equation}
 T_C : \mathbb{P} \;\times\; C^* \;\longrightarrow\; \Lambda,
-\]
+\end{equation}
+
 tal que
-\[
+
+\begin{equation}
 T_C(p,\,C^*) \;=\; \lambda 
 \;\Longleftrightarrow\;
 \lambda = (\alpha_1, \alpha_2, \dots, \alpha_m),
-\]
+\end{equation}
+
 donde cada \(\alpha_i\) es un token simbólico en \(\mathbb{A}^*\) que representa
 la \emph{intención} de una acción necesaria para resolver \(p\). En esta etapa,
 \(\lambda\) codifica \emph{qué} acciones deben ejecutarse (por ejemplo, “hacer
@@ -450,55 +487,58 @@ clic en el ícono de Firefox”), pero no realiza la interacción efectiva.
 
 Definimos la función de ejecución \(T_E\) como un mapeo entre la intención
 \(\lambda\) y las acciones concretas \(B^*\) que se ejecutarán en el entorno:
-\[
+\begin{equation}
 T_E : \Lambda \;\times\; B^* \;\longrightarrow\; \mathbb{S} \;,
-\]
+\end{equation}
+
 donde, para \(\lambda = (\alpha_1, \dots, \alpha_m)\):
-\[
+\begin{equation}
 T_E(\lambda,\,B^*) 
 \;=\; 
 \,s = (b_1, b_2, \dots, b_m) \in \mathbb{S}_p \in \mathbb{S}
-\]
+\end{equation}
 Aquí, cada \(\alpha_i\) se traduce a una acción concreta \(b_i \in B^*\)
 mediante el mapa implícito en \(\Lambda\). Si todas las acciones simbólicas
 \(\alpha_i\) tienen su correspondiente \(b_i \in B^*\), \(T_E\) construye la
 secuencia \(s\) que satisface \(p\).
 
 En este sentido, \(\Lambda\) es el \emph{lenguaje intermedio} entre la capa de
-cognición y la de ejecución. Cada \(\lambda = (\alpha_1, \ldots, \alpha_m)\) con
-\(\alpha_i \in \mathbb{A}^*\) se asocia unívocamente con una acción concreta
+cognición y la de ejecución. Cada \(\lambda = (\alpha_1, \ldots, \alpha_m)\) 
+ se asocia unívocamente con una acción concreta
 \(b_i \in B^*\). En la práctica, \(\Lambda\) se implementa como un módulo
 traductor que mapea tokens simbólicos a rutinas de ejecución concretas.
 
 Finalmente, la MCE en su forma canónica se corresponde con la composición:
-\[
+
+\begin{equation}
 \begin{aligned}
 T_C\bigl(p,\,C^*\bigr) = \lambda \;|\; T_E(\lambda,\,\mathbb{B}^*) &= s \\
 \end{aligned}
-\]
+\end{equation}
 
-Donde \(s \models p\) siempre que \(\mathbb{B}\)  sea completo y \(\lambda\) se
-derive de \(C^*\).
+Donde \(s \models p\) siempre que \(\mathbb{B}\) sea completo y \(\p\) esté
+dentro del alcance de \(C^*\).
 
 \subsection*{Ejemplo ilustrativo}
 
 Supongamos que \(p\) es el problema “Abrir Firefox”.  
 \begin{enumerate}
     \item \textbf{Capa de Cognición.} Dado \(p\) y una base de conocimiento parcial \(C^*\), la función de cognición \(T_C\) genera la intención \(\lambda\):
-    \[
+   \begin{equation}
     T_C(\text{“Abrir Firefox”},\,C^*) = \lambda = (\alpha_1)\, \rightarrow\,
     \alpha_1 = \text{“hacer clic en el ícono de Firefox”}.
-    \]
+    \end{equation}
     \item \textbf{Capa de Ejecución.}  
     Dado \(\lambda = (\alpha_1)\), el traductor \(\Lambda\) asocia  
     \(\alpha_1 \mapsto b_1\), donde  
-    \[
+    \begin{equation}
     b_1 = \texttt{"click(500, 900)"} \in \mathbb{B}^*.
-    \]
+    \end{equation}
     Entonces,
-    \[
+   \begin{equation}
     T_E\bigl((\alpha_1),\,B^*\bigr) \;=\; s = (b_1).
-    \]
+    \end{equation}
+
     Dado que \(b_1 \in \mathbb{B}^*\), obtenemos \(s \models p\) y Firefox se abre.
 \end{enumerate}
 

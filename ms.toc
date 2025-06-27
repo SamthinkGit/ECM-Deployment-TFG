@@ -1,3 +1,4 @@
+\babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Inteligencia Artificial}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Fundamentos de la IA Moderna}{5}{section.1.2}%
@@ -15,58 +16,59 @@
 \contentsline {section}{\numberline {3.4}Plan de Trabajo}{20}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Plataforma de Desarrollo}{22}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Arch Linux}{22}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Kit de Desarrollo}{22}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Kit de Desarrollo}{23}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Python}{24}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Langchain/LangSmith}{24}{section.4.4}%
 \contentsline {section}{\numberline {4.5}PyAutoGUI/Pynput}{25}{section.4.5}%
 \contentsline {section}{\numberline {4.6}OpenCV / Pillow}{26}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Fundamento Teórico}{27}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Implementación de una MCE en un sistema cognitivo}{30}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Técnica de Expansión \(\mathbb {B}^*\)}{32}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Máquina de Cognición-Ejecución}{35}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Arquitectura Software}{38}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Capas y Módulos de la MCE}{38}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Espacio de Acciones}{40}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Acciones Elementales}{41}{subsection.6.2.1}%
-\contentsline {subsubsection}{Control del Teclado}{41}{subsubsection*.14}%
-\contentsline {subsubsection}{Captura de Pantalla}{42}{subsubsection*.15}%
-\contentsline {subsubsection}{Control del Mouse}{43}{subsubsection*.17}%
-\contentsline {subsection}{\numberline {6.2.2}Espacio de Acciones \(\mathbb {A}^*\)}{43}{subsection.6.2.2}%
-\contentsline {subsubsection}{Espera Condicional}{44}{subsubsection*.18}%
-\contentsline {subsubsection}{Abrir Aplicación}{44}{subsubsection*.19}%
-\contentsline {subsubsection}{Ejecución de Código}{45}{subsubsection*.20}%
-\contentsline {section}{\numberline {6.3}Capa de Ejecución}{46}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Task-Sequence Protocol (TSP)}{46}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Exelent}{47}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Intérprete}{49}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Capa de Cognición}{50}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Autodescriptor de Acciones}{51}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Buffer de Memoria}{53}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Estado Cognitivo}{54}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Fast Agent-Protocol (FastAP)}{55}{subsection.6.4.4}%
-\contentsline {section}{\numberline {6.5}Capa de Núcleo}{57}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Registro de Entidades}{57}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Servicio Maestro-Esclavo}{59}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}Ejemplo de Funcionamiento de la MCE}{59}{subsection.6.5.3}%
-\contentsline {section}{\numberline {6.6}Otros Componentes}{61}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Instalador Modular Automático}{61}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Imagen y Kernel para Sistemas Embebidos}{63}{subsection.6.6.2}%
-\contentsline {subsubsection}{Kernel Personalizado}{63}{subsubsection*.23}%
-\contentsline {subsubsection}{Imagen del Sistema}{64}{subsubsection*.24}%
-\contentsline {subsubsection}{Integración de Kernel e Imagen del Sistema}{64}{subsubsection*.25}%
-\contentsline {subsection}{\numberline {6.6.3}Integración Continua}{65}{subsection.6.6.3}%
-\contentsline {chapter}{\numberline {7}Experimentación}{66}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Aproximaciones Agénticas}{66}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Características Técnicas y Funcionales}{69}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Hipótesis del Experimento}{71}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Entorno de Pruebas y Evaluación}{72}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Resultados de la Evaluación}{74}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Rendimiento por Entorno de Pruebas}{74}{subsection.7.5.1}%
-\contentsline {subsubsection}{Hello World}{75}{subsubsection*.28}%
-\contentsline {subsubsection}{Play a Song}{77}{subsubsection*.31}%
-\contentsline {subsubsection}{Buy on Amazon}{79}{subsubsection*.34}%
-\contentsline {subsection}{\numberline {7.5.2}Comparativa Global de Agentes}{82}{subsection.7.5.2}%
-\contentsline {subsubsection}{Consumo de tokens y coste estimado en “Buy on Amazon”}{83}{subsubsection*.38}%
-\contentsline {subsubsection}{Motivos de fallo}{84}{subsubsection*.40}%
-\contentsline {chapter}{\numberline {8}Conclusiones y Futuras Líneas de Investigación}{86}{chapter.8}%
-\contentsline {chapter}{Bibliography}{87}{chapter*.42}%
+\contentsline {section}{\numberline {5.1}Definición operativa de la MCE}{28}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementación de una MCE en un sistema cognitivo}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Técnica de Expansión \(\mathbb {B}^*\)}{33}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Máquina de Cognición-Ejecución}{35}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Arquitectura Software}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Capas y Módulos de la MCE}{39}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Espacio de Acciones}{41}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Acciones Elementales}{42}{subsection.6.2.1}%
+\contentsline {subsubsection}{Control del Teclado}{42}{subsubsection*.13}%
+\contentsline {subsubsection}{Captura de Pantalla}{43}{subsubsection*.14}%
+\contentsline {subsubsection}{Control del Mouse}{44}{subsubsection*.16}%
+\contentsline {subsection}{\numberline {6.2.2}Espacio de Acciones \(\mathbb {A}^*\)}{44}{subsection.6.2.2}%
+\contentsline {subsubsection}{Espera Condicional}{45}{subsubsection*.17}%
+\contentsline {subsubsection}{Abrir Aplicación}{45}{subsubsection*.18}%
+\contentsline {subsubsection}{Ejecución de Código}{46}{subsubsection*.19}%
+\contentsline {section}{\numberline {6.3}Capa de Ejecución}{47}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Task-Sequence Protocol (TSP)}{47}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Exelent}{48}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Intérprete}{50}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Capa de Cognición}{51}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Autodescriptor de Acciones}{52}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Buffer de Memoria}{54}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Estado Cognitivo}{55}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Fast Agent-Protocol (FastAP)}{56}{subsection.6.4.4}%
+\contentsline {section}{\numberline {6.5}Capa de Núcleo}{58}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Registro de Entidades}{58}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Servicio Maestro-Esclavo}{60}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Ejemplo de Funcionamiento de la MCE}{60}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Otros Componentes}{62}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Instalador Modular Automático}{62}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Imagen y Kernel para Sistemas Embebidos}{64}{subsection.6.6.2}%
+\contentsline {subsubsection}{Kernel Personalizado}{64}{subsubsection*.22}%
+\contentsline {subsubsection}{Imagen del Sistema}{65}{subsubsection*.23}%
+\contentsline {subsubsection}{Integración de Kernel e Imagen del Sistema}{65}{subsubsection*.24}%
+\contentsline {subsection}{\numberline {6.6.3}Integración Continua}{66}{subsection.6.6.3}%
+\contentsline {chapter}{\numberline {7}Experimentación}{67}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Aproximaciones Agénticas}{67}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Características Técnicas y Funcionales}{70}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Hipótesis del Experimento}{72}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Entorno de Pruebas y Evaluación}{73}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Resultados de la Evaluación}{75}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Rendimiento por Entorno de Pruebas}{75}{subsection.7.5.1}%
+\contentsline {subsubsection}{Hello World}{76}{subsubsection*.27}%
+\contentsline {subsubsection}{Play a Song}{78}{subsubsection*.30}%
+\contentsline {subsubsection}{Buy on Amazon}{80}{subsubsection*.33}%
+\contentsline {subsection}{\numberline {7.5.2}Comparativa Global de Agentes}{83}{subsection.7.5.2}%
+\contentsline {subsubsection}{Consumo de tokens y coste estimado en “Buy on Amazon”}{84}{subsubsection*.37}%
+\contentsline {subsubsection}{Motivos de fallo}{85}{subsubsection*.39}%
+\contentsline {chapter}{\numberline {8}Conclusiones y Futuras Líneas de Investigación}{87}{chapter.8}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{88}{chapter*.41}%

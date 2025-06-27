@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.5.26)  26 JUN 2025 22:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.5.26)  27 JUN 2025 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -678,11 +678,40 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \sift@deathcycles=\count331
 \@vwid@loff=\dimen325
 \@vwid@roff=\dimen326
-)))
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5.
- (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (ms.aux (content/cover.aux) (content/frontmatter.aux) (content/introduction.aux
+)) (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 112.
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)) (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count332
+\U@D=\dimen327
+\l@unhyphenated=\language79
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count333
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks55
+\es@quotdepth=\count334
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+)) (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel-spanish.tex
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 11.
+)) (ms.aux (content/cover.aux)
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+ (content/frontmatter.aux) (content/introduction.aux
 
 LaTeX Warning: Label `fig:etiqueta' multiply defined.
 
@@ -718,20 +747,26 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
  (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count332
-\scratchdimen=\dimen327
+\scratchcounter=\count335
+\scratchdimen=\dimen328
 \scratchbox=\box71
-\nofMPsegments=\count333
-\nofMParguments=\count334
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count335
-\MPscratchDim=\dimen328
-\MPnumerator=\count336
-\makeMPintoPDFobject=\count337
-\everyMPtoPDFconversion=\toks56
+\nofMPsegments=\count336
+\nofMParguments=\count337
+\everyMPshowfont=\toks56
+\MPscratchCnt=\count338
+\MPscratchDim=\dimen329
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
+\everyMPtoPDFconversion=\toks57
 ) (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
@@ -745,10 +780,12 @@ Package caption Info: End \AtBeginDocument code.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
 \openout2 = `content/cover.aux'.
 
 (content/cover.tex
-<figs/URJC.png, id=238, 1204.5pt x 458.71375pt>
+<figs/URJC.png, id=242, 1204.5pt x 458.71375pt>
 File: figs/URJC.png Graphic file (type png)
 <use figs/URJC.png>
 Package pdftex.def Info: figs/URJC.png  used on input line 39.
@@ -769,6 +806,10 @@ LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 
  (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 39.
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
@@ -783,13 +824,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 \openout2 = `content/frontmatter.aux'.
 
  (content/frontmatter.tex
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 3.
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
+File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <30> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 3.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/sc' in size <30> not available
-(Font)              size <24.88> substituted on input line 3.
+LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <30> not available
+(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 3.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
@@ -804,44 +845,42 @@ l.7 \chapter
 ] [2
 
 ]
-Overfull \hbox (6.45178pt too wide) in paragraph at lines 19--28
-[]\OT1/ptm/m/n/12 Esta memo-ria in-truduce la M[]aquina de Con-gici[]on-Ejecuci[]on(MCE) como un marco
- []
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 30.
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [3
 
-[3
-
-]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 35.
- (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
+] (ms.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
  [4
-
-] (ms.toc [5
 
 ])
 \tf@toc=\write5
 \openout5 = `ms.toc'.
 
 )
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                Make it at least 15.13202pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.13202pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+(fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
-[6]
+[5]
 \openout2 = `content/introduction.aux'.
 
  (content/introduction.tex
-Chapter 1.
+Cap\'{\i }tulo 1.
 [1
 
 
@@ -853,10 +892,13 @@ File: figs/artificial-vs-intelligence.png Graphic file (type png)
 <use figs/artificial-vs-intelligence.png>
 Package pdftex.def Info: figs/artificial-vs-intelligence.png  used on input line 51.
 (pdftex.def)             Requested size: 163.4671pt x 185.28346pt.
-
-Overfull \hbox (11.00005pt too wide) in paragraph at lines 56--63
-\OT1/ptm/m/n/12 como el ra-zon-amiento el la res-oluci[]on de prob-le-mas com-puesto por la sin-cronizaci[]on
- []
+<figs/AI-interpretations.png, id=348, 1179.40625pt x 501.875pt>
+File: figs/AI-interpretations.png Graphic file (type png)
+<use figs/AI-interpretations.png>
+Package pdftex.def Info: figs/AI-interpretations.png  used on input line 78.
+(pdftex.def)             Requested size: 361.02872pt x 144.21426pt.
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -866,17 +908,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2 <./figs/artificial-vs-intelligence.png>]
-<figs/AI-interpretations.png, id=355, 1179.40625pt x 501.875pt>
-File: figs/AI-interpretations.png Graphic file (type png)
-<use figs/AI-interpretations.png>
-Package pdftex.def Info: figs/AI-interpretations.png  used on input line 78.
-(pdftex.def)             Requested size: 361.02872pt x 144.21426pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
+LaTeX Info: Redefining \. on input line 118.
+LaTeX Info: Redefining \% on input line 118.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -891,10 +930,8 @@ File: figs/AI-properties.png Graphic file (type png)
 <use figs/AI-properties.png>
 Package pdftex.def Info: figs/AI-properties.png  used on input line 140.
 (pdftex.def)             Requested size: 328.72673pt x 105.8925pt.
-
-Overfull \hbox (6.5235pt too wide) in paragraph at lines 147--154
-\OT1/ptm/m/n/12 Entre otras ar-qui-tec-turas de in-teligen-cia ar-ti-fi-cial, los Mod-e-los Grandes de Lenguaje
- []
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -909,6 +946,8 @@ File: figs/chatgpt.png Graphic file (type png)
 <use figs/chatgpt.png>
 Package pdftex.def Info: figs/chatgpt.png  used on input line 167.
 (pdftex.def)             Requested size: 305.94536pt x 265.5943pt.
+LaTeX Info: Redefining \. on input line 178.
+LaTeX Info: Redefining \% on input line 178.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -923,6 +962,8 @@ File: figs/gemini-phone.png Graphic file (type png)
 <use figs/gemini-phone.png>
 Package pdftex.def Info: figs/gemini-phone.png  used on input line 216.
 (pdftex.def)             Requested size: 245.31215pt x 142.73071pt.
+LaTeX Info: Redefining \. on input line 226.
+LaTeX Info: Redefining \% on input line 226.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -932,6 +973,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6])
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -943,13 +987,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `content/state_of_art.aux'.
 
  (content/state_of_art.tex
-Chapter 2.
+Cap\'{\i }tulo 2.
 [8
 
 
 
 
 ]
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -958,6 +1005,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9]
+LaTeX Info: Redefining \. on input line 123.
+LaTeX Info: Redefining \% on input line 123.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -966,14 +1016,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
-Overfull \hbox (2.22847pt too wide) in paragraph at lines 156--163
-[]\OT1/ptm/m/n/12 Al igual que Au-to-GPT, los en-tornos basa-dos en AGI se est[]an ex-ten-di-endo a proyec-
- []
-
-
-Overfull \hbox (29.48001pt too wide) in paragraph at lines 156--163
-\OT1/ptm/m/n/12 aut[]onomos (Su-per-AGI, []Trans-formerOp-ti-mus[] ([]2023[])), asis-ten-cia en el dise[]no-creatividad
- []
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -983,6 +1027,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [11]
+LaTeX Info: Redefining \. on input line 214.
+LaTeX Info: Redefining \% on input line 214.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -991,6 +1038,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12]
+LaTeX Info: Redefining \. on input line 250.
+LaTeX Info: Redefining \% on input line 250.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -999,14 +1049,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-Overfull \hbox (1.48338pt too wide) in paragraph at lines 264--267
-[]\OT1/ptm/m/it/12 Memoria\OT1/ptm/m/n/12 : De-fine la in-for-maci[]on y los datos obtenidos del en-torno del agente
- []
-
-
-Overfull \hbox (0.32022pt too wide) in paragraph at lines 278--286
-[]\OT1/ptm/m/n/12 Es im-por-tante se[]nalar que, a difer-en-cia de SOAR, este marco no pre-scribe m[]etodos
- []
+LaTeX Info: Redefining \. on input line 289.
+LaTeX Info: Redefining \% on input line 289.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1016,9 +1060,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14]
-Overfull \hbox (6.03102pt too wide) in paragraph at lines 300--315
-[]\OT1/ptm/b/n/12 Messaging\OT1/ptm/m/n/12 : Para in-ter-ac-tuar de man-era es-truc-turada con mod-e-los de lenguaje
- []
+LaTeX Info: Redefining \. on input line 330.
+LaTeX Info: Redefining \% on input line 330.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1027,12 +1070,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15]
-Overfull \hbox (14.67079pt too wide) in paragraph at lines 341--353
-[]\OT1/ptm/b/n/12 Guardrails\OT1/ptm/m/n/12 : Los Guardrails con-sti-tuyen un con-junto de mecan-is-mos dise[]nados
- []
+[15])
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
 
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1044,13 +1085,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `content/objectives.aux'.
 
  (content/objectives.tex
-Chapter 3.
+Cap\'{\i }tulo 3.
 [17
 
 
 
 
 ]
+LaTeX Info: Redefining \. on input line 85.
+LaTeX Info: Redefining \% on input line 85.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1059,9 +1103,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18]
-Overfull \hbox (7.37477pt too wide) in paragraph at lines 90--93
-[]\OT1/ptm/m/n/12 La MCE de-ber[]a ser ca-paz de abrir pro-gra-mas in-sta-l-a-dos, re-or-ga-ni-zar archivos,
- []
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1071,9 +1114,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-Overfull \hbox (2.22809pt too wide) in paragraph at lines 140--147
-\OT1/ptm/m/n/12 que in-cluye tanto el c[]odigo fuente como los dis-tin-tos re-cur-sos em-plea-dos. Adem[]as,
- []
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1083,6 +1125,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20])
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1094,10 +1139,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `content/platform.aux'.
 
  (content/platform.tex
-Chapter 4.
+Cap\'{\i }tulo 4.
 
-Overfull \hbox (17.64888pt too wide) in paragraph at lines 16--21
-[]\OT1/ptm/m/n/12 Aunque el pro-ceso de in-sta-laci[]on y con-fig-u-raci[]on de Arch Linux re-quiere conocimien-
+Overfull \hbox (14.51784pt too wide) in paragraph at lines 2--2
+|[]\T1/cmr/m/sc/29.86 Plataforma de De-sa-rro-
  []
 
 [22
@@ -1106,11 +1151,13 @@ Overfull \hbox (17.64888pt too wide) in paragraph at lines 16--21
 
 
 ]
-<figs/imx8mpevk.png, id=542, 2055.68pt x 1156.32pt>
+<figs/imx8mpevk.png, id=543, 2055.68pt x 1156.32pt>
 File: figs/imx8mpevk.png Graphic file (type png)
 <use figs/imx8mpevk.png>
 Package pdftex.def Info: figs/imx8mpevk.png  used on input line 56.
 (pdftex.def)             Requested size: 308.3387pt x 173.4405pt.
+LaTeX Info: Redefining \. on input line 68.
+LaTeX Info: Redefining \% on input line 68.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1120,9 +1167,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [23 <./figs/imx8mpevk.png (PNG copy)>]
-Overfull \hbox (10.95242pt too wide) in paragraph at lines 69--76
-\OT1/ptm/m/n/12 MCE, donde los m[]odulos no solo deben poder reem-plazarse o am-pli-arse sin reestruc-
- []
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1137,6 +1183,8 @@ File: figs/langsmith.png Graphic file (type png)
 <use figs/langsmith.png>
 Package pdftex.def Info: figs/langsmith.png  used on input line 104.
 (pdftex.def)             Requested size: 346.2929pt x 176.53409pt.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1146,12 +1194,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25 <./figs/langsmith.png>]
-<figs/icon-detection.png, id=560, 678.28406pt x 201.00093pt>
+<figs/icon-detection.png, id=561, 678.28406pt x 201.00093pt>
 File: figs/icon-detection.png Graphic file (type png)
 <use figs/icon-detection.png>
 Package pdftex.def Info: figs/icon-detection.png  used on input line 155.
 (pdftex.def)             Requested size: 271.3088pt x 80.39894pt.
 )
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1163,18 +1214,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `content/theory.aux'.
 
  (content/theory.tex
-Chapter 5.
-
-Overfull \hbox (17.684pt too wide) in paragraph at lines 4--10
-\OT1/ptm/m/n/12 Una \OT1/ptm/m/it/12 M[]aquina de Cog-nici[]on-Ejecuci[]on \OT1/ptm/m/n/12 (MCE) es un mod-elo com-puta-cional hipot[]etico
- []
-
+Cap\'{\i }tulo 5.
 [27
 
 
 
 
 ]
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1183,9 +1232,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
-Overfull \hbox (13.17168pt too wide) in paragraph at lines 115--121
-[]\OT1/ptm/m/n/12 Cabe destacar que $\OML/ztmcm/m/it/12 C$ \OT1/ptm/m/n/12 no nece-sari-a-mente posee una rep-re-sentaci[]on simb[]olica expl[]^^Pcita.
- []
+LaTeX Info: Redefining \. on input line 140.
+LaTeX Info: Redefining \% on input line 140.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1195,6 +1243,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29]
+Overfull \hbox (3.53026pt too wide) in paragraph at lines 166--166
+|[]\T1/ptm/b/n/17.28 Implementación de una MCE en un sis-te-ma cog-
+ []
+
+LaTeX Info: Redefining \. on input line 181.
+LaTeX Info: Redefining \% on input line 181.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1203,6 +1257,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [30]
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1211,20 +1268,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [31]
-Overfull \hbox (27.78758pt too wide) detected at line 270
-\OMS/ztmcm/m/n/12 8 \OML/ztmcm/m/it/12 p \OMS/ztmcm/m/n/12 2 \U/msb/m/n/12 P\OML/ztmcm/m/it/12 ;  T\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12 p;  A[];  C[]\OT1/ztmcm/m/n/12 ) = []
+Overfull \hbox (27.78758pt too wide) detected at line 291
+[][][]\OMS/ztmcm/m/n/12 8 \OML/ztmcm/m/it/12 p \OMS/ztmcm/m/n/12 2 \U/msb/m/n/12 P\OML/ztmcm/m/it/12 ;  T\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12 p;  A[];  C[]\OT1/ztmcm/m/n/12 ) = []
  []
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 293.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 293.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 293.
-
+LaTeX Info: Redefining \. on input line 314.
+LaTeX Info: Redefining \% on input line 314.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1233,6 +1282,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [32]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 315.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 315.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 315.
+
+LaTeX Info: Redefining \. on input line 359.
+LaTeX Info: Redefining \% on input line 359.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1241,15 +1303,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [33]
-Overfull \hbox (90.22842pt too wide) detected at line 381
-\OML/ztmcm/m/it/12 T\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12 p;  \U/msb/m/n/12 B[]\OML/ztmcm/m/it/12 ;  C[]\OT1/ztmcm/m/n/12 )  =  []
+Overfull \hbox (61.90323pt too wide) detected at line 410
+[][][][][]
  []
 
-
-Overfull \hbox (7.0112pt too wide) in paragraph at lines 385--386
-[]\OT1/ptm/m/n/12 unicamente de ac-ciones de $\U/msb/m/n/12 B$\OT1/ptm/m/n/12 . As[]^^P, $\OML/ztmcm/m/it/12 T[]$ \OT1/ptm/m/n/12 re-torna una soluci[]on ini-cial sub[]optima. 
- []
-
+LaTeX Info: Redefining \. on input line 416.
+LaTeX Info: Redefining \% on input line 416.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1258,6 +1317,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [34]
+LaTeX Info: Redefining \. on input line 458.
+LaTeX Info: Redefining \% on input line 458.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1266,14 +1328,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [35]
-Overfull \hbox (23.13852pt too wide) detected at line 491
-\OML/ztmcm/m/it/12 T[]\OT1/ztmcm/m/n/12 ([]\OML/ztmcm/m/it/12 ;  C[]\OT1/ztmcm/m/n/12 ) = \OML/ztmcm/m/it/12 ^^U \OT1/ztmcm/m/n/12 = (\OML/ztmcm/m/it/12 []\OT1/ztmcm/m/n/12 )  \OMS/ztmcm/m/n/12 !  \OML/ztmcm/m/it/12 [] \OT1/ztmcm/m/n/12 = []\OML/ztmcm/m/it/12 :
- []
-
-
-Overfull \hbox (22.35071pt too wide) in paragraph at lines 512--513
-[]$\OT1/ztmcm/m/n/12 ^^C$ \OT1/ptm/m/n/12 se im-ple-men-tar[]a como un m[]odulo de tra-ducci[]on en-tre in-struc-ciones simb[]olicas
- []
+LaTeX Info: Redefining \. on input line 504.
+LaTeX Info: Redefining \% on input line 504.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1282,7 +1338,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36])
+[36]
+Overfull \hbox (23.13852pt too wide) detected at line 530
+[][][]\OML/ztmcm/m/it/12 T[]\OT1/ztmcm/m/n/12 ([]\OML/ztmcm/m/it/12 ;  C[]\OT1/ztmcm/m/n/12 ) = \OML/ztmcm/m/it/12 ^^U \OT1/ztmcm/m/n/12 = (\OML/ztmcm/m/it/12 []\OT1/ztmcm/m/n/12 )  \OMS/ztmcm/m/n/12 !  \OML/ztmcm/m/it/12 [] \OT1/ztmcm/m/n/12 = []\OML/ztmcm/m/it/12 :
+ []
+
+LaTeX Info: Redefining \. on input line 552.
+LaTeX Info: Redefining \% on input line 552.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1290,37 +1352,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[37]
+[37])
+LaTeX Info: Redefining \. on input line 18.
+LaTeX Info: Redefining \% on input line 18.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38]
 \openout2 = `content/software.aux'.
 
  (content/software.tex
-Chapter 6.
+Cap\'{\i }tulo 6.
 
-Overfull \hbox (3.31918pt too wide) in paragraph at lines 28--35
-\OT1/ptm/m/n/12 Aqu[]^^P se in-te-gran los al-go-rit-mos de per-cepci[]on, apren-dizaje, com-por-tamiento,
+Overfull \hbox (14.65207pt too wide) in paragraph at lines 2--2
+|[]\T1/cmr/m/sc/29.86 Arquitectura Soft-wa-re| 
  []
 
-[38
+[39
 
 
 
 
 ]
-Overfull \hbox (4.23193pt too wide) in paragraph at lines 85--89
-[]\OT1/ptm/m/n/12 En las sigu-ientes sec-ciones se de-scribir[]a con mayor de-talle cada uno de los m[]odulos
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[39]
-Overfull \hbox (5.52663pt too wide) in paragraph at lines 113--116
-[]\OT1/ptm/b/n/12 Meta-Acciones\OT1/ptm/m/n/12 : Son aque-l-las que per-miten al agente mod-i-fi-carse a si mismo,
- []
+LaTeX Info: Redefining \. on input line 89.
+LaTeX Info: Redefining \% on input line 89.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1330,9 +1390,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [40]
-Overfull \hbox (17.1441pt too wide) in paragraph at lines 162--165
-[]\OT1/ptm/m/n/12 Estos dos tipos de ac-ciones, en-tran en la cat-e-gor[]^^Pa de ac-ciones ac-tu-ado-ras y pertenecen
- []
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1342,11 +1401,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [41]
-<figs/ocr_image.png, id=645, 947.54pt x 460.72125pt>
-File: figs/ocr_image.png Graphic file (type png)
-<use figs/ocr_image.png>
-Package pdftex.def Info: figs/ocr_image.png  used on input line 184.
-(pdftex.def)             Requested size: 284.26419pt x 138.21744pt.
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1355,11 +1411,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42 <./figs/ocr_image.png>]
-Overfull \hbox (3.24786pt too wide) in paragraph at lines 206--209
-[]\OT1/ptm/m/n/12 Esto sig-nifica que, si el agente in-tenta con-tro-lar una ven-tana dis-tinta, el movimiento
- []
+[42]
+<figs/ocr_image.png, id=686, 947.54pt x 460.72125pt>
+File: figs/ocr_image.png Graphic file (type png)
+<use figs/ocr_image.png>
+Package pdftex.def Info: figs/ocr_image.png  used on input line 184.
+(pdftex.def)             Requested size: 284.26419pt x 138.21744pt.
+LaTeX Info: Redefining \. on input line 194.
+LaTeX Info: Redefining \% on input line 194.
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[43 <./figs/ocr_image.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 224.
@@ -1368,25 +1436,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `superscript' on input line 224.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[43]
-Overfull \hbox (11.3752pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/12 Condici^^Son cumplida: El bot^^Son Aceptar ha aparecido en la pantalla.[] 
- []
-
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 270.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 270.
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 270.
-
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1395,26 +1446,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [44]
-Overfull \hbox (19.53229pt too wide) in paragraph at lines 288--292
-\OT1/ptm/m/n/12 La acci[]on de eje-cuci[]on de c[]odigo per-mite al agente eje-cu-tar c[]odigo Python, JavaScript,
+Overfull \hbox (11.27701pt too wide) in paragraph at lines 260--260
+[]\T1/cmtt/m/n/12 Condición cumplida: El botón Aceptar ha aparecido en la pantalla.[] 
  []
 
-<figs/code_execution.png, id=665, 601.4972pt x 210.03468pt>
+LaTeX Info: Redefining \. on input line 273.
+LaTeX Info: Redefining \% on input line 273.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[45]
+<figs/code_execution.png, id=706, 601.4972pt x 210.03468pt>
 File: figs/code_execution.png Graphic file (type png)
 <use figs/code_execution.png>
 Package pdftex.def Info: figs/code_execution.png  used on input line 301.
 (pdftex.def)             Requested size: 240.59462pt x 84.01237pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[45 <./figs/code_execution.png>]
-Overfull \hbox (10.26741pt too wide) in paragraph at lines 316--320
-[]\OT1/ptm/b/n/12 Exelent\OT1/ptm/m/n/12 : Ex-e-lent es un lenguaje declar-a-tivo de alto nivel con-ce-bido y dise[]nado
- []
+LaTeX Info: Redefining \. on input line 311.
+LaTeX Info: Redefining \% on input line 311.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1423,10 +1475,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[46]
-Overfull \hbox (1.62782pt too wide) in paragraph at lines 358--362
-\OT1/ptm/m/n/12 (de forma op-cional) con-tener una pri-or-i-dad, un iden-ti-fi-cador y mod-i-fi-cadores
- []
+[46 <./figs/code_execution.png>]
+LaTeX Info: Redefining \. on input line 352.
+LaTeX Info: Redefining \% on input line 352.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1436,14 +1487,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47]
-Overfull \hbox (73.12523pt too wide) in paragraph at lines 450--450
-[]\OT1/cmtt/m/n/12 >>                     {"action": "open_application", "args": ["Firefox"]},[] 
- []
-
-
-Overfull \hbox (73.12523pt too wide) in paragraph at lines 450--450
-[]\OT1/cmtt/m/n/12 >>                     {"action": "wait_for", "args": ["Firefox is ready"]}[] 
- []
+LaTeX Info: Redefining \. on input line 395.
+LaTeX Info: Redefining \% on input line 395.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1453,25 +1498,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [48]
-Overfull \hbox (128.70026pt too wide) in paragraph at lines 450--450
-[]\OT1/cmtt/m/n/12 >>                 "then": {"action": "replan", "args": ["Firefox failed to open"]},[] 
+Overfull \hbox (73.01193pt too wide) in paragraph at lines 450--450
+[]\T1/cmtt/m/n/12 >>                     {"action": "open_application", "args": ["Firefox"]},[] 
  []
 
 
-Overfull \hbox (165.75027pt too wide) in paragraph at lines 450--450
-[]\OT1/cmtt/m/n/12 >>                 "else": {"action": "complete", "args": ["Firefox opened successfully"]}[] 
+Overfull \hbox (73.01193pt too wide) in paragraph at lines 450--450
+[]\T1/cmtt/m/n/12 >>                     {"action": "wait_for", "args": ["Firefox is ready"]}[] 
  []
 
-
-Overfull \hbox (202.8003pt too wide) in paragraph at lines 450--450
-[]\OT1/cmtt/m/n/12 >>         "on_error": {"action": "replan", "args": ["An error occurred while opening Firefox"]}[] 
- []
-
-
-Overfull \hbox (0.84923pt too wide) in paragraph at lines 459--467
-\OT1/ptm/m/n/12 creaci[]on de un pro-totipo fun-cional y depurable; y otro creado pu-ra-mente en Python
- []
-
+LaTeX Info: Redefining \. on input line 450.
+LaTeX Info: Redefining \% on input line 450.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1480,6 +1517,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [49]
+Overfull \hbox (128.57336pt too wide) in paragraph at lines 450--450
+[]\T1/cmtt/m/n/12 >>                 "then": {"action": "replan", "args": ["Firefox failed to open"]},[] 
+ []
+
+
+Overfull \hbox (165.61432pt too wide) in paragraph at lines 450--450
+[]\T1/cmtt/m/n/12 >>                 "else": {"action": "complete", "args": ["Firefox opened successfully"]}[] 
+ []
+
+
+Overfull \hbox (202.65527pt too wide) in paragraph at lines 450--450
+[]\T1/cmtt/m/n/12 >>         "on_error": {"action": "replan", "args": ["An error occurred while opening Firefox"]}[] 
+ []
+
+LaTeX Info: Redefining \. on input line 480.
+LaTeX Info: Redefining \% on input line 480.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1488,14 +1541,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [50]
-Overfull \hbox (8.396pt too wide) in paragraph at lines 527--530
-\OT1/ptm/m/n/12 como \OT1/ptm/m/it/12 Au-tode-scrip-tor de Ac-ciones\OT1/ptm/m/n/12 . Este mecan-ismo per-mite generar una de-scripci[]on
- []
-
-
-Overfull \hbox (2.46686pt too wide) in paragraph at lines 545--548
-[]\OT1/ptm/m/n/12 A su vez el au-tode-scrip-tor tambi[]en gen-era un set de in-struc-ciones que pueden
- []
+LaTeX Info: Redefining \. on input line 516.
+LaTeX Info: Redefining \% on input line 516.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1505,14 +1552,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51]
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 567--567
-[]\OT1/cmtt/m/n/12 >>     "description": "Escribe un texto dado en la m^^Saquina esclava.",[] 
- []
-
-
-Overfull \hbox (48.42522pt too wide) in paragraph at lines 592--592
-[]\OT1/cmtt/m/n/12 >> agent.invoke("Por favor escribe 'Hola Mundo' en la m^^Saquina esclava")[] 
- []
+LaTeX Info: Redefining \. on input line 567.
+LaTeX Info: Redefining \% on input line 567.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1522,30 +1563,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [52]
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 628--628
-[]\OT1/cmtt/m/n/12 >>     ("user", "Por favor escribe 'Hola Mundo' en la m^^Saquina esclava[] 
+Overfull \hbox (35.97098pt too wide) in paragraph at lines 567--567
+[]\T1/cmtt/m/n/12 >>     "description": "Escribe un texto dado en la máquina esclava.",[] 
  []
 
 
-Overfull \hbox (23.7252pt too wide) in paragraph at lines 628--628
-[]\OT1/cmtt/m/n/12 >>     ("environment", "La m^^Saquina esclava est^^Sa en el escritorio"),[] 
+Overfull \hbox (48.31796pt too wide) in paragraph at lines 592--592
+[]\T1/cmtt/m/n/12 >> agent.invoke("Por favor escribe 'Hola Mundo' en la máquina esclava")[] 
  []
 
-
-Overfull \hbox (29.9002pt too wide) in paragraph at lines 628--628
-[]\OT1/cmtt/m/n/12 >>     ("action", "start writing hello world with priority normal"),[] 
- []
-
-
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 641--641
-[]\OT1/cmtt/m/n/12 >>     ("user", "Por favor escribe 'Hola Mundo' en la m^^Saquina esclava[] 
- []
-
-
-Overfull \hbox (23.7252pt too wide) in paragraph at lines 641--641
-[]\OT1/cmtt/m/n/12 >>     ("environment", "La m^^Saquina esclava est^^Sa en el escritorio"),[] 
- []
-
+LaTeX Info: Redefining \. on input line 601.
+LaTeX Info: Redefining \% on input line 601.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1554,10 +1582,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [53]
-Overfull \hbox (66.95023pt too wide) in paragraph at lines 678--678
-[]\OT1/cmtt/m/n/12 >>         set_short_term_goal "Generate a plan to play a song on Spotify"[] 
+Overfull \hbox (35.97098pt too wide) in paragraph at lines 628--628
+[]\T1/cmtt/m/n/12 >>     ("user", "Por favor escribe 'Hola Mundo' en la máquina esclava[] 
  []
 
+
+Overfull \hbox (23.624pt too wide) in paragraph at lines 628--628
+[]\T1/cmtt/m/n/12 >>     ("environment", "La máquina esclava está en el escritorio"),[] 
+ []
+
+
+Overfull \hbox (29.79749pt too wide) in paragraph at lines 628--628
+[]\T1/cmtt/m/n/12 >>     ("action", "start writing hello world with priority normal"),[] 
+ []
+
+
+Overfull \hbox (35.97098pt too wide) in paragraph at lines 641--641
+[]\T1/cmtt/m/n/12 >>     ("user", "Por favor escribe 'Hola Mundo' en la máquina esclava[] 
+ []
+
+
+Overfull \hbox (23.624pt too wide) in paragraph at lines 641--641
+[]\T1/cmtt/m/n/12 >>     ("environment", "La máquina esclava está en el escritorio"),[] 
+ []
+
+LaTeX Info: Redefining \. on input line 641.
+LaTeX Info: Redefining \% on input line 641.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1566,10 +1616,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [54]
-Overfull \hbox (36.07521pt too wide) in paragraph at lines 687--687
-[]\OT1/cmtt/m/n/12 >>    "short-term-goal": "Generate a plan to play a song on Spotify",[] 
+Overfull \hbox (66.83844pt too wide) in paragraph at lines 678--678
+[]\T1/cmtt/m/n/12 >>         set_short_term_goal "Generate a plan to play a song on Spotify"[] 
  []
 
+LaTeX Info: Redefining \. on input line 681.
+LaTeX Info: Redefining \% on input line 681.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1578,10 +1630,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [55]
-Overfull \hbox (15.83356pt too wide) in paragraph at lines 725--730
-[]\OT1/ptm/b/n/12 Resoluci[]on au-tom[]atica de de-pen-den-cias\OT1/ptm/m/n/12 : FastAP re-al-iza un an[]alisis din[]amico
+Overfull \hbox (35.97098pt too wide) in paragraph at lines 687--687
+[]\T1/cmtt/m/n/12 >>    "short-term-goal": "Generate a plan to play a song on Spotify",[] 
  []
 
+LaTeX Info: Redefining \. on input line 716.
+LaTeX Info: Redefining \% on input line 716.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1590,6 +1644,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [56]
+LaTeX Info: Redefining \. on input line 754.
+LaTeX Info: Redefining \% on input line 754.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1598,6 +1655,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [57]
+LaTeX Info: Redefining \. on input line 787.
+LaTeX Info: Redefining \% on input line 787.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1606,6 +1666,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [58]
+LaTeX Info: Redefining \. on input line 815.
+LaTeX Info: Redefining \% on input line 815.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1614,14 +1677,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [59]
-Overfull \hbox (29.66473pt too wide) in paragraph at lines 879--881
-[]\OT1/ptm/m/n/12 El in-ter-prete crea un pro-ceso par-alelo y eje-cuta la acci[]on \OT1/cmtt/m/n/12 open[]application
- []
-
-
-Overfull \hbox (0.57722pt too wide) in paragraph at lines 881--883
-[]\OT1/ptm/m/n/12 El reg-istro de en-ti-dades es dis-parado con la acci[]on \OT1/cmtt/m/n/12 open[]application
- []
+LaTeX Info: Redefining \. on input line 849.
+LaTeX Info: Redefining \% on input line 849.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1631,6 +1688,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [60]
+Overfull \hbox (31.36957pt too wide) in paragraph at lines 879--881
+[]\T1/ptm/m/n/12 El in-ter-pre-te crea un pro-ce-so pa-ra-le-lo y eje-cu-ta la ac-ción \T1/cmtt/m/n/12 open_application
+ []
+
+
+Overfull \hbox (2.28206pt too wide) in paragraph at lines 881--883
+[]\T1/ptm/m/n/12 El re-gis-tro de en-ti-da-des es dis-pa-ra-do con la ac-ción \T1/cmtt/m/n/12 open_application
+ []
+
+LaTeX Info: Redefining \. on input line 885.
+LaTeX Info: Redefining \% on input line 885.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1639,14 +1707,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [61]
-<figs/installer.png, id=775, 1467.4825pt x 810.02625pt>
-File: figs/installer.png Graphic file (type png)
-<use figs/installer.png>
-Package pdftex.def Info: figs/installer.png  used on input line 946.
-(pdftex.def)             Requested size: 293.4913pt x 162.00237pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Info: Redefining \. on input line 916.
+LaTeX Info: Redefining \% on input line 916.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1656,6 +1718,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [62]
+<figs/installer.png, id=816, 1467.4825pt x 810.02625pt>
+File: figs/installer.png Graphic file (type png)
+<use figs/installer.png>
+Package pdftex.def Info: figs/installer.png  used on input line 946.
+(pdftex.def)             Requested size: 293.4913pt x 162.00237pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 963.
+LaTeX Info: Redefining \% on input line 963.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1663,10 +1736,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[63 <./figs/installer.png (PNG copy)>]
-Overfull \hbox (4.72318pt too wide) in paragraph at lines 1001--1003
-[]\OT1/ptm/b/n/12 Drivers de Red\OT1/ptm/m/n/12 : Los drivers nece-sar-ios para la co-mu-ni-caci[]on con la m[]aquina
- []
+[63]
+LaTeX Info: Redefining \. on input line 985.
+LaTeX Info: Redefining \% on input line 985.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1675,7 +1747,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[64])
+[64 <./figs/installer.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 1023.
+LaTeX Info: Redefining \% on input line 1023.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1683,32 +1758,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[65]
+[65])
+LaTeX Info: Redefining \. on input line 19.
+LaTeX Info: Redefining \% on input line 19.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[66]
 \openout2 = `content/experiments.aux'.
 
  (content/experiments.tex
-Chapter 7.
-[66
+Cap\'{\i }tulo 7.
+[67
 
 
 
 
 ]
-Overfull \hbox (0.67914pt too wide) in paragraph at lines 73--79
-\OT1/ptm/m/n/12 plotaci[]on para re-solver las tar-eas prop-ues-tas por el usuario. Para ello, Xplore
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[67]
-Overfull \hbox (4.25397pt too wide) in paragraph at lines 121--124
-[]\OT1/ptm/m/n/12 A su vez, Dark-VFR in-te-gra meta-acciones para con-tro-lar su com-por-tamiento,
- []
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1718,24 +1791,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [68]
-Overfull \hbox (8.69098pt too wide) in paragraph at lines 131--133
-[]\OT1/ptm/m/n/12 Para el de-sar-rollo de los agentes, se ha uti-lizado la li-brer[]^^Pa \OT1/cmtt/m/n/12 Langchain \OT1/ptm/m/n/12 y \OT1/cmtt/m/n/12 Langgraph\OT1/ptm/m/n/12 ,
- []
-
-
-Overfull \hbox (26.1122pt too wide) in paragraph at lines 143--157
- [][] 
- []
-
-
-Overfull \hbox (21.09082pt too wide) in paragraph at lines 172--177
-[]\OT1/ptm/b/n/12 Grafo de com-por-tamien-tos (Xplore)\OT1/ptm/m/n/12 : Rep-re-senta una es-truc-tura m[]as din[]amica,
- []
-
-
-Overfull \hbox (5.23903pt too wide) in paragraph at lines 172--177
-\OT1/ptm/m/n/12 en la que el agente tran-si-ciona en-tre difer-entes com-por-tamien-tos seg[]un condi-
- []
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1745,45 +1802,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [69]
-Overfull \hbox (5.15839pt too wide) in paragraph at lines 197--197
- []|\OT1/ptm/b/n/10.95 Modularidad| 
+Overfull \hbox (8.52052pt too wide) in paragraph at lines 131--133
+[]\T1/ptm/m/n/12 Para el de-sa-rro-llo de los agen-tes, se ha uti-li-za-do la li-bre-ría \T1/cmtt/m/n/12 Langchain \T1/ptm/m/n/12 y \T1/cmtt/m/n/12 Langgraph\T1/ptm/m/n/12 ,
  []
 
 
-Overfull \hbox (6.64894pt too wide) in paragraph at lines 197--197
- []|\OT1/ptm/b/n/10.95 Visi[]on| 
- []
-
-
-Overfull \hbox (7.5673pt too wide) in paragraph at lines 197--197
- []|\OT1/ptm/b/n/10.95 Recuperaci[]on| 
- []
-
-
-Overfull \hbox (9.03224pt too wide) in paragraph at lines 197--197
- []|\OT1/ptm/b/n/10.95 Memoria| 
- []
-
-
-Overfull \hbox (11.78702pt too wide) in paragraph at lines 197--197
- []|\OT1/ptm/b/n/10.95 Aprendizaje| 
- []
-
-
-Overfull \hbox (11.75783pt too wide) in paragraph at lines 205--205
-[]|\OT1/ptm/b/n/12 MinimalVFR| 
- []
-
-
-Overfull \hbox (37.82571pt too wide) in paragraph at lines 187--209
+Overfull \hbox (26.1122pt too wide) in paragraph at lines 143--157
  [][] 
  []
 
-
-Overfull \hbox (9.17546pt too wide) in paragraph at lines 217--221
-\OT1/ptm/m/n/12 flex-i-ble. Mien-tras Planex y Xplore con-ser-van una mod-u-lar-i-dad me-dia, agentes
- []
-
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1792,6 +1821,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [70]
+Overfull \hbox (5.15839pt too wide) in paragraph at lines 197--197
+ []|\T1/ptm/b/n/10.95 Modularidad| 
+ []
+
+
+Overfull \hbox (6.64894pt too wide) in paragraph at lines 197--197
+ []|\T1/ptm/b/n/10.95 Visión| 
+ []
+
+
+Overfull \hbox (7.5673pt too wide) in paragraph at lines 197--197
+ []|\T1/ptm/b/n/10.95 Recuperación| 
+ []
+
+
+Overfull \hbox (9.03224pt too wide) in paragraph at lines 197--197
+ []|\T1/ptm/b/n/10.95 Memoria| 
+ []
+
+
+Overfull \hbox (11.78702pt too wide) in paragraph at lines 197--197
+ []|\T1/ptm/b/n/10.95 Aprendizaje| 
+ []
+
+
+Overfull \hbox (11.75783pt too wide) in paragraph at lines 205--205
+[]|\T1/ptm/b/n/12 MinimalVFR| 
+ []
+
+
+Overfull \hbox (37.82571pt too wide) in paragraph at lines 187--209
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 230.
+LaTeX Info: Redefining \% on input line 230.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1800,6 +1865,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [71]
+LaTeX Info: Redefining \. on input line 271.
+LaTeX Info: Redefining \% on input line 271.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1808,9 +1876,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [72]
-Overfull \hbox (12.17422pt too wide) in paragraph at lines 355--356
-[]\OT1/cmtt/m/n/12 "Busca un portatil en Amazon y compralo o a~nadelo al
- []
+LaTeX Info: Redefining \. on input line 316.
+LaTeX Info: Redefining \% on input line 316.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1820,6 +1887,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [73]
+Overfull \hbox (12.09567pt too wide) in paragraph at lines 355--356
+[]\T1/cmtt/m/n/12 "Busca un portatil en Amazon y compralo o añadelo al
+ []
+
+LaTeX Info: Redefining \. on input line 364.
+LaTeX Info: Redefining \% on input line 364.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1828,9 +1901,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [74]
-Overfull \hbox (3.48802pt too wide) in paragraph at lines 417--420
-[]\OT1/ptm/m/n/12 optimo, pues se asume in-for-maci[]on que no se ha pro-por-cionado en el prompt,
- []
+LaTeX Info: Redefining \. on input line 401.
+LaTeX Info: Redefining \% on input line 401.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1840,7 +1912,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [75]
-<figs/metrics-env-1.png, id=851, 715.473pt x 426.393pt>
+Overfull \hbox (21.37933pt too wide) in paragraph at lines 446--452
+[]\T1/ptm/m/n/12 Por el con-tra-rio, los agen-tes ba-sa-dos en \T1/ptm/m/it/12 Fas-tReact \T1/ptm/m/n/12 (in-clu-yen-do VFR y DarkVFR)
+ []
+
+LaTeX Info: Redefining \. on input line 452.
+LaTeX Info: Redefining \% on input line 452.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[76]
+<figs/metrics-env-1.png, id=892, 715.473pt x 426.393pt>
 File: figs/metrics-env-1.png Graphic file (type png)
 <use figs/metrics-env-1.png>
 Package pdftex.def Info: figs/metrics-env-1.png  used on input line 460.
@@ -1850,12 +1936,7 @@ Overfull \hbox (3.51137pt too wide) in paragraph at lines 460--462
  [][] 
  []
 
-
-Overfull \hbox (3.59683pt too wide) in paragraph at lines 466--470
-[]\OT1/ptm/m/n/12 En la figura []7.1[] se puede ob-ser-var como los agentes mas sim-ples (\OT1/ptm/m/it/12 Planex\OT1/ptm/m/n/12 , \OT1/ptm/m/it/12 PlanexV2
- []
-
-<figs/result-env-1.png, id=853, 815.29594pt x 804.75656pt>
+<figs/result-env-1.png, id=894, 815.29594pt x 804.75656pt>
 File: figs/result-env-1.png Graphic file (type png)
 <use figs/result-env-1.png>
 Package pdftex.def Info: figs/result-env-1.png  used on input line 482.
@@ -1863,6 +1944,8 @@ Package pdftex.def Info: figs/result-env-1.png  used on input line 482.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+LaTeX Info: Redefining \. on input line 491.
+LaTeX Info: Redefining \% on input line 491.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1870,7 +1953,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[76 <./figs/metrics-env-1.png>]
+[77 <./figs/metrics-env-1.png>]
+LaTeX Info: Redefining \. on input line 503.
+LaTeX Info: Redefining \% on input line 503.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1878,12 +1964,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[77 <./figs/result-env-1.png>]
-<figs/metrics-env-2.png, id=866, 1987.425pt x 1184.425pt>
+[78 <./figs/result-env-1.png>]
+<figs/metrics-env-2.png, id=907, 1987.425pt x 1184.425pt>
 File: figs/metrics-env-2.png Graphic file (type png)
 <use figs/metrics-env-2.png>
 Package pdftex.def Info: figs/metrics-env-2.png  used on input line 530.
 (pdftex.def)             Requested size: 317.99449pt x 189.51187pt.
+LaTeX Info: Redefining \. on input line 540.
+LaTeX Info: Redefining \% on input line 540.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1892,17 +1980,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[78 <./figs/metrics-env-2.png (PNG copy)>]
-<figs/result-env-2.png, id=874, 1444.64719pt x 850.67813pt>
+[79 <./figs/metrics-env-2.png (PNG copy)>]
+<figs/result-env-2.png, id=915, 1444.64719pt x 850.67813pt>
 File: figs/result-env-2.png Graphic file (type png)
 <use figs/result-env-2.png>
 Package pdftex.def Info: figs/result-env-2.png  used on input line 551.
 (pdftex.def)             Requested size: 361.16092pt x 212.669pt.
 
-Overfull \hbox (51.59958pt too wide) in paragraph at lines 563--564
-[]\OT1/cmtt/m/n/12 "Busca un portatil en Amazon y compralo o a~nadelo al carrito." 
+Overfull \hbox (51.50592pt too wide) in paragraph at lines 563--564
+[]\T1/cmtt/m/n/12 "Busca un portatil en Amazon y compralo o añadelo al carrito." 
  []
 
+LaTeX Info: Redefining \. on input line 572.
+LaTeX Info: Redefining \% on input line 572.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1910,12 +2000,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[79 <./figs/result-env-2.png>]
-<figs/laptops.png, id=883, 1294.8375pt x 690.32906pt>
+[80 <./figs/result-env-2.png>]
+<figs/laptops.png, id=924, 1294.8375pt x 690.32906pt>
 File: figs/laptops.png Graphic file (type png)
 <use figs/laptops.png>
 Package pdftex.def Info: figs/laptops.png  used on input line 581.
 (pdftex.def)             Requested size: 323.70857pt x 172.58183pt.
+LaTeX Info: Redefining \. on input line 605.
+LaTeX Info: Redefining \% on input line 605.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1924,12 +2016,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[80 <./figs/laptops.png>]
-<figs/metrics-env-3.png, id=890, 1987.425pt x 1184.425pt>
+[81 <./figs/laptops.png>]
+<figs/metrics-env-3.png, id=931, 1987.425pt x 1184.425pt>
 File: figs/metrics-env-3.png Graphic file (type png)
 <use figs/metrics-env-3.png>
 Package pdftex.def Info: figs/metrics-env-3.png  used on input line 627.
 (pdftex.def)             Requested size: 317.99449pt x 189.51187pt.
+LaTeX Info: Redefining \. on input line 640.
+LaTeX Info: Redefining \% on input line 640.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1938,15 +2032,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[81 <./figs/metrics-env-3.png (PNG copy)>]
+[82 <./figs/metrics-env-3.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 684.
+LaTeX Info: Redefining \% on input line 684.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[82]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1955,6 +2044,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [83]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 709.
+ (C:\Users\idb0214\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+LaTeX Info: Redefining \. on input line 732.
+LaTeX Info: Redefining \% on input line 732.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[84]
 Overfull \hbox (43.8858pt too wide) in paragraph at lines 770--783
  [][] 
  []
@@ -1962,6 +2066,8 @@ Overfull \hbox (43.8858pt too wide) in paragraph at lines 770--783
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+LaTeX Info: Redefining \. on input line 792.
+LaTeX Info: Redefining \% on input line 792.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1969,7 +2075,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[84])
+[85])
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1977,31 +2086,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[85]
+[86]
 \openout2 = `content/conclusions.aux'.
 
  (content/conclusions.tex
-Chapter 8.
+Cap\'{\i }tulo 8.
 
-Overfull \hbox (34.95816pt too wide) in paragraph at lines 1--1
-|[]\OT1/cmr/m/sc/24.88 Conclusiones y Fu-turas L[]^^Pneas
+Overfull \hbox (8.37253pt too wide) in paragraph at lines 1--1
+|[]\T1/cmr/m/sc/29.86 Conclusiones y Fu-tu-ras
  []
 
-) [86
+
+Overfull \hbox (1.67554pt too wide) in paragraph at lines 1--1
+\T1/cmr/m/sc/29.86 Lí-neas de In-ves-ti-ga-ción| 
+ []
+
+) [87
 
 
 
 
 ] (ms.bbl
 Underfull \hbox (badness 3407) in paragraph at lines 69--73
-[]\OT1/ptm/m/n/12 OpenAI (2025).  In-tro-duc-ing op-er-a-tor.  []$\OT1/cmtt/m/n/12 https : / / openai . com / index /
+[]\T1/ptm/m/n/12 OpenAI (2025).  In-tro-du-cing ope-ra-tor.  []$\T1/cmtt/m/n/12 https : / / openai . com / index /
  []
 
-[87
+[88
 
 
 
 ])
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2009,37 +2126,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[88] (ms.aux (content/cover.aux) (content/frontmatter.aux) (content/introduction.aux) (content/state_of_art.aux) (content/objectives.aux) (content/platform.aux) (content/theory.aux) (content/software.aux) (content/experiments.aux) (content/conclusions.aux))
+[89] (ms.aux (content/cover.aux)
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+ (content/frontmatter.aux) (content/introduction.aux) (content/state_of_art.aux) (content/objectives.aux) (content/platform.aux) (content/theory.aux) (content/software.aux) (content/experiments.aux) (content/conclusions.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 
 
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 5.12pt have occurred.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `ms.out' has not changed.
-(rerunfilecheck)             Checksum: 62703F28FE334F0BE087EFA1B8AF701F;10275.
+(rerunfilecheck)             Checksum: E5E756C8A402B1DA92BB5E14960AD623;10498.
  ) 
 Here is how much of TeX's memory you used:
- 36128 strings out of 474486
- 841621 string characters out of 5742811
- 1946542 words of memory out of 5000000
- 57431 multiletter control sequences out of 15000+600000
- 625940 words of font info for 185 fonts, out of 8000000 for 9000
+ 37894 strings out of 474486
+ 871255 string characters out of 5742811
+ 1945542 words of memory out of 5000000
+ 59124 multiletter control sequences out of 15000+600000
+ 653502 words of font info for 191 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,14n,104p,798b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ms.pdf (95 pages, 6421489 bytes).
+ 104i,16n,104p,798b,775s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\idb0214\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\idb0214\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\idb0214\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2986.pk><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/symbol/usyr.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/idb0214/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ms.pdf (95 pages, 6420693 bytes).
 PDF statistics:
- 1059 PDF objects out of 1200 (max. 8388607)
- 273 named destinations out of 1000 (max. 500000)
- 567 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1251 PDF objects out of 1440 (max. 8388607)
+ 308 named destinations out of 1000 (max. 500000)
+ 575 words of extra memory for PDF output out of 10000 (max. 10000000)
 
