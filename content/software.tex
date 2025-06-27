@@ -29,13 +29,13 @@ MCE. Estos módulos son:
     de la MCE. Aquí se integran los algoritmos de percepción, aprendizaje,
     comportamiento, planificación y razonamiento de los agentes de la MCE. Cada
     agente utiliza la información obtenida de las demás capas para tomar
-    decisiones e interactuar con su entorno de manera específica. No obstante,
+    decisiones e interactuar con su entorno de forma específica. No obstante,
     todos ellos comparten la dependencia de uno o varios modelos de lenguaje
     para la toma de decisiones.
     
     Esta capa se corresponde directamente con la función de cognición del modelo 
     teórico de la MCE, donde la base de
-    conocimiento \(\mathbb{C}\) equivale a la información extraída de los LLMs y
+    conocimiento \(\mathbb{C}^*\) equivale a la información extraída de los LLMs y
     el mapa de correspondencia \(\Lambda\) resulta de la conversión de dicho
     razonamiento en tokens que, posteriormente, serán procesados por la Capa de
     Ejecución.
@@ -92,7 +92,7 @@ abstracciones de alto nivel a medida que nos acercamos a las capas de cognición
 Dentro de esta capa debemos integrar acciones que satisfagan las propiedades
 definidas en el espacio de acciones \(\mathbb{B}^*\) del modelo teórico de la
 MCE.Todas estas acciones serán ejecutadas en la máquina controlada, a la que
-denominaremos como máquina esclava. Estas acciones se disviden en dos grupos,
+denominaremos como máquina esclava. Estas acciones se dividen en dos grupos,
 el espacio de acciones elementales \(\mathbb{B}\) y el espacio de acciones
 \(\mathbb{A}^*\). 
 
@@ -102,8 +102,7 @@ A su vez, el espacio de acciones también puede ser categorizado en 3 distintas 
 
     \item \textbf{Acciones actuadoras}: Son aquellas que interactuan con el entorno en el
     se encuentra la máquina controlada. Estas permiten al agente cambiar el estado actual
-    y la composición de este tipo de acciones permite alcanzar el objetivo final. No es posible
-    completar en su totalidad un objetivo sin la ejecución de al menos una acción actuadora.
+    y la composición de este tipo de acciones permite alcanzar el objetivo final.
 
     \item \textbf{Acciones perceptivas}: Son aquellas que permiten al agente obtener 
     información de su entorno. Estas acciones son fundamentales para la toma de decisiones,
@@ -116,12 +115,9 @@ A su vez, el espacio de acciones también puede ser categorizado en 3 distintas 
 
 \end{itemize}
 
-A continuación se describen algunas de las acciones más relevantes de la MCE. A su vez,
-categorizaremos cada una de ellas según su tipo y espacio de acciones al que pertenecen.
-
 \subsection{Acciones Elementales}
 
-Aunque el espacio de acciones \(\mathbb{B}\) puede ser discutido y ampliado con
+Aunque el espacio de acciones \(\mathbb{B}\) puede ser ampliado con
 el tiempo, a continuación se realizará un resumen de la implementación de las acciones más fundamentales para una
 MCE en el entorno de un escritorio clásico. Estas son, el control del teclado,
 la captura de pantalla y el control del mouse.
@@ -142,10 +138,10 @@ texto objetivo a escribir (\texttt{'a'}, \texttt{'-'}, etc.).
 Esta funcionalidad, se envolverá dentro de una función unica para todos los sistemas operativos, 
 y permitira al agente escribir texto en la máquina esclava de forma autónoma:
 
-\begin{verbatim}
->> write("Este texto será escrito usando el teclado")
->> Este texto será escrito usando el teclado
-\end{verbatim}
+\begin{lstlisting}[caption={Control del teclado}, label={cod:write_example}]
+>> write("Este texto sera escrito usando el teclado")
+>> Este texto sera escrito usando el teclado
+\end{lstlisting}
 
 Un caso de uso un poco más complejo es el de utilizar combinaciones de teclas
 o atajos de teclado. En este caso, podemos utilizar las funciones de \texttt{pyautogui}
@@ -154,10 +150,11 @@ un estándar para la representación de estas combinaciones. Para resolver esto,
 ha creado un diccionario de combinaciones de teclas que incluyen multiples represntaciones
 de una misma combinacion o tecla, como puede ser \texttt{CTRL}, \texttt{CONTROL} o \texttt{CTRL\_LEFT}.
 De esta forma el agente podría utilizar la siguiente sintaxis:
-\begin{verbatim}
+
+\begin{lstlisting}[caption={Control del teclado con combinaciones de teclas}, label={cod:write_combination_example}]
 >> press("CTRL + C")
 KeyboardInterrupt
-\end{verbatim}
+\end{lstlisting}
 
 Estos dos tipos de acciones, entran en la categoría de acciones actuadoras y pertenecen al 
 espacio de acciones elementales \(\mathbb{B}\). Esto se debe a que multiples aplicaciones 
@@ -214,12 +211,12 @@ del mouse y usando \texttt{uinput} para enviar eventos de mouse.
 Una vez resueltos estos problemas, el agente podrá interactuar con la máquina
 tal que:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Control del mouse}, label={cod:mouse_example}]
 >> move_mouse(100, 200)
 >> double_click()
 >> move_mouse(300, 400)
 >> right_click()
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Espacio de Acciones \(\mathbb{A}^*\)}
 El espacio de acciones \(\mathbb{A}^*\) es infinito por definición. En el caso 
@@ -250,14 +247,14 @@ cumple, ya que esto podría bloquear al agente indefinidamente. Para evitarlo,
 el propio agente puede establecer un tiempo máximo de espera, tras el cual
 se cancelará la espera y se continuará con la ejecución del programa.
 
-\begin{verbatim}
->> wait_for("Aparición del botón 'Aceptar'", timeout=30)
-Esperando a que aparezca el botón Aceptar...
-Esperando a que aparezca el botón Aceptar...
-Esperando a que aparezca el botón Aceptar...
-Condición cumplida: El botón Aceptar ha aparecido en la pantalla.
+\begin{lstlisting}[caption={Espera condicional}, label={cod:wait_for}]
+>> wait_for("Aparicion del boton 'Aceptar'", timeout=30)
+Esperando a que aparezca el boton Aceptar...
+Esperando a que aparezca el boton Aceptar...
+Esperando a que aparezca el boton Aceptar...
+Condicion cumplida: El boton Aceptar ha aparecido en la pantalla.
 >> 
-\end{verbatim}
+\end{lstlisting}
 
 \subsubsection{Abrir Aplicación}
 La acción de abrir una aplicación es una de las más comunes y útiles para
@@ -273,11 +270,11 @@ similar al nombre de la aplicación proporcionado por el agente.
 
 Gracias a esta acción, el agente puede abrir e interactuar con aplicaciones tal que:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Abrir aplicación Spotify}, label={cod:open_application}]
 >> open_application("Spotify")
 Abriendo Spotify...
 >>
-\end{verbatim}
+\end{lstlisting}
 
 Nótese que aunque esta acción puede ser completada unicamente mediante acciones elementales
 (clicks y escritura de texto), su implementación permite una interacción mas agil y eficiente
@@ -393,23 +390,23 @@ A modo de ejemplo conceptual, se presenta a continuación un fragmento de
 pseudocódigo que representa la lógica general de exelent sin exponer
 detalles de implementación concretos:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Fragmento de pseudocódigo Exelent}, label={cod:exelent_example}]
 >> start opening firefox with priority normal
->>     parallel run
->>         open_application "Firefox"
->>         wait_for "Firefox is ready"
+>>   parallel run
+>>     open_application "Firefox"
+>>     wait_for "Firefox is ready"
 >>
->>     on exit
->>         if "Firefox is not ready" then
->>             replan "Firefox failed to open"
->>         else
->>             complete "Firefox opened successfully"
->>         end if
+>>   on exit
+>>     if "Firefox is not ready" then
+>>       replan "Firefox failed to open"
+>>     else
+>>       complete "Firefox opened successfully"
+>>     end if
 >>
->>     on error
->>         replan "An error occurred while opening Firefox"
+>>   on error
+>>     replan "An error occurred while opening Firefox"
 >>
-\end{verbatim}
+\end{lstlisting}
 
 En este ejemplo, el agente inicia la apertura de Firefox con una prioridad 
 normal. Dentro de esta tarea, vemos como distintos tipos de secuancia permiten
@@ -422,32 +419,46 @@ convierte cada linea de código en estructuras de datos que serán utilizados
 por el intérprete. A continuación, se muestra una tokenización hipotética del
 código, útil para entender la estructura del formato.
 
-
-\begin{verbatim}
+\begin{lstlisting}[caption={Ejemplo de tokenización en Exelent}, label={cod:exelent_tokenization}]
 >> {
->>     "task": {
->>         "name": "opening firefox",
->>         "priority": "normal",
->>         "sequences": [
->>             {
->>                 "type": "parallel",
->>                 "actions": [
->>                     {"action": "open_application", "args": ["Firefox"]},
->>                     {"action": "wait_for", "args": ["Firefox is ready"]}
->>                 ]
->>             }
->>         ],
->>         "on_exit": {
->>             "if": {
->>                 "condition": "Firefox is not ready",
->>                 "then": {"action": "replan", "args": ["Firefox failed to open"]},
->>                 "else": {"action": "complete", "args": ["Firefox opened successfully"]}
->>             }
+>>   "task": {
+>>     "name": "opening firefox",
+>>     "priority": "normal",
+>>     "sequences": [
+>>       {
+>>         "type": "parallel",
+>>         "actions": [
+>>           {
+>>             "action": "open_application",
+>>             "args": ["Firefox"]
+>>           },
+>>           {
+>>             "action": "wait_for",
+>>             "args": ["Firefox is ready"]
+>>           }
+>>         ]
+>>       }
+>>     ],
+>>     "on_exit": {
+>>       "if": {
+>>         "condition": "Firefox is not ready",
+>>         "then": {
+>>           "action": "replan",
+>>           "args": ["Firefox failed to open"]
 >>         },
->>         "on_error": {"action": "replan", "args": ["An error occurred while opening Firefox"]}
+>>         "else": {
+>>           "action": "complete",
+>>           "args": ["Firefox opened successfully"]
+>>         }
+>>       }
+>>     },
+>>     "on_error": {
+>>       "action": "replan",
+>>       "args": ["An error occurred while opening Firefox"]
 >>     }
+>>   }
 >> }
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Intérprete}
 El intérprete es el componente encargado de procesar los tokens generados desde
@@ -553,21 +564,25 @@ Como ejemplo ilustrativo, supongamos un espacio de acciones conformado exclusiva
 la acción de control de teclado \texttt{write()}. El autodescriptor generaría
 la siguiente descripción:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Autodescriptor de acciones}, label={cod:autodescriptor_example}]
 >> {
->>     "name": "write",
->>     "description": "Escribe un texto dado en la máquina esclava.",
->>     "args": {
->>         "text": "El texto a escribir.
->>     },
->>     "returns": {
->>         "success": "Indica si la escritura fue exitosa."
->>     }
+>>   "name": "write",
+>>   "description":
+>>     "Escribe un texto dado en la maquina esclava.",
+>>   "args": {
+>>     "text":
+>>       "El texto a escribir.
+>>   },
+>>   "returns": {
+>>     "success":
+>>       "Indica si la escritura fue exitosa."
+>>   }
 >> }
-\end{verbatim}
+\end{lstlisting}
+
 
 A su vez, el mapa de correspondencia \(\Lambda\) sería actualizado tal que:
-\begin{verbatim}
+\begin{lstlisting}[caption={Mapa de correspondencia}, label={cod:correspondence_map_example}]
 >> {
 >>     "write": [
 >>         "write",
@@ -576,12 +591,12 @@ A su vez, el mapa de correspondencia \(\Lambda\) sería actualizado tal que:
 >>         "input"
 >>     ]
 >> }
-\end{verbatim}
+\end{lstlisting}
 De esta forma, el agente puede utilizar el espacio de acciones \(\mathbb{B}^*\) de la MCE
 de forma efectiva, generando código exelent siguiendo las instrucciones embedidas en el autodescriptor.
 
-\begin{verbatim}
->> agent.invoke("Por favor escribe 'Hola Mundo' en la máquina esclava")
+\begin{lstlisting}[caption={Ejemplo de uso del autodescriptor}, label={cod:autodescriptor_usage_example}]
+>> agent.invoke("Por favor escribe 'Hola Mundo' en la maquina esclava")
 >> Resultado: 
 >> ```
 >> start writing hello world with priority normal
@@ -589,7 +604,7 @@ de forma efectiva, generando código exelent siguiendo las instrucciones embedid
 >>         write "Hello World"
 >> ```
 
-\end{verbatim}
+\end{lstlisting}
 
 Posteriormente, este fragmento de código sería enviado a la capa de ejecución
 para ser procesado por el intérprete y ejecutado en la máquina esclava.
@@ -616,29 +631,29 @@ redundante, de gran volumen, o que no es relevante para la tarea en curso.
 Como ejemplo ilustrativo, supongamos que un agente ha recibido la siguiente
 información en su buffer de memoria:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Buffer de memoria}, label={cod:memory_buffer_example}]
 >> [
->>     ("user", "Por favor escribe 'Hola Mundo' en la máquina esclava 
->>        y luego haz click en cerrar pestaña"),
->>     ("environment", "La máquina esclava está en el escritorio"),
+>>     ("user", "Por favor escribe 'Hola Mundo' en la maquina esclava 
+>>        y luego haz click en cerrar ventana"),
+>>     ("environment", "La maquina esclava esta en el escritorio"),
 >>     ("action", "start writing hello world with priority normal"),
 >>     ("action", "write 'Hello World'"),
 >>     ("result", "Escritura exitosa")
 >> ]
-\end{verbatim}
+\end{lstlisting}
 
 En este caso, el buffer de memoria podría eliminar algunas entradas que
 ya no son relevantes para las proximas tareas. Así, el buffer de memoria
 podría actualizarse a:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Buffer de memoria actualizado}, label={cod:memory_buffer_updated_example}]
 >> [
->>     ("user", "Por favor escribe 'Hola Mundo' en la máquina esclava 
->>        y luego haz click en cerrar pestaña"),
->>     ("environment", "La máquina esclava está en el escritorio"),
+>>     ("user", "Por favor escribe 'Hola Mundo' en la maquina esclava 
+>>        y luego haz click en cerrar ventana"),
+>>     ("environment", "La maquina esclava esta en el escritorio"),
 >>     ("result", "Escritura exitosa")
 >> ]
-\end{verbatim}
+\end{lstlisting}
 
 Adicionalmente, el buffer de memoria tambíen contiene mecanismos para minimizar
 el volumen de información gráfica (como capturas de pantalla) o generación automática
@@ -660,31 +675,31 @@ de su comportamiento.
 Como ejemplo ilustrativo, supongamos que un agente comienza una tarea 
 con el siguiente estado cognitivo:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Ejemplo de estado cognitivo inicial}, label={cod:cognitive_state_initial_example}]
 >> {
 >>    "state": "normal",
 >>    "short-term-goal": "None",
 >>    "long-term-goal": "Play a song on Spotify"
 >> }
-\end{verbatim}
+\end{lstlisting}
 
 En este caso, el agente podría cambiar su estado cognitivo a un modo de planificación
 utilizando la siguiente meta-acción:
-\begin{verbatim}
+\begin{lstlisting}[caption={Cambio de estado cognitivo}, label={cod:cognitive_state_change_example}]
 >> start thinking with priority normal
 >>     parallel run
 >>         set_state "planning"
 >>         set_short_term_goal "Generate a plan to play a song on Spotify"
-\end{verbatim}
+\end{lstlisting}
 
 De este modo, el agente habría cambiado su estado cognitivo a:
-\begin{verbatim}
+\begin{lstlisting}[caption={Estado cognitivo actualizado}, label={cod:cognitive_state_updated_example}]
 >> {
 >>    "state": "planning",
 >>    "short-term-goal": "Generate a plan to play a song on Spotify",
 >>    "long-term-goal": "Play a song on Spotify"
 >> }
-\end{verbatim}
+\end{lstlisting}
 
 Así pues, el estado cognitivo no necesita alterar directamente los mecanismos internos 
 del agente, sino que su influencia se limita a modificar las instrucciones que el propio agente recibe.
@@ -862,11 +877,11 @@ realizadas para facilitar la comprensión del funcionamiento de la MCE.
         \item DarkVFR guarda el mensaje en su buffer de memoria, y llama al LLM para realizar 
         una planificación.
         \item El LLM genera un plan de acción utilizando el lenguaje exelent, por ejemplo:
-        \begin{verbatim}
-        >> start opening spotify with priority normal
-        >>     sequentially run
-        >>         open_application "Spotify"
-        \end{verbatim}
+        \begin{lstlisting}[caption={Plan de acción generado por el LLM}, label={cod:llm_plan_example}]
+>> start opening spotify with priority normal
+>>     sequentially run
+>>         open_application "Spotify"
+        \end{lstlisting}
         \item DarkVFR envia el plan de acción a la capa de ejecución a traves del interprete.
     \end{enumerate}
 

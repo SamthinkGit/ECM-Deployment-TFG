@@ -25,11 +25,11 @@
 \contentsline {section}{\numberline {5.1}Definición operativa de la MCE}{28}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Implementación de una MCE en un sistema cognitivo}{30}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Técnica de Expansión \(\mathbb {B}^*\)}{33}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Máquina de Cognición-Ejecución}{35}{section.5.4}%
+\contentsline {section}{\numberline {5.4}Máquina de Cognición-Ejecución}{36}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Arquitectura Software}{39}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Capas y Módulos de la MCE}{39}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Espacio de Acciones}{41}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Acciones Elementales}{42}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.1}Acciones Elementales}{41}{subsection.6.2.1}%
 \contentsline {subsubsection}{Control del Teclado}{42}{subsubsection*.13}%
 \contentsline {subsubsection}{Captura de Pantalla}{43}{subsubsection*.14}%
 \contentsline {subsubsection}{Control del Mouse}{44}{subsubsection*.16}%
