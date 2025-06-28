@@ -829,7 +829,7 @@ Entre las funcionalidades más relevantes del registro de entidades se encuentra
     de las acciones, sino que apunta a un disparador que, al ser invocado, cargará la acción en memoria y la ejecutará. En caso de 
     haber sido cargada previamente, el disparador simplemente ejecutará la acción sin necesidad de cargarla de nuevo.
 
-    \item \textbf{Entorno Maestro-Esclavo}: El registro permite crear un entorno maestro-esclavo para dividir la ECM en dos máquinas:
+    \item \textbf{Entorno Maestro-Esclavo}: El registro permite crear un entorno maestro-esclavo para dividir la MCE en dos máquinas:
     una máquina maestra que sera la encargada de ejecutar la MCE y otra esclava que ejecutará las acciones del espacio de acciones. Para
     realizar esto, el registro es capaz de modificar el disparador de las acciones para que, en lugar de ejecutar la acción directamente, 
     envíe un mensaje a la máquina esclava para que esta ejecute la acción en su lugar. A su vez, el registro evita que la acción 
@@ -930,7 +930,7 @@ realizadas para facilitar la comprensión del funcionamiento de la MCE.
 
     \item DarkVFR recibe el resultado de la acción y lo guarda en su buffer de memoria.
     \item DarkVFR decide finalizar la tarea debido a que el objetivo ha sido completado (omitido en este ejemplo).
-    \item La ECM recibe el flag de tarea completada y finaliza la ejecución de la tarea.
+    \item La MCE recibe el flag de tarea completada y finaliza la ejecución de la tarea.
     \begin{enumerate}
         \item El registro de entidades revisa si hay librerias que pueden ser liberadas, y si es así, las elimina.
         \item FastAP deja el entorno virtual del agente bloqueado hasta proximo aviso.
