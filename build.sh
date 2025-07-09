@@ -27,16 +27,16 @@ check_program bibtex
 echo "------------- Building PDF -------------"
 
 log "pdflatex ms.tex" "Compiling LaTeX..."
-pdflatex ms.tex > /dev/null 2>&1
+pdflatex ms.tex
 
 log "bibtex ms" "Synchronizing bibtex..."
-bibtex ms > /dev/null 2>&1
+bibtex ms
 
 log "pdflatex ms.tex" "Synchronizing citations..."
-pdflatex ms.tex > /dev/null 2>&1
+pdflatex ms.tex
 
 log "pdflatex ms.tex" "Synchronizing ToC..."
-pdflatex ms.tex > /dev/null 2>&1
+pdflatex ms.tex
 
 rm *.aux *.bbl *.blg *.log *.out *.toc
 

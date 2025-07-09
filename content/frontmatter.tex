@@ -1,51 +1,65 @@
 % !TEX root = ms.tex
 
 \chapter*{Licencia}
-\vspace{2cm}
 
-El presente Trabajo de Fin de Grado es un documento de acceso público. Se
-autoriza su reproducción, distribución y comunicación pública en cualquier
-medio, con fines académicos, científicos o divulgativos.
+\begin{flushright}
+\begin{figure}
+ \ \ \ \ \includegraphics[width=0.25\linewidth]{figs/by-sa.png}
+ \label{fig:cc} 
+ \end{figure}
+\end{flushright}
 
-Se permite asimismo la creación de obras derivadas, siempre que se respeten las
-condiciones establecidas a continuación:
+\noindent
+Este trabajo se distribuye bajo los términos de la licencia internacional \href{http://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA International License} (Creative Commons Attribution-ShareAlike 4.0). Usted es libre de \textit{(a) compartir}: copiar y redistribuir el material en cualquier medio o formato para cualquier propósito, incluso comercialmente; y \textit{(b) adaptar}: remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente. La licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia:
 
-\vspace{1em}
 \begin{itemize}
-  \item \textbf{Reconocimiento de autoría.} Toda utilización del contenido deberá incluir de forma clara y visible el nombre del autor y el título original del trabajo. En caso de reutilización parcial, adaptación o transformación, deberá indicarse que se trata de una versión modificada del documento original.
-
-  \item \textbf{Ausencia de restricciones adicionales.} No se podrá aplicar ninguna condición legal o medida tecnológica que limite o impida a terceros el ejercicio de los derechos de uso autorizados en este apartado.
+\item \textit{Atribución}. Usted debe dar \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es#ref-appropriate-credit}{crédito de manera adecuada}, brindar un enlace a la licencia, e indicar \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es#ref-indicate-changes}{si se han realizado cambios}. Puede hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que usted o su uso tienen el apoyo de la licenciante.
+\item \textit{Compartir igual}. Si remezcla, transforma o crea a partir del material, debe distribuir su contribución bajo la \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es#ref-same-license}{misma licencia} del original.\\
+No hay restricciones adicionales - No puede aplicar términos legales ni \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es#ref-technological-measures}{medidas tecnológicas} que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia.
 \end{itemize}
 
-\vspace{1em}
-\textbf{Nota sobre el software incluido.} 
-El código fuente desarrollado en el marco de este trabajo no se encuentra
-comprendido en estas condiciones. Dicho software está sujeto a un régimen
-específico de derechos exclusivo del autor, que se detalla a continuación:
+\noindent
+\emph{Documento de} \textbf{Sebastián Andrés Mayorquín Posadas}
 
-\vspace{0.5em}
-\noindent\textbf{Licencia del software:}
-
-\begin{quote}
-\textit{All Rights Reserved}
-
-Copyright (c) 2024 Sebastián Andrés Mayorquín Posadas
-
-Todos los derechos reservados. Ninguna parte de este software podrá ser
-reproducida, distribuida o transmitida por ningún medio, sin la autorización
-previa y por escrito del titular de los derechos.
-\end{quote}
 
 
 
 
 \chapter*{Agradecimientos}
-\lipsum[2]
+\noindent
+Antes que nada, quiero agradecer a mi profesor \emph{Julio Vega}, no solo por
+supervisar este Trabajo de Fin de Grado, sino por haberme transmitido, a través
+de la asignatura de Diseño de Software, los fundamentos necesarios para imaginar
+y construir proyectos basados en arquitecturas que ván mucho más allá del simple código.
+Su forma de enseñar y su forma de trabajar me marcaron desde el principio, y
+estoy convencido de que sin esa influencia, este trabajo no existiría.
 
+Con la misma gratitud, quiero dar las gracias a dos profesores que supieron
+transformar lo técnico en algo mucho más profundo: \emph{Gorka Guardiola Muzquiz} y \emph{José
+Centeno González}. Gracias por enseñarme a ver la programación no solo
+como algo que estudiar, sino como una pasión y filosofía para hacer las cosas.
+Una herramienta para transformar lo que antes era simplemente una carrera
+en algo que ahora siento como un propósito.
+
+También quiero agradecer, de forma muy especial, a \emph{Ángela Rider Jiménez}. Gracias
+por acompañarme durante todo este proceso, por estar cuando no era fácil
+continuar, por ayudarme a enfocar lo que no sabía resolver solo y sobre todo,
+por tu guía y apoyo incondicional. Esta memoria lleva mucho de ti.
+
+Y por último, una mención de honor a aquellas personas que, aunque no hayan
+participado directamente en este proyecto, sí han sido clave para forjar la
+persona que lo ha llevado a cabo. A mi familia, \emph{S.A.M.R.}, \emph{A.P.A.}, \emph{D.P.A.}, \emph{S.A.M.P.}, \emph{M.A.H.},
+gracias por ser mi base. Y a quienes, sin lazos de sangre, han tenido un impacto
+igual de importante para mí, \emph{A.I.R.}, \emph{B.R.V.}, \emph{A.G.B.}; gracias 
+por estar y por creer en mí.
+
+A todos vosotros: gracias por traerme hasta aquí. Este trabajo es el 
+primer atisbo de lo que habéis ayudado a construir. Una pequeña muestra 
+de lo que soy, y de lo que sin duda, estoy dispuesto a seguir siendo.
 
 
 \chapter*{Resumen}
-\textbf{[En proceso]} 
+\noindent
 En una era definida por la integración de modelos de lenguaje en sistemas
 inteligentes, este trabajo presenta el desarrollo tanto teórico como práctico de
 una Máquina de Cognición-Ejecución (MCE): una arquitectura cognitiva generalista
@@ -57,11 +71,15 @@ Desde una perspectiva cognitiva de la inteligencia artificial, la MCE se
 estructura en capas independientes de cognición, ejecución y percepción, y se
 implementa sobre hardware de bajo coste (ARM Cortex-A55). Aunque se ejecuta en
 un sistema embebido, la MCE es capaz de controlar de forma autónoma un ordenador
-externo de forma ubícua y en tiempo real. Utilizando esta arquitectura
-los resultados experimentales muestran que, la MCE logra
-operar el ordenador con un rendimiento comparable al de un usuario humano
-y hasta 7 veces más eficiente que otros enfoques comparables, validando 
-así su utilidad práctica en contextos reales y no controlados.
+externo de forma ubícua y en tiempo real. Utilizando esta arquitectura 
+los resultados experimentales confirman que esta no solo es funcional, 
+sino un sistema comparablemente eficiente: es capaz de operar el sistema con
+de forma autónoma e independiente y, en algunos escenarios, superando en 
+hasta 7 veces la eficiencia de otros enfoques en el estado del arte. Estos resultados 
+validan la utilidad práctica de la MCE en entornos reales, abiertos y
+no controlados, y consolidan su propuesta como un paso firme hacia 
+los agentes cognitivos autónomos plenamente operativos.
+
 \begingroup
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{3pt}

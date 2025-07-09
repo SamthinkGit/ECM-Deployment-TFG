@@ -483,7 +483,7 @@ T_C(p,\,C^*) \;=\; \lambda
 donde cada \(\alpha_i\) es un token simbólico en \(\mathbb{A}^*\) que representa
 la \emph{intención} de una acción necesaria para resolver \(p\). En esta etapa,
 \(\lambda\) codifica \emph{qué} acciones deben ejecutarse (por ejemplo, “hacer
-clic en el ícono de Firefox”), pero no realiza la interacción efectiva.
+clic en el icono de Firefox”), pero no realiza la interacción efectiva.
 
 Definimos la función de ejecución \(T_E\) como un mapeo entre la intención
 \(\lambda\) y las acciones concretas \(B^*\) que se ejecutarán en el entorno:
@@ -525,14 +525,14 @@ Supongamos que \(p\) es el problema “Abrir Firefox”.
 \begin{enumerate}
     \item \textbf{Capa de Cognición.} Dado \(p\) y una base de conocimiento parcial \(C^*\), la función de cognición \(T_C\) genera la intención \(\lambda\):
    \begin{equation}
-    T_C(\text{“Abrir Firefox”},\,C^*) = \lambda = (\alpha_1)\, \rightarrow\,
-    \alpha_1 = \text{“hacer clic en el ícono de Firefox”}.
+    T_C(\text{'Abrir Firefox'},\,C^*) = \lambda = (\alpha_1)\, \rightarrow\,
+    \alpha_1 = \text{'hacer clic en el icono de Firefox'}.
     \end{equation}
     \item \textbf{Capa de Ejecución.}  
     Dado \(\lambda = (\alpha_1)\), el traductor \(\Lambda\) asocia  
     \(\alpha_1 \mapsto b_1\), donde  
     \begin{equation}
-    b_1 = \texttt{"click(500, 900)"} \in \mathbb{B}^*.
+    b_1 = \texttt{'click(500, 900)'} \in \mathbb{B}^*.
     \end{equation}
     Entonces,
    \begin{equation}

@@ -1,1 +1,139 @@
-\chapter{Conclusiones y Futuras Líneas de Investigación}
+\chapter{Conclusiones}
+
+\section{Evaluación de Objetivos y Requisitos}
+
+A lo largo del desarrollo del presente proyecto se establecieron una serie de
+objetivos y requisitos técnicos orientados a validar la viabilidad de una
+Máquina de Cognición-Ejecución (MCE) funcional. 
+Estos objetivos han sido en su mayoría cumplidos de forma satisfactoria:
+
+\begin{itemize}
+    \item Se ha definido formalmente una arquitectura cognitiva que permite la
+    resolución autónoma de problemas a través de un sistema computacional capaz
+    de planificar, decidir y ejecutar acciones.
+    \item Se ha implementado una MCE real sobre un microprocesador ARM 
+    Cortex-A55, en un sistema operativo Arch Linux sin necesidad de 
+    GPUs locales y con comunicación con modelos LLM en la nube.
+    \item Se ha validado el funcionamiento del sistema en entornos 
+    operativos reales, como ordenadores personales, mediante 
+    instrucciones en lenguaje natural.
+    \item La arquitectura ha sido implementada íntegramente en Python, con módulos
+    desacoplados que permiten sustituir, ampliar o adaptar funcionalidades sin
+    necesidad de reestructurar el sistema completo.
+    \item Se ha incorporado una interfaz funcional por línea de comandos 
+    que permite al usuario interactuar con la MCE sin requerimientos 
+    gráficos adicionales.
+    \item Los agentes desarrollados han demostrado ser capaces de ejecutar
+    acciones complejas como abrir aplicaciones, navegar por Internet y controlar
+    el teclado y ratón, todo ello a partir de instrucciones en lenguaje natural.
+    \item Toda la implementación se encuentra documentada, versionada y
+    accesible para futuros desarrollos o réplicas.
+\end{itemize}
+
+Estos resultados confirman que los requisitos mínimos para validar la propuesta
+han sido alcanzados, consolidando a la MCE como una arquitectura funcional que
+puede ser escalada o adaptada en futuras aplicaciones.
+
+\section{Conclusiones Generales}
+
+La implementación de la Máquina de Cognición-Ejecución (MCE) ha demostrado que
+es posible replicar una arquitectura cognitiva generalista, capaz de integrar
+razonamiento, memoria, planificación y ejecución, en un entorno computacional
+limitado y no controlado. Este logro adquiere especial relevancia por su
+capacidad de operar sin requerir hardware especializado, ofreciendo un marco
+operativo accesible, replicable y científicamente fundamentado.
+
+Más allá de la implementación práctica, uno de los resultados más significativos
+de este proyecto es el desarrollo de un fundamento teórico formalizado
+con suficiente solidez, rigor y generalidad como para sustentar la publicación
+de un artículo científico original, actualmente en proceso de revisión bajo el
+título: \textit{"Thinking is not Enough: The B* Expansion Technique for
+Enhancing Autonomous LLM Agents"} \citet{bstar-expansion-2025}. Este trabajo, 
+derivado directamente de los
+principios establecidos en este TFG, propone una capa de optimización centrada
+en las acciones (no en el razonamiento) para agentes basados en LLMs,
+formalizando matemáticamente el crecimiento de su capacidad resolutiva en
+función de un espacio de acciones expandido $B^*$.
+
+Además, se ha validado empíricamente que un enfoque basado en capas cognitivas
+desacopladas permite experimentar con distintas estrategias de razonamiento,
+percepción o ejecución sin comprometer la estabilidad global del sistema. Esta
+propiedad convierte a la MCE en un entorno ideal para experimentación en
+cognición computacional, simulación de agentes autónomos y prototipado de
+arquitecturas agénticas.
+
+Finalmente, el agente DarkVFR (el agente más eficiente entre los evaluados) ha
+evidenciado capacidades avanzadas de adaptación a múltiples entornos operativos,
+desde navegadores web hasta aplicaciones de escritorio, logrando resolver tareas
+complejas con un consumo de recursos y tokens entre 7 y 12 veces inferior al de
+arquitecturas comparables en el estado del arte. Estos resultados refuerzan la
+viabilidad de la expansión $B^*$ y la MCE como un marco robusto para el
+desarrollo de agentes autónomos.
+
+\section{Competencias Adquiridas}
+
+Antes de comenzar este Trabajo de Fin de Grado, ciertas asignaturas del grado de
+Ingeniería Robótica Software fueron clave para cimentar las bases teóricas y
+prácticas que permitirían su posterior desarrollo. En particular, la asignatura
+de \emph{Diseño de Software} fue fundamental para concebir una arquitectura
+modular, robusta y extensible, gracias al uso de patrones de diseño como
+mediadores, capas de abstracción y técnicas de programación orientada a objetos
+que facilitaron la separación de responsabilidades entre componentes. Por otro lado,
+\emph{Sistemas Operativos} aportó los conocimientos necesarios para
+interactuar directamente con el sistema operativo: desde la gestión de procesos
+y de multithreading hasta la conocimientos teóricos como lazy loading o enlazado de lenguaje C,
+lo cual fue esencial tanto para la capa de ejecución como para el diseño del lenguaje
+\textit{Exelent}. Finalmente, la asignatura de \emph{Álgebra} permitió 
+abordar el desarrollo formal del modelo teórico con rigor matemático, 
+facilitando la comprensión de conceptos como espacios, bases y generadores, 
+herramientas clave para definir formalmente el espacio de problemas, soluciones y 
+acciones, así como la definicion canónica de la MCE.
+
+Durante el desarrollo del proyecto, se han adquirido y reforzado una serie de
+competencias técnicas y metodológicas:
+
+\begin{itemize}
+    \item \textbf{Diseño de arquitecturas cognitivas:} Formalización, implementación y 
+    evaluación de arquitecturas orientadas al razonamiento autónomo. (Con técnicas de
+    Prompt Engineering, grafos agénticos, etc.)
+    \item \textbf{Programación avanzada en Python:} Uso de
+    bibliotecas para IA, visión por computador, gestión de eventos o técnicas
+    avanzadas de meta-programación.
+    \item \textbf{Despliegue en hardware embebido:} Configuración de sistemas
+    operativos ligeros (Arch Linux) en microprocesadores ARM y quemado de bootloader/imagenes.
+    \item \textbf{Integración de LLMs en sistemas a tiempo real:} Mediante LangChain, APIs
+    externas y servicios en la nube.
+    \item \textbf{Desarrollo de interfaces de usuario:} Implementación de interfaces
+    basadas en Streamlit y línea de comandos para interactuar con la MCE.
+\end{itemize}
+
+
+\section{Futuras Líneas de Investigación}
+
+Este trabajo ha presentado una arquitectura generalista viable para la
+interacción agente-entorno basada en lenguaje natural. Sin embargo, su
+desarrollo ha abierto nuevas preguntas que pueden guiar futuras
+investigaciones:
+
+\begin{itemize}
+    \item \textbf{Optimización del espacio de acciones}: Aunque la MCE ha
+    demostrado ser capaz de ejecutar acciones complejas, la generación de
+    acciones a partir de instrucciones en lenguaje natural puede ser mejorada
+    mediante técnicas de optimización del espacio de acciones. Esto podría incluir
+    la creación de nuevas funcionalidades que permitan al agente identificar el
+    estado del entorno de una forma más enriquecida o la intreacción simplificada
+    con aplicaciones específicas.
+
+    \item \textbf{Aprendizaje basado en experiencia contextualizada:} 
+    La arquitectura actual emplea un modelo cognitivo fijo para planificar 
+    acciones, pero no aprende activamente a partir de la experiencia. Explorar 
+    estrategias que permitan a la MCE construir representaciones internas 
+    de éxito/fracaso y utilizarlas para adaptar su planificación futura 
+    sería un paso clave hacia el aprendizaje continuo.
+\end{itemize}
+
+Estas líneas de investigación no solo amplían el alcance técnico de la MCE, sino
+que permitirán avanzar hacia arquitecturas cognitivas verdaderamente
+generalistas, capaces de operar de forma robusta en una amplia gama de entornos
+dinámicos y abiertos.
+

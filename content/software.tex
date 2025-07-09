@@ -100,7 +100,7 @@ A su vez, el espacio de acciones también puede ser categorizado en 3 distintas 
 
 \begin{itemize}
 
-    \item \textbf{Acciones actuadoras}: Son aquellas que interactuan con el entorno en el
+    \item \textbf{Acciones actuadoras}: Son aquellas que interactúan con el entorno en el
     se encuentra la máquina controlada. Estas permiten al agente cambiar el estado actual
     y la composición de este tipo de acciones permite alcanzar el objetivo final.
 
@@ -111,7 +111,7 @@ A su vez, el espacio de acciones también puede ser categorizado en 3 distintas 
 
     \item \textbf{Meta-Acciones}: Son aquellas que permiten al agente modificarse a si mismo,
     ya sea para guardar razonamientos en memoria, para activar distintos modos de razonamiento
-    o para cambiar el estado del agente. Esto permite al agente adapatarse a entornos cambiantes.
+    o para cambiar el estado del agente. Esto permite al agente adaptarse a entornos cambiantes.
 
 \end{itemize}
 
@@ -130,13 +130,13 @@ Las acciones de control del teclado son sencillas de implementar dadas las libre
 
 En el caso de usar un sistema operativo Linux o Raspbian, la librería \texttt{uinput} nos
 ofrece un control mas granular sobre los eventos del teclado, donde \texttt{pyautogui} puede fallar
-debido a problemas de incompatiibilidad o permisos con distintas distribciones de Linux. 
+debido a problemas de incompatibilidad o permisos con distintas distribuciones de Linux. 
 En este caso, resulta necesario realizar un remapeo entre las los posibles eventos de teclado
 (\texttt{uinput.KEY\_A}, \texttt{uinput.KEY\_MINUS}, etc.) y los caracteres de la cadena de 
 texto objetivo a escribir (\texttt{'a'}, \texttt{'-'}, etc.).
 
-Esta funcionalidad, se envolverá dentro de una función unica para todos los sistemas operativos, 
-y permitira al agente escribir texto en la máquina esclava de forma autónoma:
+Esta funcionalidad, se envolverá dentro de una función única para todos los sistemas operativos, 
+y permitirá al agente escribir texto en la máquina esclava de forma autónoma:
 
 \begin{lstlisting}[caption={Control del teclado}, label={cod:write_example}]
 >> write("Este texto sera escrito usando el teclado")
@@ -147,8 +147,8 @@ Un caso de uso un poco más complejo es el de utilizar combinaciones de teclas
 o atajos de teclado. En este caso, podemos utilizar las funciones de \texttt{pyautogui}
 o \texttt{uinput} para enviar una secuencia de teclas, sin embargo, necesitamos definir
 un estándar para la representación de estas combinaciones. Para resolver esto, se
-ha creado un diccionario de combinaciones de teclas que incluyen multiples representaciones
-de una misma combinacion o tecla, como puede ser \texttt{CTRL}, \texttt{CONTROL} o \texttt{CTRL\_LEFT}.
+ha creado un diccionario de combinaciones de teclas que incluyen múltiples representaciones
+de una misma combinación o tecla, como puede ser \texttt{CTRL}, \texttt{CONTROL} o \texttt{CTRL\_LEFT}.
 De esta forma el agente podría utilizar la siguiente sintaxis:
 
 \begin{lstlisting}[caption={Control del teclado con combinaciones de teclas}, label={cod:write_combination_example}]
@@ -157,7 +157,7 @@ KeyboardInterrupt
 \end{lstlisting}
 
 Estos dos tipos de acciones, entran en la categoría de acciones actuadoras y pertenecen al 
-espacio de acciones elementales \(\mathbb{B}\). Esto se debe a que multiples aplicaciones 
+espacio de acciones elementales \(\mathbb{B}\). Esto se debe a que múltiples aplicaciones 
 no pueden ser controladas sin la capacidad de escribir texto o enviar combinaciones de teclas.
 
 \subsubsection{Captura de Pantalla}
@@ -168,7 +168,7 @@ preprocesamiento de la imagen como un análisis posterior para extraer la inform
 necesaria.
 
 Para la captura de pantalla se utiliza la librería \texttt{pyautogui}, que 
-atravesará por varios modulos de OCR (Reconocimiento Óptico de Caracteres),
+atravesará por varios módulos de OCR (Reconocimiento Óptico de Caracteres),
 algoritmos de detección de elementos (creados con \texttt{OpenCV})\footnote{Adicionalmente para eliminar los falsos positivos, se utiliza una métrica basada en Iou (Intersection over Union)}
 y modelos multimodales basados en LLM para extraer tanto las entidades visuales como
 textuales de la imagen capturada. Una vez procesada la imagen, se puede 
@@ -179,12 +179,12 @@ será utilizada para la toma de decisiones.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.3]{figs/ocr_image.png}
-	\caption{\small Procesamiento de una captura de pantalla con algoritmos de detección de elementos. Fuente: Elaboración Propia.}
+	\caption{\small Procesamiento de una captura de pantalla con algoritmos de detección de elementos.}
 	\label{fig:ocr_image}
 \end{figure}
 
-Notese que aunque esta acción es perceptiva, tambien forma parte de las acciones
-elementales \(\mathbb{B}\) del espacio de acciones, ya que multiples 
+Nótese que aunque esta acción es perceptiva, tambien forma parte de las acciones
+elementales \(\mathbb{B}\) del espacio de acciones, ya que múltiples 
 problemas no pueden ser resueltos sin distinguir los elementos presentes
 de forma visual, como por ejemplo, la interfaz gráfica de un videojuego.
 
@@ -236,7 +236,7 @@ recursos computacionales gastados mientras un elemento se carga o una ventana se
 Para dejar al agente bloqueado, bastará con utilizar la función \texttt{sleep()}
 de Python, sin embargo la detección de la condición a esperar es una tarea más
 sensible y compleja. Para ello, se utiliza un modelo multimodal que es capaz de
-recibir una condición dada en lenguaje natural, y analizará periodicamente
+recibir una condición dada en lenguaje natural, y analizará periódicamente
 la pantalla para determinar si la condición se ha cumplido o no.
 
 Como ejemplo, el agente podría esperar a que aparezca un botón de
@@ -261,9 +261,9 @@ se cancelará la espera y se continuará con la ejecución del programa.
 La acción de abrir una aplicación es una de las más comunes y útiles para
 la MCE, pues una gran parte de los problemas a resolver requieren la
 interacción con aplicaciones específicas. Así pues esta acción permite traducir
-lenguaje natural a una busqueda de aplicaciones en el sistema operativo esclavo.
+lenguaje natural a una búsqueda de aplicaciones en el sistema operativo esclavo.
 
-Para realizar esto, se realiza una busqueda en múltiples directorios con usualmente
+Para realizar esto, se realiza una búsqueda en múltiples directorios con usualmente
 utilizados como directorios de instalación de aplicaciones, como por ejemplo, \texttt{/usr/bin} en
 el caso de Linux o \texttt{C:\textbackslash Program Files} en el caso de Windows; y se
 utiliza un algoritmo de similitud de cadenas para encontrar la aplicación más
@@ -277,9 +277,9 @@ Abriendo Spotify...
 >>
 \end{lstlisting}
 
-Nótese que aunque esta acción puede ser completada unicamente mediante acciones elementales
-(clicks y escritura de texto), su implementación permite una interacción mas agil y eficiente
-con el sistema. Formalmente, reeemplazamos una solucion \(s_{sub}\) con una solución \(s_{opt}\)
+Nótese que aunque esta acción puede ser completada únicamente mediante acciones elementales
+(clicks y escritura de texto), su implementación permite una interacción mas ágil y eficiente
+con el sistema. Formalmente, reemplazamos una solución \(s_{sub}\) con una solución \(s_{opt}\)
 ambas pertenecientes a \(\mathbb{S}_p\)
 
 \subsubsection{Ejecución de Código}
@@ -297,7 +297,7 @@ de la acción en cualquier momento.
 \begin{figure}[!b]
 	\centering
 	\includegraphics[scale=0.4]{figs/code_execution.png}
-	\caption{\small Interfaz gráfica de seguridad para ejecución de código. Elaboración Propia}
+	\caption{\small Interfaz gráfica de seguridad para ejecución de código.}
 	\label{fig:code_execution}
 \end{figure}
 
@@ -320,7 +320,7 @@ Este proceso de ejecución utiliza 2 componentes principales:
     enlazar los tokens generados por la capa de Cognición con las acciones
     correspondientes en el espacio de acciones \(\mathbb{B}^*\). A su vez, el
     intérprete convierte los tokens en "tareas" que pueden ser ejecutadas.
-    Estas tareas siempre se asegura que estan definidas siguiendo el protocolo
+    Estas tareas siempre se asegura que están definidas siguiendo el protocolo
     TSP (Task-Sequence Protocol), que define el conjunto de reglas que ambos
     componentes deben seguir para garantizar la correcta sincronización de los 
     componentes.
@@ -343,7 +343,7 @@ Estos 3 niveles son:
     \item \textbf{Acción}: Una acción es la unidad más básica de ejecución en
     el protocolo TSP. Cada acción representa una única acción correspondiente al
     espacio de acciones \(\mathbb{B}^*\). Puesto que todas las acciones se representan
-    a su vez mediante una única funcion Python, cada acción estará compuesta por
+    a su vez mediante una única función Python, cada acción estará compuesta por
     un nombre de la acción y un conjunto de argumentos que serán utilizados por la
     función correspondiente.
 
@@ -360,10 +360,10 @@ Estos 3 niveles son:
     
     La prioridad permite al agente crear situaciones en las que ciertas
     acciones deben ser ejecutadas interrumpiendo otras acciones en curso; por ejemplo,
-    un agente puede decidir parar un ánalisis si recibe una notificación de un
+    un agente puede decidir parar un análisis si recibe una notificación de un
     evento importante.
     
-    El identificador es generado automaticamente por el intérprete y permite a
+    El identificador es generado automáticamente por el intérprete y permite a
     la capa de ejecución mantener un registro de las tareas en curso. 
 
     Los modificadores de control permiten al agente definir condiciones de ejecución como
@@ -410,7 +410,7 @@ detalles de implementación concretos:
 \end{lstlisting}
 
 En este ejemplo, el agente inicia la apertura de Firefox con una prioridad 
-normal. Dentro de esta tarea, vemos como distintos tipos de secuancia permiten
+normal. Dentro de esta tarea, vemos como distintos tipos de secuencia permiten
 definir la lógica de ejecución. Por ejemplo, la secuencia \texttt{parallel run} permite
 ejecutar dos acciones de forma simultánea. A su vez estas secuencias contienen 
 acciones que se ejecutarán siguiendo el protocolo TSP.
@@ -473,7 +473,7 @@ Nótese que la naturaleza modular de la MCE permite que el intérprete pueda ser
 reemplazado por cualquier otro intérprete que cumpla las condiciones del
 protocolo TSP.}, uno basado en servicios del framework ROS2 (denominado como
 ROSA) que permitió la creación de un prototipo funcional y depurable; y otro
-creado puramente en Python (denominado como Pyxcel, del juego de palabrras
+creado puramente en Python (denominado como Pyxcel, del juego de palabras
 "Py-thon E-xcel-ent") que enlaza las acciones \emph{just-in-time}, es
 decir, cargando los módulos necesarios únicamente cuando son necesarios.
 
@@ -486,7 +486,7 @@ Para realizar el enlace de las acciones, el intérprete consulta un mecanismo gl
 de la MCE denominado como \texttt{ItemRegistry} o \emph{Registro de Entidades}. 
 Este registro (que será descrito en más profundidad en secciones posteriores) contiene una 
 base de datos de todas las acciones disponibles en el espacio de acciones \(\mathbb{B}^*\) y
-el codigo Python correspondiente a cada una de ellas. De esta forma, el intérprete
+el código Python correspondiente a cada una de ellas. De esta forma, el intérprete
 consulta el registro para obtener todas las acciones similares a la acción solicitada y
 realiza un proceso de desambiguación para seleccionar la acción más adecuada.
 
@@ -500,8 +500,6 @@ mandar señales de parada, cancelación o realizar un envío de recursos adicion
 Gracias a este mecanismo, el resto de capas de la MCE pueden utilizar lenguaje Exelent para
 poner en marcha la ejecución de una tarea, sin necesidad de preocuparse por los detalles
 de control o implementación de cada acción.
-
-\todo{Añadir un diagrama aquí del funcionamiento del intérprete :D}
 
 \section{Capa de Cognición}
 
@@ -553,7 +551,7 @@ automática de las acciones disponibles en el espacio de acciones \(\mathbb{B}^*
     el nombre de la acción con un conjunto de sinónimos y términos relacionados. Todos estos términos
     son correlacionados con la acción y se almacenarán en el mapa de correspondencia \(\Lambda\) utilizado
     en la capa de ejecución. De esta forma, cuando el agente solicite una acción, la capa de cognición
-    podrá buscar en el mapa de correspondencia \(\Lambda\) y generar codigo exelent que
+    podrá buscar en el mapa de correspondencia \(\Lambda\) y generar código exelent que
     pueda ser ejecutado por la capa de ejecución.
 
     A su vez el autodescriptor también genera un set de instrucciones que
@@ -596,7 +594,7 @@ A su vez, el mapa de correspondencia \(\Lambda\) sería actualizado tal que:
 >> }
 \end{lstlisting}
 De esta forma, el agente puede utilizar el espacio de acciones \(\mathbb{B}^*\) de la MCE
-de forma efectiva, generando código exelent siguiendo las instrucciones embedidas en el autodescriptor.
+de forma efectiva, generando código exelent siguiendo las instrucciones embebidas en el autodescriptor.
 
 \begin{lstlisting}[caption={Ejemplo de uso del autodescriptor}, label={cod:autodescriptor_usage_example}]
 >> agent.invoke("Por favor escribe 'Hola Mundo' en la maquina esclava")
@@ -617,7 +615,7 @@ acciones \(\mathbb{B}^*\) de forma efectiva, sin necesidad de preocuparse por lo
 detalles de la implementación.
 
 \subsection{Buffer de Memoria}
-Siguiendo la arquitectura PMPA discutida en la sección \ref{sec:components_of_cognitive_architectures}
+Siguiendo la arquitectura PMPA discutida en la Sección \ref{sec:components_of_cognitive_architectures}
 la MCE implementa un buffer de memoria que permite a los agentes mantener coherencia
 a lo largo de la ejecución de una tarea. 
 
@@ -661,7 +659,7 @@ información en su buffer de memoria:
 \end{lstlisting}
 
 En este caso, el buffer de memoria podría eliminar algunas entradas que
-ya no son relevantes para las proximas tareas. Así, el buffer de memoria
+ya no son relevantes para las próximas tareas. Así, el buffer de memoria
 podría actualizarse a:
 
 \begin{lstlisting}[caption={Buffer de memoria actualizado}, label={cod:memory_buffer_updated_example}]
@@ -682,17 +680,17 @@ podría actualizarse a:
 >> ]
 \end{lstlisting}
 
-Adicionalmente, el buffer de memoria tambíen contiene mecanismos para minimizar
+Adicionalmente, el buffer de memoria también contiene mecanismos para minimizar
 el volumen de información gráfica (como capturas de pantalla) o generación automática
 de resúmenes para salidas con gran volumen de texto. Con todos estos mecanismos,
-los agentes mantendran un estado coherente a lo largo de la ejecución de una tarea,
+los agentes mantendrán un estado coherente a lo largo de la ejecución de una tarea,
 sin necesidad de preocuparse por la gestión de la memoria.
 
 \subsection{Estado Cognitivo}
 El estado cognitivo es un mecanismo que permite a los agentes el uso de 
 las meta-acciones. De forma simplificada, un estado cognitivo no es mas que
 un conjunto de variables que definen el comportamiento que debe seguir
-el agente. Cuando un agente realiza una meta-acción, esta modifica su estado cognitivo, permitiendole
+el agente. Cuando un agente realiza una meta-acción, esta modifica su estado cognitivo, permitiéndole
 influir en su propio comportamiento. 
 
 Nótese como estas \emph{variables} en el estado cognitivo no tienen una funcionalidad específica
@@ -747,13 +745,13 @@ ejecutando las acciones enviadas a la capa de ejecución. Finalmente, cuando el 
 la MCE recuperará el control y decidirá si continuar con la ejecución de la tarea o finalizarla.
 
 \subsection{Fast Agent-Protocol (FastAP)}
-El protocolo FastAP esta basado en el protocolo de agentes discutido en la sección 
+El protocolo FastAP esta basado en el protocolo de agentes discutido en la Sección 
 \ref{sec:components_of_cognitive_architectures}. En contraste con el protocolo de agentes
 original, FastAP es un protocolo mucho más rápido y con una implementación sencilla que permite
-embeber todas las capacidades de un agente en una única funcion de Python.
+embeber todas las capacidades de un agente en una única función de Python.
 
 A su vez, este protocolo es totalmente síncrono y basado en un sistema de mensajes, donde
-al enviar un mensaje a un agente que utiliza el protocolo FastAP, este tomára el control
+al enviar un mensaje a un agente que utiliza el protocolo FastAP, este tomará el control
 de la MCE de forma temporal hasta que haya completado su tarea.
 
 Utilizando este protocolo todos los agentes de la MCE, independientemente de su implementación
@@ -766,13 +764,13 @@ siguientes funcionalidades:
 
     \item \textbf{Resolución automática de dependencias}: FastAP realiza un análisis dinámico
     de las dependencias de cada agente, tanto a nivel de librerías como a nivel de las acciones
-    necesarias para cada agente. Una vez con estas dependencias, FastAP generá un entorno virtual
+    necesarias para cada agente. Una vez con estas dependencias, FastAP genera un entorno virtual
     que contiene todas las dependencias necesarias para la ejecución del agente. De esta forma,
     los agentes pueden ser ejecutados sin tener conflictos con el resto de agentes o capas de la MCE.
 
     \item \textbf{Control de Ejecución}: FastAP permite pausar, reanudar o cancelar la ejecución
     de un agente en cualquier momento. Esto es debido, a que todos los agentes necesitan que FastAP
-    envie mensajes de confirmación para continuar con la ejecución de su tarea. Cuando una señal de 
+    envíe mensajes de confirmación para continuar con la ejecución de su tarea. Cuando una señal de 
     parada es enviada, FastAP no envía más mensajes de confirmación al agente y, en caso de que una posterior
     cancelación sea enviada, FastAP eliminará el entorno virtual del agente y devolverá el control a la MCE.
 
@@ -785,9 +783,7 @@ siguientes funcionalidades:
 Este protocolo es un mecanismo fundamental en la MCE, pues sin el no sería posible la experimentación y contraste
 de distintos agentes en la MCE. A su vez, este protocolo permite a los agentes
 integrarse de forma sencilla y rápida en la MCE, pues provee de una plantilla de código
-que puede ser facilmente adaptada a los mecanismos internos de cada agente.
-
-\todo{Otro diagrama por acá de FastAP con los agentes}
+que puede ser fácilmente adaptada a los mecanismos internos de cada agente.
 
 \section{Capa de Núcleo}
 La capa de núcleo tiene la responsabilidad de conectar todos los componentes
@@ -812,7 +808,7 @@ Entre las funcionalidades más relevantes del registro de entidades se encuentra
     \item \textbf{Resolución de Dependencias}: Mientas que FastAP se encarga de resolver
     las dependencias de los agentes, el registro de entidades se encarga de resolver
     las dependencias de las acciones. Esto incluye tanto las dependencias de librerías
-    como interdependencias entre acciones. Por ejemplo, si una accion de reconocimiento de
+    como interdependencias entre acciones. Por ejemplo, si una acción de reconocimiento de
     caracteres (OCR) depende de la librería \texttt{pytesseract}, el registro de entidades
     se encargará de asegurar que esta librería esté disponible en un entorno virtual
     que luego será utilizado por la capa de ejecución.
@@ -820,10 +816,10 @@ Entre las funcionalidades más relevantes del registro de entidades se encuentra
     \item \textbf{Carga Perezosa}: El registro permite la carga perezosa de acciones, es decir, las acciones
     no se cargan hasta que son llamadas por la capa de ejecución. Esto permite que acciones que no son utilizadas no
     consuman recursos innecesarios en el sistema. Este mecanismo resulta fundamental dado que el espacio de acciones \(\mathbb{B}^*\) 
-    es teoricamente tendiente a infinito, por lo que en caso de que la carga no fuera perezosa, el sistema
+    es teóricamente tendiente a infinito, por lo que en caso de que la carga no fuera perezosa, el sistema
     podría consumir una cantidad de recursos computacionales excesiva tanto en el inicio de la MCE como en la ejecución de las acciones.
 
-    \item \textbf{Mapa de Correspondencia}: El registro guarda un mapa de correspondencia \(\Lambda\) basado en multiples
+    \item \textbf{Mapa de Correspondencia}: El registro guarda un mapa de correspondencia \(\Lambda\) basado en múltiples
     diccionarios clave-valor que permiten a la capa de ejecución encontrar las acciones correspondientes a los tokens
     encontrados durante el análisis del lenguaje exelent. Debido a la carga perezosa, este mapa no apunta directamente a las funcionalidades
     de las acciones, sino que apunta a un disparador que, al ser invocado, cargará la acción en memoria y la ejecutará. En caso de 
@@ -840,11 +836,11 @@ Entre las funcionalidades más relevantes del registro de entidades se encuentra
     A su vez, también permite al cliente cambiar el comportamiento de la MCE sin necesidad de modificar el código de cada una de las capas.
 
     \item \textbf{Empaquetado de Acciones}: El registro permite a su vez empaquetar conjuntos de acciones en un único paquete que comparten
-    funcionalidades comunes. Estos paquetes agilizan la resolucion de dependencias y a su vez permiten a los agentes simplificar la invocación 
+    funcionalidades comunes. Estos paquetes agilizan la resolución de dependencias y a su vez permiten a los agentes simplificar la invocación 
     de acciones que generalmente son utilizadas juntas. Por ejemplo, un paquete de acciones podría contener acciones para abrir una 
     aplicación, esperar a que esta se cargue y realizar una acción específica en la aplicación, etc.
 
-    \item \textbf{Ejecución Segura}: El registro tambíen permite a la MCE ejecutar acciones de forma segura,
+    \item \textbf{Ejecución Segura}: El registro también permite a la MCE ejecutar acciones de forma segura,
     esto es el registro puede cambiar las funcionalidades de las acciones para que estas
     no se ejecuten directamente, en su lugar, pueden pedir una confirmación al usuario o bien
     ejecutar una acción simulada que no afecte al sistema. Esto es especialmente
@@ -857,9 +853,9 @@ Entre las funcionalidades más relevantes del registro de entidades se encuentra
 El servicio maestro-esclavo (SME) es el mecanismo encargado de gestionar las comunicaciones
 entre la máquina controlada (esclava) y la máquina que ejecuta la MCE (maestra). 
 
-Este servicio se realizó a traves de una implementación basada en RabbitMQ con
+Este servicio se realizó a través de una implementación basada en RabbitMQ con
 mensajes de tipo string entre ambas máquinas. Debido a la naturaleza de la MCE, 
-se requiere que la ejecución de codigo en una máquina remota sea lo más segura 
+se requiere que la ejecución de código en una máquina remota sea lo más segura 
 posible, por lo que esta implementación ha sido reemplazada por un mecanismo 
 externo basado en gRPC (Google Remote Procedure Call).
 
@@ -872,7 +868,7 @@ De forma ilustrativa, el siguiente ejemplo muestra el funcionamiento
 de la MCE desde el punto de vista de la capa de núcleo. En este ejemplo,
 el usuario solicitará al agente que abra Spotify.
 
-Nótese que multiples mecanismos internos han sido omitidos para
+Nótese que múltiples mecanismos internos han sido omitidos para
 simplificar el ejemplo, a su vez, algunas simplificaciones han sido 
 realizadas para facilitar la comprensión del funcionamiento de la MCE.
 
@@ -885,12 +881,12 @@ realizadas para facilitar la comprensión del funcionamiento de la MCE.
         y al mapa de correspondencia \(\Lambda\).
         \item Se inicializa la capa de cognición y se carga el agente integrado en 
         la MCE, por ejemplo, DarkVFR
-        \item DarkVFR inicializa los modulos de la capa de cognición necesarios, como por ejemplo,
+        \item DarkVFR inicializa los módulos de la capa de cognición necesarios, como por ejemplo,
         inicializa el buffer de memoria y el estado cognitivo con los valores por defecto.
         \item FastAP es inicializado y se enlaza con la capa de cognición. Crea un entorno virtual,
         analiza las dependencias del agente, y si existen dependencias obligatorias, carga en el 
         registro de entidades las acciones necesarias.
-        \item FastAP enlaza al agente (DarkVFR) con el interprete, permitiendole enviar acciones a
+        \item FastAP enlaza al agente (DarkVFR) con el interprete, permitiéndole enviar acciones a
         la capa de ejecución.
         \item FastAP crea un servidor de control para el usuario, de forma que este pueda pararlo,
         cancelarlo o reiniciarlo en cualquier momento.
@@ -911,18 +907,18 @@ realizadas para facilitar la comprensión del funcionamiento de la MCE.
 >>     sequentially run
 >>         open_application "Spotify"
         \end{lstlisting}
-        \item DarkVFR envia el plan de acción a la capa de ejecución a traves del interprete.
+        \item DarkVFR envía el plan de acción a la capa de ejecución a través del interprete.
     \end{enumerate}
 
-    \item El interprete recibe el plan de acción y lo envia a la capa de ejecución.
+    \item El interprete recibe el plan de acción y lo envía a la capa de ejecución.
     \begin{enumerate}
         \item El interprete analiza el plan de acción y lo tokeniza, generando una estructura de datos
         que sigue el protocolo TSP.
         \item El interprete consulta el registro de entidades y encuentra la acción \texttt{open\_application}
-        y sus metadatos asociados a traves de su identificador único y el mapa de correspondencia \(\Lambda\).
+        y sus metadatos asociados a través de su identificador único y el mapa de correspondencia \(\Lambda\).
         \item El interprete crea un proceso paralelo y ejecuta la acción \texttt{open\_application} con los
         argumentos necesarios, en este caso, el nombre de la aplicación "Spotify".
-        \item El registro de entidades es disparado con la acción \texttt{open\_application} y carga todas las librerias
+        \item El registro de entidades es disparado con la acción \texttt{open\_application} y carga todas las librerías
         necesarias para la ejecución de la acción.
         \item El interprete controla la ejecución de la acción y espera su resultado.
         \item Una vez que la acción ha sido completada, el interprete recibe el resultado y lo envía de vuelta a DarkVFR.
@@ -932,8 +928,8 @@ realizadas para facilitar la comprensión del funcionamiento de la MCE.
     \item DarkVFR decide finalizar la tarea debido a que el objetivo ha sido completado (omitido en este ejemplo).
     \item La MCE recibe el flag de tarea completada y finaliza la ejecución de la tarea.
     \begin{enumerate}
-        \item El registro de entidades revisa si hay librerias que pueden ser liberadas, y si es así, las elimina.
-        \item FastAP deja el entorno virtual del agente bloqueado hasta proximo aviso.
+        \item El registro de entidades revisa si hay librerías que pueden ser liberadas, y si es así, las elimina.
+        \item FastAP deja el entorno virtual del agente bloqueado hasta próximo aviso.
         \item El interprete librera los recursos utilizados por acciones previas y revisa que no haya procesos abiertos.
     \end{enumerate}
 \end{enumerate}
@@ -955,14 +951,14 @@ Este instalador permite, entre otros las siguientes configuraciones:
 \begin{itemize}
     \item Seleccionar la capa de ejecución a utilizar (Pyxcel o ROSA).
     \item Seleccionar el agente/s a utilizar (DarkVFR, FastReact, etc.) 
-    con sus respectivaas dependencias. 
+    con sus respectivas dependencias. 
     \item Detectar automaticamente el sistema operativo
     \item Seleccionar una instalación con soporte para el servicio maestro-esclavo
     \item Integrar claves y tokens de acceso a servicios externos que serán guardados
     en ficheros de configuración seguros y anónimos.
     \item Instalar la MCE en un entorno virtual de Conda (o directamente en el sistema)
     \item Actualizar automaticamente las variables de entorno del sistema necesarias
-    para proximas ejecuciones.\footnote{En versiones previas del espacio de ejecución
+    para próximas ejecuciones.\footnote{En versiones previas del espacio de ejecución
     como el caso de ROSA, el instalador automáticamente realizaba el proceso
     de compilación y enlazado de los paquetes de ROS2 necesarios.}
     \item Instalar herramientas de desarrollo como linters y formateadores de código.
@@ -988,7 +984,7 @@ Estas funcionalidades, a su vez, pueden ser accedidas desde tres interfaces dist
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.2]{figs/installer.png}
-	\caption{\small Interfaz gráfica de desarrollador. Fuente: elaboración propia.}
+	\caption{\small Interfaz gráfica de desarrollador}
 	\label{fig:installer}
 \end{figure}
 
@@ -1005,9 +1001,9 @@ Con el fin de poder integrar la MCE en un sistema embebido,
 y la máquina esclava es un dispositivo externo) se ha desarrollado
 una imagen de sistema y un bootloader personalizado.
 
-Ambas imagenes han sido desarrolladas desde la placa de desarrollo
+Ambas imágenes han sido desarrolladas desde la placa de desarrollo
 IMX8MP de NXP, con un microprocesador ARM Cortex A53 de 4 núcleos. No
-se asegura que estas imagenes sean compatibles en su totalidad con otros 
+se asegura que estas imágenes sean compatibles en su totalidad con otros 
 sistemas embebidos, sin embargo, se ha realizado un esfuerzo para que
 esta imagen sea lo más portable posible y pueda ser utilizada en otros
 entornos.
@@ -1020,7 +1016,7 @@ los requisitos mínimos necesarios para la ejecución de la MCE.
 
 Concretamente, en este kernel se han incluido los drivers necesarios
 para la comunicación con la máquina esclava a través de MarvellWifi;
-arquitectura de red estandar para comunicaciones a traves de, por ejemplo,
+arquitectura de red estándar para comunicaciones a través de, por ejemplo,
 el chipset 88W8997 de Marvell.
 
 A su vez, se han generado los headers necesarios para la compilación
@@ -1053,7 +1049,7 @@ La imagen del sistema ha sido generada a partir de la distribución
     los servicios innecesarios para minimizar los riesgos de posibles ataques.
 \end{itemize}
 
-Nótese como a esta imágen no se le ha integrado una interfaz gráfica o gestor de ventanas, 
+Nótese como a esta imagen no se le ha integrado una interfaz gráfica o gestor de ventanas, 
 pues esta solo es necesaria en la máquina esclava, donde se ejecutarán las acciones del espacio 
 de acciones \(\mathbb{B}^*\).
 
@@ -1093,7 +1089,7 @@ Entre los tests automáticos se encuentran:
     que el interprete puede cargar acciones desde el registro de entidades y ejecutarlas
 
     \item \textbf{Bootstraps}: Estos tests pueden ser ejecutados manualmente y verifican
-    que la MCE puede ser arrancada correctamente, utilizando distintos compoentes y 
+    que la MCE puede ser arrancada correctamente, utilizando distintos componentes y 
     configuraciones.
 
     \item \textbf{Tests del espacio de acciones \(\mathbb{B}^*\)}: Estos tests verifican 

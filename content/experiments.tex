@@ -40,7 +40,7 @@ separada:
     el entorno; la segunda fase consiste en una reducción del plan
     generado en un conjunto de acciones que resuelven dicha tarea
     usando acciones dentro del espacio \(\mathbb{B}^*\); la tercera
-    fase consiste en la generación de lenguaje exelente para enviarlo
+    fase consiste en la generación de lenguaje exelent para enviarlo
     posteriormente a la capa de Ejecución de la MCE.
 
     Este agente es integrado dentro de un bucle de control que mantiene
@@ -48,18 +48,18 @@ separada:
     que la tarea sea resuelta o el agente decida detenerse.
 
     \item \textbf{PlanexV2}: Esta variante de Planex que introduce una fase
-    adicional de recuperación. En este sentido, cuando el agente genera halucinaciones
+    adicional de recuperación. En este sentido, cuando el agente genera alucinaciones
     o errores son recibidos de la capa de ejecución, el agente entra en un bucle
     de recuperación que le permite observar sus propios mensajes, los errores obtenidos
     y reajustar alguna de las 3 fases de Planex para intentar resolver la tarea
     de forma exitosa.
 
-    Este mecanismo permite al agente recuperarse de forma más agil, sin tener que
+    Este mecanismo permite al agente recuperarse de forma más ágil, sin tener que
     realizar una iteración o reinicio completo para poder reaccionar ante errores.
 
     \item \textbf{RePlan}: Este agente es una variante de Planex que utiliza
-    una filosofia de planificación basada en \emph{ReAct}, una de lás metodologías
-    de ingeniería de prompting discutida en la sección \ref{sec:prompting}. Así pues,
+    una filosofía de planificación basada en \emph{ReAct}, una de las metodologías
+    de ingeniería de prompting discutida en la Sección \ref{sec:prompting}. Así pues,
     ReAct utiliza  un ciclo de razonamiento y acción, donde el agente
     genera un razonamiento sobre la tarea a resolver, seguido de una acción
     que le permite observar y/o modificar su entorno.
@@ -67,7 +67,7 @@ separada:
     Manteniendo este ciclo de razonamiento y acción, RePlan puede utilizar las capacidades
     de Planex de forma dinámica, decidiendo cuando activar cada fase de Planex de 
     forma autónoma. Con esto, RePlan puede decidir si generar un plan de acción 
-    a largo plazo, o generar lenuguaje exelent para enviarlo a la capa de ejecución.
+    a largo plazo, o generar lenguaje exelent para enviarlo a la capa de ejecución.
 
 
     \item \textbf{Xplore}: Xplore es un agente que utiliza un enfoque de exploración
@@ -81,12 +81,12 @@ separada:
     planificación a corto plazo, recuperación, aprendizaje y refinamiento. Cada
     uno de estos estados permite representar la información obtenida del entorno en
     distintos formatos, que permitirán a Xplore adaptarse a su entorno y no solo interactuar
-    de forma reactiva, sino tambíen modificar su comportamiento a largo plazo a medida
+    de forma reactiva, sino también modificar su comportamiento a largo plazo a medida
     que su entorno cambia.
 
     \item \textbf{FastReact}: FastReact es un agente que utiliza un mecanismo
     de razonamiento y acción basado en ReAct, pero con un set de optimizaciones
-    que permiten al agente razonar y actuar de formá paralela y mucho más eficiente.
+    que permiten al agente razonar y actuar de forma paralela y mucho más eficiente.
 
     Este agente ya no utiliza bucles de control, ni esta conectado con Planex,
     sino que directamente es capaz de interactuar con su entorno usando puramente
@@ -94,7 +94,7 @@ separada:
 
     \item \textbf{Visual-FastReact}: Este agente, abreviado como VFR es una variante
     de FastReact que integra capacidades de visión para obtener no solo información
-    desde el espacio de acciones, sino también desde imagenes o capturas de pantalla 
+    desde el espacio de acciones, sino también desde imágenes o capturas de pantalla 
     del entorno.
 
     De esta forma, VFR puede observar su entorno de forma más completa,
@@ -107,7 +107,7 @@ separada:
     
     A nivel técnico, el agente prescinde de herramientas de flujo como LangGraph
     y basa su ejecución en una arquitectura modular, con métodos claramente
-    separados y reemplazables que pueden ser sobreescritos para extender su comportamiento.
+    separados y reemplazables que pueden ser sobrescritos para extender su comportamiento.
 
     Esta unificación del ciclo cognitivo permite reducir la complejidad y
     aumentar la flexibilidad del agente, facilitando el desarrollo de nuevas
@@ -125,11 +125,11 @@ separada:
 \end{itemize}
 
 Estos agentes han sido implementados utilizando los mecanismos de ingeniería de prompting
-presentados en la sección \ref{sec:prompting}, así como mecanismos de control de mensajes,
-llamada a funciones o estructuración de prompts presentados en la sección \ref{sec:canonical_mechanisms}.
+presentados en la Sección \ref{sec:prompting}, así como mecanismos de control de mensajes,
+llamada a funciones o estructuración de prompts presentados en la Sección \ref{sec:canonical_mechanisms}.
 
 Para el desarrollo de los agentes, se ha utilizado la librería \texttt{Langchain} y \texttt{Langgraph}, 
-asi como modulos customizados para cada agente escritos totalmente en Python.
+así como módulos customizados para cada agente escritos totalmente en Python.
 
 \section{Características Técnicas y Funcionales}
 A continuación, se presentan las características técnicas y funcionales de cada
@@ -290,7 +290,7 @@ Los objetivos planteados en cada uno de estos entornos son los siguientes:
 
   \item \textbf{Hello World}: Este entorno de pruebas cuenta
   con un editor de texto abierto y preparado para recibir entradas de texto.
-  El objetivo del agente es escribir el texto \texttt{"Hola Mundo"} en dicho editor,
+  El objetivo del agente es escribir el texto \texttt{Hola Mundo} en dicho editor,
   Con esta tarea se pretende evaluar la capacidad del agente para interactuar
   con su entorno utilizando el espacio de acciones. 
   
@@ -301,10 +301,10 @@ Los objetivos planteados en cada uno de estos entornos son los siguientes:
   Para realizar esta tarea, el agente deberá ser capaz de realizar todas
   las acciones necesarias, habiendo recibido como entrada el siguiente texto:
   \begin{quote}
-    \texttt{"Por favor, escribe 'Hola Mundo'"}
+    \texttt{Por favor, escribe 'Hola Mundo'}
   \end{quote}
 
-  \item \textbf{Play a Song}: En este entorno, el agente tendra Spotify
+  \item \textbf{Play a Song}: En este entorno, el agente tendrá Spotify
   abierto y preparado con una canción aleatoria. Sin embargo, esta aplicación
   se encontrará minimizada, por lo que el agente deberá encontrar la
   aplicación, maximizarla y reproducir la canción. 
@@ -324,12 +324,12 @@ Los objetivos planteados en cada uno de estos entornos son los siguientes:
 
   La entrada que recibirá el agente para esta prueba será:
   \begin{quote}
-    \texttt{"Reproduce una canción en Spotify"}
+    \texttt{Reproduce una canción en Spotify}
   \end{quote}
 
   \item \textbf{Buy on Amazon}: En este entorno el agente iniciará
-  en el escritorio de Windows. Tendra aplicaciones abiertas como
-  Spotify o Visual Studio Code, pero no tendra ningún navegador abierto.
+  en el escritorio de Windows. Tendrá aplicaciones abiertas como
+  Spotify o Visual Studio Code, pero no tendrá ningún navegador abierto.
   El objetivo del agente será: descubrir que navegador tiene instalado,
   abrirlo, encontrar una pagina web de Amazon que tenga un producto
   especificado y o bien añadirlo al carrito de la compra, o bien
@@ -337,7 +337,7 @@ Los objetivos planteados en cada uno de estos entornos son los siguientes:
 
   Las métricas de rendimiento mas relevantes en este caso serán 
   la eficiencia del agente para realizar la tarea, donde dicha eficiencia
-  se medira tanto en el número de acciones como en la cantidad de tokens
+  se medirá tanto en el número de acciones como en la cantidad de tokens
   utilizados (en el proceso de razonamiento dentro de la LLM) para completar
   la tarea. 
 
@@ -352,12 +352,12 @@ Los objetivos planteados en cada uno de estos entornos son los siguientes:
 
   La entrada que recibirá el agente para esta prueba será:
   \begin{quote}
-    \texttt{"Busca un portatil en Amazon y compralo o añadelo al carrito."}
+    \texttt{Busca un portátil en Amazon y cómpralo o añádelo al carrito.}
   \end{quote}
 
 \end{enumerate}
 
-Notese que como medida de seguridad, los agentes contarán con un limite
+Nótese que como medida de seguridad, los agentes contarán con un limite
 de tiempo y acciones para completar cada una de estas tareas. Estas
 restricciones están diseñadas para evitar que los agentes se queden
 atrapados en bucles infinitos o realicen acciones no deseadas.
@@ -400,7 +400,7 @@ deben escribir un texto específico en un editor.
 El prompt de entrada para este entorno es el siguiente:
 
 \begin{quote}
-    \texttt{"Por favor, escribe 'Hola Mundo'."}
+    \texttt{Por favor, escribe 'Hola Mundo'.}
 \end{quote}
 
 Es importante resaltar como dado el prompt de entrada, no se especifica si 
@@ -430,7 +430,7 @@ realizada distingue dos comportamientos diferentes:
 
 
     \item \textbf{Acciones previas}: El agente realiza acciones adicionales
-    para abrir un editor o revisar si en pantalla se encuentra algun programa
+    para abrir un editor o revisar si en pantalla se encuentra algún programa
     de texto abierto. Tras esto, escribe el texto solicitado
     en el editor. Este comportamiento es más robusto, pues no asume
     información que no se ha proporcionado en el prompt, pero requiere de un
@@ -459,13 +459,13 @@ de \emph{Hello World}:
     \centering
     \includegraphics[scale=0.55]{figs/metrics-env-1.png}
     \caption{\small Rendimiento de los agentes (N. Acciones vs Tiempo promedio) en el 
-    entorno \emph{Hello World}. Fuente: Elaboración propia.}
+    entorno \emph{Hello World}}
     \label{fig:env-1}
 \end{figure}
 
-En la figura \ref{fig:env-1} se puede observar como los agentes
+En la Figura \ref{fig:env-1} se puede observar como los agentes
 mas simples (\emph{Planex}, \emph{PlanexV2} y \emph{RePlan}) logran completar la tarea
-con un númmero reducido de acciones, utilizando una estrategia más
+con un número reducido de acciones, utilizando una estrategia más
 directa y asumiendo que el editor ya está abierto. 
 
 También observamos como los agentes basados en React o Fast-React
@@ -480,7 +480,7 @@ menor al resto de agentes y con un número de acciones reducido.
 \begin{figure}[!h]
     \centering
     \includegraphics[scale=0.45]{figs/result-env-1.png}
-    \caption{Resultado de la evaluación \emph{Hello World} usando Planex. Texto escrito resaltado en un recuadro rojo. Fuente: Elaboración propia.}
+    \caption{Resultado de la evaluación \emph{Hello World} usando Planex. Texto escrito resaltado en un recuadro rojo}
     \label{fig:env-1-result}
 \end{figure}
 
@@ -490,7 +490,7 @@ que el agente interactúe con una aplicación minimizada (Spotify) y descubra
 cómo reproducir una canción. El prompt de entrada para este entorno es:
 
 \begin{quote}
-    \texttt{"Reproduce una canción en Spotify."}
+    \texttt{Reproduce una canción en Spotify.}
 \end{quote}
 
 En este caso los siguientes comportamientos se han observado:
@@ -503,7 +503,7 @@ En este caso los siguientes comportamientos se han observado:
 
     Por el contrario, el resto de agentes, son capaces de recuperarse y descubrir
     que Spotify no está abierto. De forma aleatoria, algunos agentes han decidido
-    abrir Spotify directamente, mientras que en otras ejecuciónes han encontrado
+    abrir Spotify directamente, mientras que en otras ejecuciones han encontrado
     la aplicación en la barra de tareas y la han maximizado.
 
     \item \textbf{Reproducción de la canción}: Una vez Spotify está abierto,
@@ -514,7 +514,7 @@ En este caso los siguientes comportamientos se han observado:
     En el caso de los agentes que no poseen capacidades de visión, como
     \emph{RePlan} se ha observado que en algunos de los intentos, el agente
     descubre que puede presionar la tecla \texttt{Espacio} y completa la tarea,
-    sin embargo este obstaculo resulta un bloqueo que ha impedido el completado
+    sin embargo este obstáculo resulta un bloqueo que ha impedido el completado
     de la tarea en la mayoría de sus casos.
 
     Por el contrario, los agentes que poseen capacidades de visión, como
@@ -529,11 +529,11 @@ En este caso los siguientes comportamientos se han observado:
     \centering
     \includegraphics[scale=0.16]{figs/metrics-env-2.png}
     \caption{\small Rendimiento de los agentes (N. Acciones vs Tiempo promedio) en el 
-    entorno \emph{Play a Song}. Fuente: Elaboración propia.}
+    entorno \emph{Play a Song}}
     \label{fig:env2}
 \end{figure}
 
-En la figura \ref{fig:env2} se puede observar como los agentes
+En la Figura \ref{fig:env2} se puede observar como los agentes
 que no poseen capacidades de visión como \emph{FastReact} o \emph{RePlan} tienen un 
 rendimiento inferior al resto de agentes, requiriendo de un mayor tiempo de computo
 a analizar posibles métodos de recuperación.
@@ -549,7 +549,7 @@ satisfactoriamente en un tiempo inferior a los \emph{40 segundos} y \emph{6 acci
 \begin{figure}[!h]
     \centering
     \includegraphics[scale=0.25]{figs/result-env-2.png}
-    \caption{VisualFastReact maximizando Spotify para reproducir la canción. Fuente: Elaboración propia.}
+    \caption{VisualFastReact maximizando Spotify para reproducir la canción}
     \label{fig:env-2-result}
 \end{figure}
 
@@ -560,28 +560,28 @@ producto específico y lo añada al carrito o lo compre directamente. El prompt 
 para este entorno es:
 
 \begin{quote}
-    \texttt{"Busca un portatil en Amazon y compralo o añadelo al carrito."}
+    \texttt{Busca un portátil en Amazon y cómpralo o añádelo al carrito.}
 \end{quote}
 
 Nótese que en este caso, no se avisa al agente de que el navegador no se
 encuentra abierto. A su vez,
  tampoco se especifica que navegadores se deben
-utilizar ni en que sistema operativo se esta trabajando ( en windows, por
+utilizar ni en que sistema operativo se esta trabajando ( en Windows, por
 ejemplo, se puede utilizar Microsoft Edge, mientras que en Linux se puede
 utilizar Firefox o Chrome).
 
-Adicionalmente como se muestra en la figura \ref{fig:laptops}, en busquedas realizadas por los agentes, 
+Adicionalmente como se muestra en la figura \ref{fig:laptops}, en búsquedas realizadas por los agentes, 
 se ha observado como incluso habiendo estos utilizado la búsqueda \emph{laptops site:amazon.com}, los resultados
-de la búsqueda no contienen unicamente productos de Amazon, sino que son mayoritariamente anuncios de 
+de la búsqueda no contienen únicamente productos de Amazon, sino que son mayoritariamente anuncios de 
 otras páginas, que el agente deberá ignorar o recuperarse para completar la tarea.
 
 
 \begin{figure}[!h]
     \centering
     \includegraphics[scale=0.25]{figs/laptops.png}
-    \caption{Búsqueda de portatil usando el query \emph{laptops site:amazon.com} en Microsoft Edge. 
-    Los resultados de la búsqueda unicamente continen un producto perteneciente a Amazon, el resto
-    son anuncios de otras páginas. Fuente: Elaboración propia.}
+    \caption{Búsqueda de portátil usando el query \emph{laptops site:amazon.com} en Microsoft Edge. 
+    Los resultados de la búsqueda únicamente contienen un producto perteneciente a Amazon, el resto
+    son anuncios de otras páginas}
     \label{fig:laptops}
 \end{figure}
 
@@ -600,7 +600,7 @@ comportamientos:
 
   \item \textbf{Interacción con el navegador}: El resto de agentes han sido capaces
   de descubrir el navegador instalado en el sistema, han conseguido realizar una
-  busqueda en Edge, sin embargo han tenido problemas al no ser capaces de distinguir
+  búsqueda en Edge, sin embargo han tenido problemas al no ser capaces de distinguir
   entre los resultados de la búsqueda y los anuncios de otras páginas.
 
   En el caso de \emph{Xplore}, el agente solo ha podido completar la tarea en una
@@ -617,7 +617,7 @@ comportamientos:
   \item \textbf{Añadir al carrito o comprar}: Todos los agentes que han alcanzado la página
   de Amazon han sido capaces de añadir el producto al carrito o comprarlo directamente. Esto
   se debe a que la mayoría de agentes han podido observar el botón de "Añadir al carrito" en 
-  la página de búsqueda de portatiles de Amazon.
+  la página de búsqueda de portátiles de Amazon.
 
 \end{itemize}
 
@@ -626,19 +626,19 @@ comportamientos:
     \centering
     \includegraphics[scale=0.16]{figs/metrics-env-3.png}
     \caption{\small Rendimiento de los agentes (N. Acciones vs Tiempo promedio) en el 
-    entorno \emph{Buy on Amazon}. Fuente: Elaboración propia.}
+    entorno \emph{Buy on Amazon}}
     \label{fig:env3}
 \end{figure}
 
-En la figura \ref{fig:env3} se puede observar como los agentes \emph{Planex}, \emph{PlanexV2}
+En la Figura \ref{fig:env3} se puede observar como los agentes \emph{Planex}, \emph{PlanexV2}
 y \emph{RePlan} no han sido capaces de completar la tarea, al no ser capaces de superar
-los obstaculos de descubrimiento del navegador y de interacción con el mismo.
+los obstáculos de descubrimiento del navegador y de interacción con el mismo.
 
 En el caso de \emph{Xplore}, el agente ha sido capaz de completar la tarea en una única
 ejecución con un tiempo promedio de \emph{482 segundo (8 minutos)}, mientras que el resto 
 de agentes ha sido capaces de resolver la tarea en menos de \emph{360 segundos (6 minutos)}.
 
-En el caso de \emph{DarkVFR}, el agente obtiene un promedio record de 
+En el caso de \emph{DarkVFR}, el agente obtiene un promedio récord de 
 \emph{115 segundos (1 minuto y 55 segundos)} con un número de acciones 
 promedio de \emph{12 acciones}, lo que demuestra
 la efectividad de las capacidades de visión y recuperación del agente para resolver
@@ -674,23 +674,23 @@ En la Tabla~\ref{tab:avg-times} se presentan los tiempos medios de resolución,
 en segundos, obtenidos por cada agente en los tres entornos evaluados:
 \emph{Hello World}, \emph{Play a Song} y \emph{Buy on Amazon}. 
 
-Como puede observarse, los agentes \textbf{Planex} y \textbf{PlanexV2} presentan
+Como puede observarse, los agentes \emph{Planex} y \emph{PlanexV2} presentan
 una ejecución eficiente en el entorno más sencillo (\emph{Hello World}), con
 tiempos promedio de 13.15 y 13.39 segundos respectivamente. No obstante, ambos
 agentes fallaron en resolver las tareas más complejas, lo que sugiere una falta
 de adaptabilidad a entornos dinámicos que requieren razonamiento contextual o
 verificación previa del estado del entorno.
 
-Por el contrario, los agentes \textbf{Xplore} y aquellos basados en \textbf{FastReact} 
+Por el contrario, los agentes \emph{Xplore} y aquellos basados en \emph{FastReact} 
 fueron capaces de completar satisfactoriamente los tres entornos, aunque con
-diferencias relevantes en el tiempo de ejecución. \textbf{Xplore} muestra
+diferencias relevantes en el tiempo de ejecución. \emph{Xplore} muestra
 tiempos considerablemente más altos, especialmente en el entorno \emph{Buy on
 Amazon}, con un promedio de 482.11 segundos, lo cual indica una estrategia más
-exhaustiva y posiblemente redundante. En comparación, \textbf{FastReact} logra
+exhaustiva y posiblemente redundante. En comparación, \emph{FastReact} logra
 una mayor eficiencia con un tiempo medio de 305.46 segundos en ese mismo
 entorno.
 
-Finalmente, destaca el rendimiento de \textbf{DarkVFR}, que no solo completa
+Finalmente, destaca el rendimiento de \emph{DarkVFR}, que no solo completa
 exitosamente todos los entornos, sino que además lo hace con los tiempos más
 bajos en cada uno de ellos. En particular, alcanza un tiempo medio de apenas
 115.68 segundos en la tarea más exigente, posicionándose como el agente más
@@ -698,7 +698,7 @@ eficiente del conjunto evaluado.
 
 Estos resultados sugieren que, si bien la estrategia de ejecución directa puede
 ser efectiva en entornos simples, la capacidad de verificación, adaptabilidad y
-optimización en agentes como \textbf{DarkVFR} es determinante para un
+optimización en agentes como \emph{DarkVFR} es determinante para un
 rendimiento robusto en escenarios complejos.
 
 
@@ -746,7 +746,7 @@ la capa de ejecución y el espacio de acciones se ejecuta de forma prácticament
 instantánea, la mayor parte del tiempo y consumo proviene del proceso de planificación y razonamiento
 a través del modelo de lenguaje.
 
-Entre todos los agentes evaluados, \textbf{DarkVFR} destaca no solo por ser el
+Entre todos los agentes evaluados, \emph{DarkVFR} destaca no solo por ser el
 más rápido, sino también por lograr la ejecución con el menor coste: tan solo
 \emph{0.04€ por tarea}. Este rendimiento está alineado con su arquitectura, que
 reutiliza razonamientos previos de forma optimizada y minimiza las llamadas
@@ -757,7 +757,7 @@ Como punto de referencia, se ha comparado este rendimiento con el de
 de tokens consumidos por \textsc{Operator} no es público, estimaciones
 realizadas en condiciones locales utilizando el mismo modelo \texttt{gpt-4o-mini} 
 indican un coste por tarea de navegación web que oscila entre \emph{0.30€} y \emph{0.50€}, es
-decir, entre 7 y 12 veces más costoso que \textbf{DarkVFR}. Este resultado
+decir, entre 7 y 12 veces más costoso que \emph{DarkVFR}. Este resultado
 refuerza la eficiencia del diseño propuesto en este trabajo, tanto desde una
 perspectiva computacional como económica.
 
@@ -784,20 +784,20 @@ DarkVFR      & 0/3 (—)                  & 0/3 (—)              & 0/3 (—)  
 
 Finalmente, en la Tabla~\ref{tab:failure-reasons-count} se detallan los motivos
 de fallo observados para cada agente en los diferentes entornos de prueba. En el
-caso de \textbf{Planex}, \textbf{PlanexV2} y \textbf{RePlan}, los errores están
+caso de \emph{Planex}, \emph{PlanexV2} y \emph{RePlan}, los errores están
 dominados por situaciones en las que el agente agotó el número máximo de
 acciones permitidas (\emph{out-of-actions}). Esto sugiere una dificultad
 estructural para explorar de forma eficiente el entorno o para identificar las
 acciones relevantes necesarias para completar la tarea.
 
-Por otro lado, los agentes \textbf{Xplore} y \textbf{FastReact} presentan fallos
+Por otro lado, los agentes \emph{Xplore} y \emph{FastReact} presentan fallos
 principalmente asociados al agotamiento del tiempo disponible
 (\emph{out-of-time}). Esto indica que, si bien son capaces de generar acciones
 útiles e interactuar con el entorno de forma efectiva, sus estrategias de
 exploración pueden resultar demasiado lentas o poco eficientes para completar
 tareas complejas dentro del marco temporal impuesto.
 
-En contraste, los agentes \textbf{V-FastReact} y \textbf{DarkVFR} han sido
+En contraste, los agentes \emph{V-FastReact} y \emph{DarkVFR} han sido
 capaces de completar satisfactoriamente los tres entornos sin registrar fallos.
 En estos casos, las métricas de tiempo de ejecución y coste computacional se
 convierten en los principales indicadores comparativos de rendimiento, ya que la
